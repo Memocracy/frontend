@@ -33,5 +33,12 @@ module.exports = {
         display: "standalone",
       },
     },
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: "develop.memocracy.eu",
+        acl: null,
+      },
+    },
   ],
 };
