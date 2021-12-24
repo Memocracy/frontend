@@ -9,6 +9,9 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "lint": "eslint src/* --no-error-on-unmatched-pattern",
+    "lint:fix": "eslint src/* --fix --no-error-on-unmatched-pattern",
+    "lint:quiet": "eslint src/* --quiet --no-error-on-unmatched-pattern",
     "deploy": "gatsby clean && gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": {
