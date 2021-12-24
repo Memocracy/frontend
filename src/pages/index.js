@@ -1,5 +1,11 @@
 import React from "react";
+import DefaultLayout from "../components/Layout/DefaultLayout";
+import TemporaryPage from "../components/TemporaryPage/TemporaryPage";
 
-export default function Home() {
-  return <h1>Hello Gatsby!</h1>;
-}
+const Home = () => (
+  <DefaultLayout>
+    <TemporaryPage />
+  </DefaultLayout>
+);
+
+export default Home;
