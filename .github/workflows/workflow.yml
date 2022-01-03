@@ -1,5 +1,7 @@
 name: S3 Deploy
 on:
+  repository_dispatch:
+    types: [publish]
   push:
     branches:
       - main
