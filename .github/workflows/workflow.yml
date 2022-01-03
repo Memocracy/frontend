@@ -14,11 +14,25 @@ jobs:
     steps:
         - uses: actions/checkout@v2
 
+        - name: Caching Gatsby
+          id: gatsby-cache-build
+          uses: actions/cache@v2
+          with:
+            path: |
+              public
+              .cache
+            key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+            restore-keys: |
+              ${{ runner.os }}-gatsby-build-
+
         - name: Install dependencies
           run: npm install
 
         - name: Build
           run: npm run build
+          env:
+            GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
+            CI: true
 
         - name: Deploy
           uses: reggionick/s3-deploy@v3
