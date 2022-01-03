@@ -13,6 +13,8 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
         - uses: actions/checkout@v2
+          with:
+            ref: main
 
         - name: Caching Gatsby
           id: gatsby-cache-build
