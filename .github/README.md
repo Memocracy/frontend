@@ -24,6 +24,10 @@ curl -X POST \
 npm run deploy:development
 ```
 
+## Adding new types of content
+
+Check [official docs](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-wordpress/docs/tutorials/building-a-new-site-wordpress-and-gatsby.md). 
+
 ---
 
 **Project info**
