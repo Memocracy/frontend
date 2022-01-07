@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: "Memocracy",
@@ -21,6 +25,12 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: process.env.API_URL
+      },
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
