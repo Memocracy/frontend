@@ -1,11 +1,13 @@
 import React from "react";
-import DefaultLayout from "../components/Layout/DefaultLayout";
-import TemporaryPage from "../components/TemporaryPage/TemporaryPage";
+import { FrontPage } from "../components/Templates/FrontPage";
+import { Header } from "../components/Organisms/Header";
 
 const Home = () => (
-  <DefaultLayout>
-    <TemporaryPage />
-  </DefaultLayout>
+  <FrontPage>
+    <Header>
+      Test
+    </Header>
+  </FrontPage>
 );
 
 export default Home;

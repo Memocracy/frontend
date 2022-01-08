@@ -1,0 +1,6 @@
+@use "../../../assets/styles/typography";
+
+.header {
+  min-height: 200px;
+  font-family: typography.$main-font;
+}
