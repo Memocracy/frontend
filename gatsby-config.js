@@ -13,6 +13,15 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
     {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@styles": "src/assets/styles"
+        },
+        extensions: []
+      }
+    },
+    {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
