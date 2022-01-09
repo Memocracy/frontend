@@ -38,7 +38,11 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: process.env.API_URL
+        url: process.env.API_URL,
+        html: {
+          createStaticFiles: true,
+          useGatsbyImage: true,
+      }
       },
     },
     {
