@@ -1,6 +1,6 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -19,8 +19,8 @@ module.exports = {
           "@styles": "src/assets/styles",
           "@components": "src/components",
         },
-        extensions: []
-      }
+        extensions: [],
+      },
     },
     {
       resolve: `gatsby-plugin-sharp`,
@@ -42,7 +42,7 @@ module.exports = {
         html: {
           createStaticFiles: true,
           useGatsbyImage: true,
-      }
+        },
       },
     },
     {
