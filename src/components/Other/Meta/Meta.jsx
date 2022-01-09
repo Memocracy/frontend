@@ -3,14 +3,14 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 
 /**
- * Component for showing details of the user.
+ * Component for adding page meta.
  *
  * @component
  * @example
- * const age = 21
- * const name = 'Jitendra Nirnejak'
+ * const title = "page subtitle"
+ * const description = "Page description"
  * return (
- *   <User age={age} name={name} />
+ *   <Meta title={title} description={description} />
  * )
  */
 export const Meta = ({ title = "", description }) => {
@@ -32,9 +32,9 @@ export const Meta = ({ title = "", description }) => {
         {title && ` – ${title}`}
       </title>
       <meta
-          name="description"
-          content={description ?? data.site.siteMetadata.description}
-        />
+        name="description"
+        content={description ?? data.site.siteMetadata.description}
+      />
     </Helmet>
   );
 };
