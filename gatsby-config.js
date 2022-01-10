@@ -11,6 +11,17 @@ module.exports = {
   pathPrefix: "/snippets",
   plugins: [
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-fresnel`,
+      options: {
+        breakpoints: {
+          sm: 0,
+          md: 768,
+          lg: 1024,
+          xl: 1192,
+        },
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-alias-imports`,
