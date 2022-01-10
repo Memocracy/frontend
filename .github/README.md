@@ -28,6 +28,13 @@ npm run deploy:development
 
 Check [official docs](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-wordpress/docs/tutorials/building-a-new-site-wordpress-and-gatsby.md). 
 
+
+## Component design pattern
+
+This project uses [Atomic Design by Brad Frost](https://atomicdesign.bradfrost.com/).
+
+![Atomic Design](instagram-atomic.png)
+
 ---
 
 **Project info**
