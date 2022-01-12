@@ -8,7 +8,7 @@ import * as buttonStyles from "./Button.module.scss";
  * @param  {array} props.items
  */
 export const Button = (props) => {
-  const { children, type, ...rest } = props;
+  const { children, type, additionalClasses = [], ...rest } = props;
   let typeClass;
 
   switch (type) {
@@ -23,6 +23,7 @@ export const Button = (props) => {
   const classes = `
     ${buttonStyles.base}
     ${typeClass}
+    ${additionalClasses.join(" ")}
   `;
 
   return (

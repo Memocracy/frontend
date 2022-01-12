@@ -12,11 +12,13 @@ import * as styles from "./NavbarMobile.module.scss";
 export const NavbarMobile = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.logoContainer}>
-        <Logo />
+      <div>
+        <Button onClick={() => alert(2)} type="transparent" additionalClasses={[ styles.logoButton ]}>
+          <Logo />
+        </Button>
       </div>
       <div>
-        <Button onClick={() => alert(1)} type="primary">
+        <Button onClick={() => alert(1)} type="transparent" additionalClasses={[ styles.menuButton ]}>
           <Hamburger />
         </Button>
       </div>

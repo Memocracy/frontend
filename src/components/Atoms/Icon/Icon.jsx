@@ -6,10 +6,10 @@ import * as iconStyles from "./Icon.module.scss";
  * @param  props
  * @param  {array} props.items
  */
-export const Icon = ({ icon }) => {
+export const Icon = ({ icon, label = "" }) => {
   return (
-    <span className={iconStyles.base}>
-      <img src={icon} />
+    <span className={iconStyles.base} role="img" aria-label={label}>
+      {icon}
     </span>
   );
 };

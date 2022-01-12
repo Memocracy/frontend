@@ -1,10 +1,12 @@
 .base {
   display: inline-block;
-  font-size: 20px;
+  font-size: 34px;
   line-height: 0;
 
   svg {
     display: inline-block;
     line-height: 1;
+    height: 1em;
+    width: auto;
   }
 }

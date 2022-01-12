@@ -10,6 +10,7 @@ import * as logoStyles from "./Logo.module.scss";
  */
 export const Logo = ({ sizing = "height", additionalClasses = [] }) => {
   const classes = `
+    ${logoStyles.base}
     ${sizing === "width" ? logoStyles.fullWidth : logoStyles.fullHeight}
     ${additionalClasses.join(" ")}
   `;
