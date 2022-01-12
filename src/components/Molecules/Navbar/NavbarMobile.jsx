@@ -1,6 +1,7 @@
 import React from "react";
 import { Logo } from "../../Atoms/Logo";
 import { Button } from "../../Atoms/Button";
+import { Hamburger } from "../../Atoms/Icon";
 import * as styles from "./NavbarMobile.module.scss";
 
 /**
@@ -15,7 +16,9 @@ export const NavbarMobile = () => {
         <Logo />
       </div>
       <div>
-        <Button onClick={() => alert(1)} type="primary">Test</Button>
+        <Button onClick={() => alert(1)} type="primary">
+          <Hamburger />
+        </Button>
       </div>
     </div>
   );
