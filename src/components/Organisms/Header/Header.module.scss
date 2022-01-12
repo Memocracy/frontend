@@ -1,6 +1,6 @@
 @use "@styles/typography";
+@use "@styles/breakpoints";
 
 .header {
-  min-height: 200px;
   font-family: typography.$main-font;
 }

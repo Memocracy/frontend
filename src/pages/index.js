@@ -1,19 +1,20 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { Media } from "gatsby-plugin-fresnel";
 import { Meta } from "../components/Other/Meta";
 import { FrontPage } from "../components/Templates/FrontPage";
 import { Header } from "../components/Organisms/Header";
+import { Logo } from "../components/Atoms/Logo";
 
 const Home = ({ data }) => {
-  const {content, title} = data.wpPage;
+  const { content, title } = data.wpPage;
 
   return (
     <>
       <Meta title={title} />
+      <Header />
       <FrontPage>
-        <Header>Test</Header>
-        <pre>{JSON.stringify(data, null, 4)}</pre>
-        <div dangerouslySetInnerHTML={{__html: content}}></div>
+        <div style={{height: "200vh"}} />
       </FrontPage>
     </>
   );
