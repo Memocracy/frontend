@@ -1,5 +1,6 @@
 import React from "react";
 import { Logo } from "../../Atoms/Logo";
+import { Button } from "../../Atoms/Button";
 import * as styles from "./NavbarMobile.module.scss";
 
 /**
@@ -12,6 +13,9 @@ export const NavbarMobile = () => {
     <div className={styles.container}>
       <div className={styles.logoContainer}>
         <Logo />
+      </div>
+      <div>
+        <Button onClick={() => alert(1)} type="primary">Test</Button>
       </div>
     </div>
   );
