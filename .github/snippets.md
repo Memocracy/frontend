@@ -56,3 +56,17 @@ export const Menu = ({ items = [] }) => {
 ```js
 import * as logoStyles from "./Logo.module.scss";
 ```
+
+## Styling
+
+### Importing modules
+
+```scss
+@use "@styles/breakpoints";
+@use "@styles/colors";
+
+
+a {
+    color: colors.$blue;
+}
+```

@@ -1,5 +1,7 @@
+@use "@styles/colors";
+
 .container {
-  background-color: Red;
+  background-color: colors.$blue;
   height: 60px;
   width: 100vw;
   box-sizing: border-box;

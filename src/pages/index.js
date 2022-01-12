@@ -1,10 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Media } from "gatsby-plugin-fresnel";
 import { Meta } from "../components/Other/Meta";
 import { FrontPage } from "../components/Templates/FrontPage";
 import { Header } from "../components/Organisms/Header";
-import { Logo } from "../components/Atoms/Logo";
 
 const Home = ({ data }) => {
   const { content, title } = data.wpPage;
