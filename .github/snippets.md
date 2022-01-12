@@ -26,7 +26,7 @@ Using fresnel:
 
 ## React
 
-### Component
+### Component with links
 
 ```jsx
 import React from "react";
@@ -49,6 +49,24 @@ export const Menu = ({ items = [] }) => {
   );
 };
 
+```
+
+### Component
+
+```jsx
+import React from "react";
+
+/**
+ * Renders a <Menu /> component
+ * @param  props
+ * @param  {array} props.items
+ */
+export const Menu = ({items = []}) => {
+  return (
+    <nav>
+    </nav>
+  );
+};
 ```
 
 ### Spread props
@@ -75,6 +93,22 @@ const App = () => {
 
 ```js
 import * as logoStyles from "./Logo.module.scss";
+```
+
+### Extending classes
+
+```jsx
+  const classes = `
+    ${sizing === "width" ? logoStyles.fullWidth : logoStyles.fullHeight}
+    ${additionalClasses.join(" ")}
+  `;
+
+```
+
+### Importing svg assets
+
+```jsx
+import MemocracyLogo from "../../../assets/images/logo-memocracy.svg";
 ```
 
 ## Styling

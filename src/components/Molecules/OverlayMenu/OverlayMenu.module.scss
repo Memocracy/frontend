@@ -1,0 +1,17 @@
+@use "@styles/colors";
+
+.base {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: colors.$blue;
+  transition: all .5s ease-in-out;
+  display: block;
+
+  &[aria-hidden="true"] {
+    // display: none;
+    transform: translateX(100%);
+  }
+}
