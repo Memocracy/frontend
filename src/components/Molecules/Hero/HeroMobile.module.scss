@@ -1,0 +1,31 @@
+@use "@styles/colors";
+
+.base {
+  margin-top: 60px;
+  background-color: silver;
+  min-height: 66vh;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-end;
+
+  background-image: url("@images/europa-illustration.jpg");
+	background-position: center center;
+	background-size: cover;
+
+  border-bottom: solid 1px colors.$light-gray;
+  border-top: solid 1px colors.$light-gray;
+}
+
+.container {
+  padding: 20px;
+}
+
+.logo {
+  height: 100px;
+  transform: scale(1.2);
+  margin-bottom: 30px;
+}
