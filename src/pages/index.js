@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { Media } from "gatsby-plugin-fresnel";
 import { Meta } from "../components/Other/Meta";
 import { FrontPage } from "../components/Templates/FrontPage";
-import { HeaderMobile } from "../components/Organisms/Header";
+import { HeaderMobile, Header } from "../components/Organisms/Header";
 
 const Home = ({ data }) => {
   const { content, title } = data.wpPage;
@@ -15,7 +15,7 @@ const Home = ({ data }) => {
         <HeaderMobile />
       </Media>
       <Media greaterThanOrEqual="md">
-        aaa
+        <Header />
       </Media>
       <FrontPage>
         <div style={{height: "200vh"}} />
