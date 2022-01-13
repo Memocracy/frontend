@@ -48,7 +48,6 @@ export const Menu = ({ items = [] }) => {
     </nav>
   );
 };
-
 ```
 
 ### Component
@@ -102,13 +101,18 @@ import * as logoStyles from "./Logo.module.scss";
     ${sizing === "width" ? logoStyles.fullWidth : logoStyles.fullHeight}
     ${additionalClasses.join(" ")}
   `;
-
 ```
 
 ### Importing svg assets
 
 ```jsx
 import MemocracyLogo from "../../../assets/images/logo-memocracy.svg";
+```
+
+### Importing images
+
+```jsx
+import { StaticImage } from "gatsby-plugin-image"
 ```
 
 ## Styling
@@ -118,6 +122,7 @@ import MemocracyLogo from "../../../assets/images/logo-memocracy.svg";
 ```scss
 @use "@styles/breakpoints";
 @use "@styles/colors";
+@use "@styles/typography";
 
 
 a {
