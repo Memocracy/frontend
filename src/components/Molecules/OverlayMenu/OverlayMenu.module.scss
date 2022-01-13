@@ -1,3 +1,4 @@
+@use "@styles/typography";
 @use "@styles/colors";
 
 .base {
@@ -12,6 +13,13 @@
   z-index: 2;
   box-shadow: -2px 0px 15px 2px rgba(0,0,0,0.57);
 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+
   &[aria-hidden="true"] {
     visibility: hidden;
   }
@@ -23,4 +31,34 @@
 
 .hide {
   transform: translateX(calc(100% + 20px));
+}
+
+.menu {
+  width: 80%;
+  text-align: center;
+
+  a {
+    font-size: 1.25em;
+    line-height: typography.$line-height-xxl;
+    font-family: typography.$main-font;
+    margin-bottom: 1.618em;
+    display: block;
+
+    text-transform: uppercase;
+    text-decoration: none;
+    color: White;
+
+    &[aria-current] {
+      opacity: .5;
+    }
+  }
+}
+
+.close-button {
+  display: inline-block;
+  padding: 20px;
+
+  > span {
+    font-size: 1.25em;
+  }
 }

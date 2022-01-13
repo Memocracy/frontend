@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "../../Atoms/Button";
+import { CloseRight } from "../../Atoms/Icon";
 import * as overlayStyles from "./OverlayMenu.module.scss";
 
 /**
@@ -33,8 +35,11 @@ export const OverlayMenu = ({ children, toggle = false, closeHandler }) => {
         }
       }}
     >
-      <div>
+      <div className={overlayStyles.menu}>
         {children}
+        <Button type="transparent" additionalClasses={[overlayStyles.closeButton]}>
+          <CloseRight />
+        </Button>
       </div>
     </div>
   );
