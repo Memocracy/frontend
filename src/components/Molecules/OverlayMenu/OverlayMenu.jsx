@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as overlayStyles from "./OverlayMenu.module.scss";
 
 /**
@@ -7,15 +7,35 @@ import * as overlayStyles from "./OverlayMenu.module.scss";
  * @param  {array} props.items
  */
 export const OverlayMenu = ({ children, toggle = false, closeHandler }) => {
+  const [hide, setHide] = useState(!toggle);
+
+  const classes = `
+    ${overlayStyles.base}
+    ${toggle ? overlayStyles.show : overlayStyles.hide}
+  `;
+
+  useEffect(() => {
+    if (toggle) {
+      setHide(false);
+    }
+  }, [toggle]);
+
   return (
     <div
-      className={`${overlayStyles.base}`}
-      aria-hidden={!toggle}
+      className={classes}
+      aria-hidden={hide}
       aria-labelledby="menu-toggle"
       role="navigation"
       onClick={closeHandler}
+      onTransitionEnd={(e) => {
+        if (e.target.matches(`.${overlayStyles.hide}`)) {
+          setHide(true);
+        }
+      }}
     >
-      {children}
+      <div>
+        {children}
+      </div>
     </div>
   );
 };

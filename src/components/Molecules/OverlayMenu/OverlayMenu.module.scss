@@ -9,9 +9,17 @@
   background-color: colors.$blue;
   transition: all .5s ease-in-out;
   display: block;
+  z-index: 2;
 
   &[aria-hidden="true"] {
-    // display: none;
-    transform: translateX(100%);
+    visibility: hidden;
   }
+}
+
+.show {
+  transform: translateX(0);
+}
+
+.hide {
+  transform: translateX(100%);
 }
