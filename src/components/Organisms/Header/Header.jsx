@@ -1,4 +1,5 @@
 import React from "react";
+import * as headerStyles from "./Header.module.scss";
 
 /**
  * Renders a <Menu /> component
@@ -7,7 +8,7 @@ import React from "react";
  */
 export const Header = () => {
   return (
-    <div>
+    <div className={headerStyles.base}>
       Header
     </div>
   );
