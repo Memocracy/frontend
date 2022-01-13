@@ -2,7 +2,10 @@
 /* eslint-disable react/display-name */
 import React, { useState } from "react";
 
-export const MenuContext = React.createContext();
+export const MenuContext = React.createContext({
+  menuVisible: false,
+  toggleMenu: () => {}
+});
 
 const Provider = ({ children }) => {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -19,9 +22,9 @@ const Provider = ({ children }) => {
 export const useMenu = () => {
   const context = React.useContext(MenuContext);
 
-  if (context === undefined) {
+  /* if (context === undefined) {
     throw new Error("There's no valid context MenuContext");
-  }
+  } */
 
   return context;
 };
