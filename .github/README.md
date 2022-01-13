@@ -37,6 +37,10 @@ This project uses [Atomic Design by Brad Frost](https://atomicdesign.bradfrost.c
 
 ![Atomic Design](instagram-atomic.png)
 
+## Additional notes
+
+* Please remember to run `gatsby clean` before switching `npm run develop` and `npm run develop:public` 😅
+
 ---
 
 **Project info**
