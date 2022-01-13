@@ -2,6 +2,9 @@
 
 .base {
   background-color: white;
+  max-width: 100vw;
+  max-height: 66vw;
+  overflow: hidden;
   // min-height: 66vh;
 
   /* display: flex;
