@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "develop": "gatsby develop -p 9000",
-    "start": "gatsby develop -p 9000",
-    "develop:public": "gatsby develop -H 0.0.0.0 -p 9000",
+    "develop": "gatsby develop -p 9000 -o",
+    "start": "gatsby develop -p 9000 -o",
+    "develop:public": "gatsby develop -H 0.0.0.0 -p 9000 -o",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
