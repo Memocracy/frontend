@@ -1,6 +1,6 @@
 @use "@styles/typography";
 @use "@styles/breakpoints";
 
-.header {
-  font-family: typography.$main-font;;
+.base {
+  padding-top: 60px;
 }

@@ -1,8 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { Media } from "gatsby-plugin-fresnel";
 import { Meta } from "../components/Other/Meta";
 import { FrontPage } from "../components/Templates/FrontPage";
-import { Header } from "../components/Organisms/Header";
+import { HeaderMobile } from "../components/Organisms/Header";
 
 const Home = ({ data }) => {
   const { content, title } = data.wpPage;
@@ -10,7 +11,12 @@ const Home = ({ data }) => {
   return (
     <>
       <Meta title={title} />
-      <Header />
+      <Media lessThan="md">
+        <HeaderMobile />
+      </Media>
+      <Media greaterThanOrEqual="md">
+        aaa
+      </Media>
       <FrontPage>
         <div style={{height: "200vh"}} />
       </FrontPage>
