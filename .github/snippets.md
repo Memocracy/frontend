@@ -129,3 +129,15 @@ a {
     color: colors.$blue;
 }
 ```
+
+### Using breakpoints
+
+```scss
+.selector {
+  color: red;
+  
+  @include breakpoints.respond-to('md|lg|xl') {
+    color: blue;
+  }
+}
+```
