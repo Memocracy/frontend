@@ -1,6 +1,7 @@
 import React from "react";
 import { Logo } from "../../Atoms/Logo";
 import { ProjectBaner } from "../../Atoms/ProjectBaner";
+import { NewsletterForm } from "../Form";
 import * as heroStyles from "./Hero.module.scss";
 
 /**
@@ -14,7 +15,7 @@ export const Hero = () => {
       <div className={heroStyles.innerContainer}>
         <Logo additionalClasses={[heroStyles.logo]} />
         <ProjectBaner breakLine={true} additionalClasses={[heroStyles.projectBaner]} />
-        <div>Container</div>
+        <NewsletterForm />
       </div>
     </div>
   );

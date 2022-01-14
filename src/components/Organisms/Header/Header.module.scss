@@ -1,5 +1,6 @@
 @use "@styles/colors";
 @use "@styles/typography";
+@use "@styles/breakpoints";
 
 .base {
   background-color: White;
@@ -18,6 +19,10 @@
       display: inline-block;
 
       position: relative;
+
+      @include breakpoints.respond-to("xl") {
+        font-size: clamp(1.063rem, 1.4vw - 1rem, 2.25rem);
+      }
 
       &::after {
         content: "";
@@ -39,7 +44,6 @@
       }
     }
 
-
     li ~ li {
       margin-left: 2em;
     }
@@ -53,7 +57,7 @@
       display: block;
       padding: 1em 3em;
       position: relative;
-      z-index: 1000;
+      z-index: 1;
 
       &[aria-current] {
         background-color: darken(colors.$blue, 5%);

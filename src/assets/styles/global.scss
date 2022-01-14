@@ -1,4 +1,8 @@
+@use "@styles/colors";
+@use "@styles/typography";
 @import "reset-css/sass/reset";
+
+
 
 /* @font-face {
   font-family: "Acumin Pro ExtraCondensed";
@@ -36,7 +40,15 @@
   font-display: swap;
 }
 
+// Set some defaults
 html,
 body {
   height: 100%;
+  font-size: 16px;
+}
+
+body {
+  line-height: typography.$line-height-xl;
+  font-family: typography.$main-font;
+  color: colors.$black;
 }
