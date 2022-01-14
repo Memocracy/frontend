@@ -9,11 +9,15 @@ import { Link } from "gatsby";
 export const Menu = ({ items = [] }) => {
   return (
     <nav>
+      <ul>
       {items.map((item) => (
-        <Link key={item.id} to={item.path} activeClassName="active">
-          { item.label }
-        </Link>
+        <li key={item.id} >
+          <Link to={item.path} activeClassName="active">
+            { item.label }
+          </Link>
+        </li>
       ))}
+      </ul>
     </nav>
   );
 };

@@ -1,0 +1,21 @@
+import React from "react";
+import { Logo } from "../../Atoms/Logo";
+import { ProjectBaner } from "../../Atoms/ProjectBaner";
+import * as heroStyles from "./Hero.module.scss";
+
+/**
+ * Renders a <Menu /> component
+ * @param  props
+ * @param  {array} props.items
+ */
+export const Hero = () => {
+  return (
+    <div className={heroStyles.base}>
+      <div className={heroStyles.innerContainer}>
+        <Logo additionalClasses={[heroStyles.logo]} />
+        <ProjectBaner breakLine={true} additionalClasses={[heroStyles.projectBaner]} />
+        <div>Container</div>
+      </div>
+    </div>
+  );
+};
