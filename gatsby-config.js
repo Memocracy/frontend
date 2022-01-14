@@ -46,6 +46,16 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          // eslint-disable-next-line no-useless-escape
+          `arimo\:400,400i,700`,
+        ],
+        display: "swap",
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     {
