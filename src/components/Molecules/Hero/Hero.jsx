@@ -13,7 +13,7 @@ export const Hero = () => {
   return (
     <div className={heroStyles.base}>
       <div className={heroStyles.innerContainer}>
-        <Logo additionalClasses={[heroStyles.logo]} />
+        <Logo additionalClasses={[heroStyles.logo]} width="150" height="150" />
         <ProjectBaner breakLine={true} additionalClasses={[heroStyles.projectBaner]} />
         <NewsletterForm />
       </div>
