@@ -14,7 +14,7 @@ export const HeroMobile = () => {
     <div className={heroStyles.base}>
       <StaticImage
         className={heroStyles.background}
-        src="../../../assets/images/europa-illustration.jpg"
+        src="../../../assets/images/europa-illustration-optmized.png"
         alt="Memocracy map"
       />
       <div className={heroStyles.container}>
