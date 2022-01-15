@@ -26,7 +26,11 @@ export const Meta = ({ title = "", description }) => {
   `);
 
   return (
-    <Helmet>
+    <Helmet
+      htmlAttributes={{
+        lang: "en",
+      }}
+    >
       <title>
         {data.site.siteMetadata.title}
         {title && ` – ${title}`}
