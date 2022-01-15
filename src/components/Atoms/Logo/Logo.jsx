@@ -8,7 +8,12 @@ import * as logoStyles from "./Logo.module.scss";
  * @param  {string} props.sizing the color of the text in the button
  * @param  {array}  props.additionalClasses additional classes
  */
-export const Logo = ({ sizing = "height", additionalClasses = [] }) => {
+export const Logo = ({
+  sizing = "height",
+  additionalClasses = [],
+  width = 34,
+  height = 34,
+}) => {
   const classes = `
     ${logoStyles.base}
     ${sizing === "width" ? logoStyles.fullWidth : logoStyles.fullHeight}
@@ -17,7 +22,7 @@ export const Logo = ({ sizing = "height", additionalClasses = [] }) => {
 
   return (
     <div className={classes}>
-      <img src={MemocracyLogo} alt="Memocracy" />
+      <img src={MemocracyLogo} width={width} height={height} alt="Memocracy" />
     </div>
   );
 };

@@ -12,7 +12,7 @@ export const HeroMobile = () => {
   return (
     <div className={heroStyles.base}>
       <div className={heroStyles.container}>
-        <Logo additionalClasses={[heroStyles.logo]} />
+        <Logo additionalClasses={[heroStyles.logo]} width="100" height="100" />
         <ProjectBaner />
       </div>
     </div>
