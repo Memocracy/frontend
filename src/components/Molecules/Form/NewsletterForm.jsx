@@ -7,6 +7,7 @@ import {
   unstable_FormMessage as FormMessage,
   unstable_FormSubmitButton as FormSubmitButton,
 } from "reakit/Form";
+import { isEmailValid } from "../../../lib/stringHelpers";
 import * as formStyles from "./Form.module.scss";
 
 /**
@@ -18,9 +19,9 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
   const form = useFormState({
     values: { email: "" },
     onValidate: (values) => {
-      if (!values.email) {
+      if (!isEmailValid(values.email)) {
         const errors = {
-          email: "?",
+          email: "Please enter a valid email address.",
         };
         throw errors;
       }
@@ -42,8 +43,8 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
         <FormLabel {...form} name="email">
           Email Address
         </FormLabel>
-        <FormInput {...form} name="email" placeholder="John Doe" />
-        <FormMessage {...form} name="email" />
+        <FormInput {...form} name="email" placeholder="address@domain.com" />
+        <FormMessage {...form} name="email" className={formStyles.inputError} />
         <FormSubmitButton {...form}>Subscribe</FormSubmitButton>
       </Form>
     </div>

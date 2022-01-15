@@ -1,4 +1,5 @@
 @use "@styles/colors";
+@use "@styles/typography";
 
 // Basic standarized form
 .base {
@@ -15,6 +16,18 @@
     padding: 0;
     border-radius: none;
     display: inline-block;
+
+    font-size: .938em;
+    background-color: white;
+    padding: 1em .5em;
+
+    border: solid 1px colors.$light-gray;
+    outline: none;
+
+    &:focus {
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, .25);
+      border: solid 1px colors.$focus;
+    }
   }
 
   button {
@@ -46,9 +59,28 @@
     }
 
     &:focus {
-      box-shadow:         inset 0 0 10px rgba(0, 0, 0, .5);
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, .55);
+      border: solid 1px colors.$focus;
     }
   }
+
+  label {
+    color: colors.$blue;
+    font-size: .99em;
+  }
+
+  h2 {
+    font-size: 1.71em;
+    color: colors.$blue;
+    line-height: typography.$line-height-xxl;
+    margin-bottom: 0.382em;
+  }
+}
+
+.inputError {
+  font-size: .82em;
+  color: colors.$error;
+  min-height: 2em;
 }
 
 @keyframes pulse {
