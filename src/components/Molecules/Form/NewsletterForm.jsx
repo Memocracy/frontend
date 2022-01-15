@@ -16,11 +16,11 @@ import * as formStyles from "./Form.module.scss";
  */
 export const NewsletterForm = ({ additionalClasses = [] }) => {
   const form = useFormState({
-    values: { name: "" },
+    values: { email: "" },
     onValidate: (values) => {
-      if (!values.name) {
+      if (!values.email) {
         const errors = {
-          name: "How can we be friends without knowing your name?",
+          email: "?",
         };
         throw errors;
       }
@@ -37,13 +37,14 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
 
   return (
     <div className={classes}>
+      <h2>Newsletter</h2>
       <Form {...form}>
-        <FormLabel {...form} name="name">
-          Name
+        <FormLabel {...form} name="email">
+          Email Address
         </FormLabel>
-        <FormInput {...form} name="name" placeholder="John Doe" />
-        <FormMessage {...form} name="name" />
-        <FormSubmitButton {...form}>Submit</FormSubmitButton>
+        <FormInput {...form} name="email" placeholder="John Doe" />
+        <FormMessage {...form} name="email" />
+        <FormSubmitButton {...form}>Subscribe</FormSubmitButton>
       </Form>
     </div>
   );
