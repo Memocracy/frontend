@@ -2,44 +2,6 @@
 @use "@styles/typography";
 @import "reset-css/sass/reset";
 
-
-
-/* @font-face {
-  font-family: "Acumin Pro ExtraCondensed";
-  src: url("@fonts/AcuminProExtraCond-LightItalic.woff2") format("woff2"),
-    url("@fonts/AcuminProExtraCond-LightItalic.woff") format("woff");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-} */
-
-@font-face {
-  font-family: "Acumin Pro ExtraCondensed";
-  src: url("@fonts/AcuminProExtraCond-Semibold.woff2") format("woff2"),
-    url("@fonts/AcuminProExtraCond-Semibold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* @font-face {
-  font-family: "Acumin Pro ExtraCondensed";
-  src: url("@fonts/AcuminProExtraCond-SemiboldItalic.woff2") format("woff2"),
-    url("@fonts/AcuminProExtraCond-SemiboldItalic.woff") format("woff");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-} */
-
-@font-face {
-  font-family: "Acumin Pro ExtraCondensed";
-  src: url("@fonts/AcuminProExtraCond-Light.woff2") format("woff2"),
-    url("@fonts/AcuminProExtraCond-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
 // Set some defaults
 html,
 body {
@@ -51,4 +13,33 @@ body {
   line-height: typography.$line-height-xl;
   font-family: typography.$main-font;
   color: colors.$black;
+}
+
+// Layout shift hack
+html {
+  @for $index from 1 through 6 {
+    h#{$index}{
+      opacity: 0;
+    }
+  }
+  p {
+    opacity: 0;
+  }
+  span {
+    opacity: 0;
+  }
+}
+
+html.wf-active {
+  @for $index from 1 through 6 {
+    h#{$index}{
+      opacity: 1;
+    }
+  }
+  p {
+    opacity: 1;
+  }
+  span {
+    opacity: 0;
+  }
 }

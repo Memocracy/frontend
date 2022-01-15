@@ -47,14 +47,14 @@ module.exports = {
       },
     },
     {
-      resolve: "@slixites/gatsby-plugin-google-fonts",
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        fonts: ["arimo:400,400i,700"],
-        display: "swap",
-        preconnect: true,
-        attributes: {
-          rel: "stylesheet preload prefetch",
-          as: "style",
+        google: {
+          families: ["Arimo:400,400i,700&display=swap"],
+        },
+        custom: {
+          families: ["Acumin Pro ExtraCondensed"],
+          urls: ["/fonts/fonts.css"]
         },
       },
     },
