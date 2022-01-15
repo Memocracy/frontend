@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   unstable_useFormState as useFormState,
   unstable_Form as Form,
@@ -7,6 +7,7 @@ import {
   unstable_FormMessage as FormMessage,
   unstable_FormSubmitButton as FormSubmitButton,
 } from "reakit/Form";
+import { Loader } from "../../Atoms/Loader";
 import { isEmailValid } from "../../../lib/stringHelpers";
 import * as formStyles from "./Form.module.scss";
 
@@ -16,6 +17,7 @@ import * as formStyles from "./Form.module.scss";
  * @param  {array} props.items
  */
 export const NewsletterForm = ({ additionalClasses = [] }) => {
+  const [formBusy, setFormBusy] = useState(false);
   const form = useFormState({
     values: { email: "" },
     onValidate: (values) => {
@@ -27,6 +29,7 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
       }
     },
     onSubmit: (values) => {
+      setFormBusy(true);
       alert(JSON.stringify(values, null, 2));
     },
   });
@@ -37,7 +40,7 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
   `;
 
   return (
-    <div className={classes}>
+    <div className={classes} aria-busy={formBusy}>
       <h2>Newsletter</h2>
       <Form {...form}>
         <FormLabel {...form} name="email">
@@ -47,6 +50,11 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
         <FormMessage {...form} name="email" className={formStyles.inputError} />
         <FormSubmitButton {...form}>Subscribe</FormSubmitButton>
       </Form>
+      {formBusy &&
+        <div className={formStyles.loader}>
+          <Loader />
+        </div>
+      }
     </div>
   );
 };

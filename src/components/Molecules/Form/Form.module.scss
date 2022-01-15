@@ -4,6 +4,7 @@
 // Basic standarized form
 .base {
   // border: solid 1px yellow;
+  position: relative;
 
   label {
     display: block;
@@ -75,6 +76,37 @@
     line-height: typography.$line-height-xxl;
     margin-bottom: 0.382em;
   }
+
+  // Loading state
+  &[aria-busy="true"] {
+    form {
+      opacity: 0.25;
+    }
+    &::after{
+      content: "";
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      // background-color: White;
+      display: block;
+      position: absolute;
+    }
+  }
+}
+
+.loader {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  // background-color: White;
+  display: block;
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .inputError {
