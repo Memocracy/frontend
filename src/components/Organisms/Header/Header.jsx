@@ -16,17 +16,17 @@ export const Header = () => {
   const menuItems = useMainMenu();
 
   useEffect(() => {
-    window.addEventListener("scroll", () => stickNavbar(ref.current.clientHeight));
+    window.addEventListener("scroll", stickNavbar);
 
     return () => {
       window.removeEventListener("scroll", stickNavbar);
     };
   }, []);
 
-  const stickNavbar = (height) => {
+  const stickNavbar = () => {
     if (window !== undefined) {
       const windowHeight = window.scrollY;
-      windowHeight > height
+      windowHeight > ref.current.clientHeight
         ? setStickyClass(headerStyles.fixed)
         : setStickyClass("relative");
     }
