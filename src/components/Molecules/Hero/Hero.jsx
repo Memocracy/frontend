@@ -9,14 +9,18 @@ import * as heroStyles from "./Hero.module.scss";
  * @param  props
  * @param  {array} props.items
  */
-export const Hero = () => {
+// eslint-disable-next-line react/display-name
+export const Hero = React.forwardRef((props, ref) => {
   return (
-    <div className={heroStyles.base}>
+    <div className={heroStyles.base} ref={ref}>
       <div className={heroStyles.innerContainer}>
         <Logo additionalClasses={[heroStyles.logo]} width="150" height="150" />
-        <ProjectBaner breakLine={true} additionalClasses={[heroStyles.projectBaner]} />
+        <ProjectBaner
+          breakLine={true}
+          additionalClasses={[heroStyles.projectBaner]}
+        />
         <NewsletterForm />
       </div>
     </div>
   );
-};
+});
