@@ -47,13 +47,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: "@slixites/gatsby-plugin-google-fonts",
       options: {
-        fonts: [
-          // eslint-disable-next-line no-useless-escape
-          `arimo\:400,400i,700`,
-        ],
+        fonts: ["arimo:400,400i,700"],
         display: "swap",
+        preconnect: true,
+        attributes: {
+          rel: "stylesheet preload prefetch",
+          as: "style",
+        },
       },
     },
     `gatsby-transformer-sharp`,
