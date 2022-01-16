@@ -1,3 +1,50 @@
+@use "@styles/breakpoints";
+
 .base {
-  background-color: yellow;
+  // background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.inner-container {
+  padding: 40px 20px;
+  // border: solid 1px Black;
+  z-index: 1;
+
+  > article {
+    width: 100%;
+  }
+
+  @include breakpoints.respond-to("lg") {
+    padding: 40px 0;
+    width: 80%;
+
+    > article {
+      width: 50%;
+    }
+  }
+}
+
+.background-container {
+  display: none;
+
+  @include breakpoints.respond-to("lg") {
+    display: block;
+    position: absolute !important;
+    z-index: 0;
+    top: 0px;
+    right: 0px;
+    width: 66%;
+    height: 100%;
+  }
+}
+
+.background-image {
+  > img {
+    width: 66vw;
+  }
 }

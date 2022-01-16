@@ -68,7 +68,12 @@
   }
 }
 
+.sticky {
+  display: none;
+}
+
 .fixed {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;

@@ -35,7 +35,13 @@ export const Header = () => {
   return (
     <header className={headerStyles.base}>
       <Hero ref={ref} />
-      <div className={`${headerStyles.menuContainer} ${stickyClass}`}>
+      <div className={`${headerStyles.menuContainer}`}>
+        <Menu items={menuItems} />
+      </div>
+      <div
+        aria-hidden={ stickyClass === "relative"}
+        className={`${headerStyles.menuContainer} ${headerStyles.sticky} ${headerStyles.menuContainer} ${stickyClass}`}
+      >
         <Menu items={menuItems} />
       </div>
     </header>

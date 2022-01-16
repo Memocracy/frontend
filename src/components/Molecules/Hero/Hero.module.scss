@@ -3,6 +3,7 @@
 .base {
   background-color: transparent;
   height: 19vw;
+  min-height: 260px;
   overflow: hidden;
   position: relative;
 
@@ -27,9 +28,14 @@
     z-index: 0;
 
     background-image: url("@images/memocracy-bg.svg");
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: 100% auto;
-    background-attachment: fixed;
+
+    @include breakpoints.respond-to("lg") {
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      background-attachment: fixed;
+    }
   }
 }
 
