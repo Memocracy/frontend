@@ -20,13 +20,12 @@ html {
   @for $index from 1 through 6 {
     h#{$index}{
       opacity: 0;
+      transition: opacity .25s linear;
     }
   }
-  p {
+  p, span, label, a {
     opacity: 0;
-  }
-  span {
-    opacity: 0;
+    transition: opacity .25s linear;
   }
 }
 
@@ -36,10 +35,7 @@ html.wf-active {
       opacity: 1;
     }
   }
-  p {
-    opacity: 1;
-  }
-  span {
+  p, span, label, a {
     opacity: 1;
   }
 }
