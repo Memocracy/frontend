@@ -1,13 +1,16 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Media } from "gatsby-plugin-fresnel";
+
 import { Meta } from "../components/Other/Meta";
 import { Content } from "../components/Molecules/Content";
-import { FrontPage } from "../components/Templates/FrontPage";
+import { FrontPageMobile, FrontPage } from "../components/Templates/FrontPage";
 import { HeaderMobile, Header } from "../components/Organisms/Header";
 
 const Home = ({ data }) => {
   const { content, title } = data.wpPage;
+
+  const contents = (<Content content={content} />);
 
   return (
     <>
@@ -18,10 +21,16 @@ const Home = ({ data }) => {
       <Media greaterThanOrEqual="md">
         <Header />
       </Media>
-      <FrontPage>
-        <Content content={content} />
-        <div style={{ height: "200vh" }} />
-      </FrontPage>
+      <Media lessThan="md">
+        <FrontPageMobile>
+          {contents}
+        </FrontPageMobile>
+      </Media>
+      <Media greaterThanOrEqual="md">
+        <FrontPage>
+          {contents}
+        </FrontPage>
+      </Media>
     </>
   );
 };
