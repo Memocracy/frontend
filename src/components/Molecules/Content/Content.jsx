@@ -13,8 +13,8 @@ export const Content = ({ content, children, additionalClasses = [] }) => {
   `;
 
   return (
-    <article dangerouslySetInnerHTML={{ __html: content }} className={classes}>
+    <section dangerouslySetInnerHTML={{ __html: content }} className={classes}>
       {children}
-    </article>
+    </section>
   );
 };
