@@ -10,16 +10,16 @@
   p, li {
     font-size: 1.06em;
     line-height: 1.842em;
-    margin-bottom: 1.618em;
+    padding-bottom: 1.618em;
   }
 
   // Headings
   @for $index from 1 through 6 {
     h#{$index}{
       font-family: typography.$heading-font;
-      line-height: typography.$line-height-xl;
+      line-height: typography.$line-height-sm;
       font-weight: 600;
-      margin-bottom: 0.382em;
+      padding: 0.618em 0;
     }
   }
 

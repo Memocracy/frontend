@@ -24,6 +24,12 @@
     width: 80%;
 
     > section {
+      width: 66%;
+    }
+  }
+
+  @include breakpoints.respond-to("xxl") {
+    > section {
       width: 50%;
     }
   }

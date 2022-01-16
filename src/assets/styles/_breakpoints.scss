@@ -8,6 +8,9 @@ $breakpoints: (
   "xl": (
     min-width: 1192px,
   ),
+  "xxl": (
+    min-width: 1600px,
+  ),
 ) !default;
 
 /// Mixin to manage responsive breakpoints

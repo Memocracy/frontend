@@ -7,11 +7,11 @@
 
   h1 {
     font-family: typography.$heading-font;
-    line-height: typography.$line-height-xl;
+    line-height: typography.$line-height-sm;
     font-weight: 600;
     // This H3 size really
     font-size: 2.59em;
-    margin-bottom: 0.382em;
+    margin-bottom: 0.5em;
     color: colors.$black;
   }
 
