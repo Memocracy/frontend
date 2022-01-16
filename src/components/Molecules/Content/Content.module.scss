@@ -1,0 +1,13 @@
+@use "@styles/breakpoints";
+@use "@styles/colors";
+@use "@styles/typography";
+
+.base {
+  color: colors.$black;
+
+  p {
+    font-size: 1em;
+    line-height: 1.842em;
+    margin-bottom: 1.618em;
+  }
+}

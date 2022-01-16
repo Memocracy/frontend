@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Media } from "gatsby-plugin-fresnel";
 import { Meta } from "../components/Other/Meta";
+import { Content } from "../components/Molecules/Content";
 import { FrontPage } from "../components/Templates/FrontPage";
 import { HeaderMobile, Header } from "../components/Organisms/Header";
 
@@ -18,7 +19,8 @@ const Home = ({ data }) => {
         <Header />
       </Media>
       <FrontPage>
-        <div style={{height: "200vh"}} />
+        <Content content={content} />
+        <div style={{ height: "200vh" }} />
       </FrontPage>
     </>
   );
