@@ -6,3 +6,5 @@ $line-height-sm: 1.3em;
 $line-height-md: 1.45em;
 $line-height-xl: 1.618em;
 $line-height-xxl: 1.842em;
+
+$fluid-setting: clamp(1rem, 1.5vw - 1rem, 2.5rem) !default;

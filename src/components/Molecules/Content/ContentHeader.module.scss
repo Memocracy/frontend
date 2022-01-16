@@ -3,6 +3,8 @@
 @use "@styles/colors";
 
 .base {
+  font-size: typography.$fluid-setting;
+
   h1 {
     font-family: typography.$heading-font;
     line-height: typography.$line-height-xl;
