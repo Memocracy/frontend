@@ -19,8 +19,8 @@
     width: 100%;
   }
 
-  @include breakpoints.respond-to("lg") {
-    padding: 40px 0;
+  @include breakpoints.respond-to("xl") {
+    padding: 60px 0;
     width: 80%;
 
     > section {
@@ -32,19 +32,23 @@
 .background-container {
   display: none;
 
-  @include breakpoints.respond-to("lg") {
+  @include breakpoints.respond-to("xl") {
     display: block;
     position: absolute !important;
     z-index: 0;
     top: 0px;
-    right: 0px;
-    width: 66%;
+    right: 0px !important;
+    width: 100%;
     height: 100%;
+
+    > div {
+      left: 70% !important;
+    }
   }
 }
 
 .background-image {
   > img {
-    width: 66vw;
+    width: 80vw;
   }
 }

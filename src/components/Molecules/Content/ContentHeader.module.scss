@@ -7,8 +7,15 @@
     font-family: typography.$heading-font;
     line-height: typography.$line-height-xl;
     font-weight: 600;
-    font-size: 2.44em;
+    // This H3 size really
+    font-size: 2.59em;
     margin-bottom: 0.382em;
     color: colors.$black;
+  }
+
+  @include breakpoints.respond-to("lg") {
+    h1 {
+      font-size: 3.55em;
+    }
   }
 }

@@ -5,9 +5,47 @@
 .base {
   color: colors.$black;
 
-  p {
-    font-size: 1em;
+  p, li {
+    font-size: 1.06em;
     line-height: 1.842em;
     margin-bottom: 1.618em;
+  }
+
+  // Headings
+  @for $index from 1 through 6 {
+    h#{$index}{
+      font-family: typography.$heading-font;
+      line-height: typography.$line-height-xl;
+      font-weight: 600;
+      margin-bottom: 0.382em;
+    }
+  }
+
+  h2 {
+    font-size: 2.08em;
+  }
+
+  h3 {
+    font-size: 1.66em;
+  }
+
+  ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    padding-left: 1.75em;
+  }
+
+  @include breakpoints.respond-to("lg") {
+    p, li {
+      font-size: 1.19em;
+    }
+
+    h2 {
+      font-size: 2.46em;
+    }
+
+    h3 {
+      font-size: 2.05em;
+    }
   }
 }
