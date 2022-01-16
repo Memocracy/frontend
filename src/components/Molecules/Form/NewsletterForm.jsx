@@ -17,7 +17,7 @@ import * as formStyles from "./Form.module.scss";
  * @param  {array} props.items
  */
 export const NewsletterForm = ({ additionalClasses = [] }) => {
-  const [formBusy, setFormBusy] = useState(false);
+  const [formState, setFormState] = useState("initial");
   const form = useFormState({
     values: { email: "" },
     onValidate: (values) => {
@@ -29,8 +29,10 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
       }
     },
     onSubmit: (values) => {
-      setFormBusy(true);
-      alert(JSON.stringify(values, null, 2));
+      setFormState("busy");
+
+      setTimeout(() => setFormState("thanks"), 2000);
+      // alert(JSON.stringify(values, null, 2));
     },
   });
 
@@ -40,21 +42,34 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
   `;
 
   return (
-    <div className={classes} aria-busy={formBusy}>
+    <div className={classes} aria-busy={formState === "busy"}>
       <h2>Newsletter</h2>
-      <Form {...form}>
-        <FormLabel {...form} name="email">
-          Email Address
-        </FormLabel>
-        <FormInput {...form} name="email" placeholder="address@domain.com" />
-        <FormMessage {...form} name="email" className={formStyles.inputError} />
-        <FormSubmitButton {...form}>Subscribe</FormSubmitButton>
-      </Form>
-      {formBusy &&
-        <div className={formStyles.loader}>
-          <Loader />
-        </div>
-      }
+      <div className={formStyles.formContainer}>
+        {formState === "thanks" && (
+          <div className={formStyles.thanks}>
+            <p>Thank you!</p>
+          </div>
+        )}
+
+        <Form {...form} aria-hidden={formState === "thanks"}>
+          <FormLabel {...form} name="email">
+            Email Address
+          </FormLabel>
+          <FormInput {...form} name="email" />
+          <FormMessage
+            {...form}
+            name="email"
+            className={formStyles.inputError}
+          />
+          <FormSubmitButton {...form}>Subscribe</FormSubmitButton>
+        </Form>
+
+        {formState === "busy" && (
+          <div className={formStyles.loader}>
+            <Loader />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

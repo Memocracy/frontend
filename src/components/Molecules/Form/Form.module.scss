@@ -4,8 +4,6 @@
 // Basic standarized form
 .base {
   // border: solid 1px yellow;
-  position: relative;
-
   label {
     display: block;
   }
@@ -77,10 +75,23 @@
     margin-bottom: 0.382em;
   }
 
+
+  .form-container {
+    position: relative;
+  }
+
+  form {
+    transition: opacity .25s ease-out;
+
+    &[aria-hidden="true"] {
+      opacity: 0;
+    }
+  }
+
   // Loading state
   &[aria-busy="true"] {
     form {
-      opacity: 0.25;
+      opacity: 0;
     }
     &::after{
       content: "";
