@@ -1,7 +1,7 @@
 @use "@styles/colors";
 
 .base {
-  padding: 40px 20px;
+  padding: 50px 20px;
   background-color: colors.$light-gray;
 }
 
@@ -24,6 +24,7 @@
 }
 
 .logo-grid {
+  margin-bottom: 40px;
   div:nth-of-type(5) {
     > div {
       max-width: 50%;
@@ -33,5 +34,28 @@
 
 
 .call-to-action {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.menu {
+  text-align: center;
+
+  ul {
+    li {
+      a {
+        font-size: 1.063em;
+        text-decoration: none;
+        color: colors.$footer-gray;
+        padding: 1em 0;
+        display: block;
+        border-top: solid 1px colors.$mid-gray;
+      }
+    }
+
+    li:last-of-type {
+      a {
+        border-bottom: solid 1px colors.$mid-gray;
+      }
+    }
+  }
 }
