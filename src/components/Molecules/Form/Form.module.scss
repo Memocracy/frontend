@@ -7,6 +7,8 @@
   //
   font-size: .85em;
 
+  font-family: typography.$main-font;
+
   @include breakpoints.respond-to("xxl") {
     font-size: typography.$fluid-setting;
   }

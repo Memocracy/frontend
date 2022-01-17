@@ -9,6 +9,6 @@ import TwitterIcon from "../../../assets/images/icon-twitter.inline.svg";
  */
 export const Twitter = () => {
   return (
-    <Icon icon={ <TwitterIcon /> } label="menu" />
+    <Icon icon={ <TwitterIcon /> } label="Twitter" />
   );
 };

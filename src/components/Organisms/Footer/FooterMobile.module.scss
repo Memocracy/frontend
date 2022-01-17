@@ -4,3 +4,15 @@
   padding: 40px 20px;
   background-color: colors.$light-gray;
 }
+
+.twitterButton {
+  width: 100%;
+  font-size: 1em;
+
+  > span {
+    margin-right: .5em;
+    svg {
+      height: 20px;
+    }
+  }
+}

@@ -1,4 +1,7 @@
+@use "@styles/typography";
+
 .base {
+  font-family: typography.$main-font;
   background: none;
   border: none;
   padding: 0;
@@ -16,6 +19,15 @@
 
 .primary {
   color: White;
+}
+
+.twitter {
+  background-color: #1DA1F2;
+  border-radius: 8px;
+  padding: 1em 2em;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .transparent {

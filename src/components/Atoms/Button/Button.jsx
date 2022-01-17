@@ -14,7 +14,10 @@ export const Button = (props) => {
   switch (type) {
     case "primary":
       typeClass = buttonStyles.primary;
-    break;
+      break;
+    case "twitter":
+      typeClass = buttonStyles.twitter;
+      break;
     case "transparent":
     default:
       typeClass = buttonStyles.transparent;
@@ -28,7 +31,7 @@ export const Button = (props) => {
 
   return (
     <ReakitButton className={classes} {...rest}>
-      { children }
+      {children}
     </ReakitButton>
   );
 };
