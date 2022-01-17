@@ -2,7 +2,7 @@
 
 .base {
   background-color: transparent;
-  height: 19vw;
+  height: 21vw;
   min-height: 260px;
   overflow: hidden;
   position: relative;
@@ -53,21 +53,32 @@
   padding: 0 20px;
   width: 100%;
 
-  :nth-child(2) {
+  > :nth-child(2) {
     order: 0;
     flex: 1 1 auto;
     align-self: auto;
+  }
+
+  > :nth-child(3) {
+    width: 24%;
   }
 
   @include breakpoints.respond-to("lg") {
     padding: 0 0;
     width: 80%;
   }
+
+  @include breakpoints.respond-to("xl") {
+    > :nth-child(3) {
+      width: 18%;
+    }
+  }
 }
 
 .logo {
-  width: 15vw;
+  width: 13vw;
   height: 100%;
+  transform: scale(1.25);
 }
 
 .project-baner {

@@ -1,4 +1,5 @@
 @use "@styles/breakpoints";
+@use "@styles/typography";
 
 .base {
   // background-color: yellow;
@@ -11,6 +12,8 @@
 }
 
 .inner-container {
+  font-size: typography.$fluid-setting;
+
   padding: 40px 20px;
   // border: solid 1px Black;
   z-index: 1;
@@ -20,7 +23,7 @@
   }
 
   @include breakpoints.respond-to("xl") {
-    padding: 60px 0;
+    padding: 4em 0;
     width: 80%;
 
     > section {
@@ -55,6 +58,12 @@
 
 .background-image {
   > img {
-    width: 80vw;
+    width: 100vw;
+  }
+
+  @include breakpoints.respond-to("xxl") {
+    > img {
+      width: 80vw;
+    }
   }
 }

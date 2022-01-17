@@ -1,13 +1,14 @@
 @use "@styles/colors";
 @use "@styles/typography";
+@use "@styles/breakpoints";
 
 // Basic standarized form
 .base {
-  font-size: typography.$fluid-setting;
+  //
+  font-size: .85em;
 
-  // border: solid 1px yellow;
-  label {
-    display: block;
+  @include breakpoints.respond-to("xxl") {
+    font-size: typography.$fluid-setting;
   }
 
   input {
@@ -24,6 +25,9 @@
 
     border: solid 1px colors.$light-gray;
     outline: none;
+
+    display: block;
+    width: 100%;
 
     &:focus {
       box-shadow: inset 0 0 10px rgba(0, 0, 0, .25);
@@ -66,8 +70,10 @@
   }
 
   label {
+    display: block;
     color: colors.$blue;
     font-size: .99em;
+    line-height: typography.$line-height-xxl;
   }
 
   h2 {
@@ -75,6 +81,7 @@
     color: colors.$blue;
     line-height: typography.$line-height-xxl;
     margin-bottom: 0.382em;
+    font-weight: 700;
   }
 
 
@@ -126,25 +133,39 @@
   font-size: .82em;
   color: colors.$error;
   min-height: 2em;
-}
-
-@keyframes pulse {
-	0% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-	}
-
-	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-	}
-
-	100% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-	}
+  transform: translate3d(0, 0, 0);
+  animation: shake 2s infinite linear;
 }
 
 .thanks {
   font-size: 1em;
+}
+
+@keyframes shake {
+  0%,
+  69% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  70%,
+  80% {
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  75%,
+  85% {
+    transform: translate3d(3px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  95% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
