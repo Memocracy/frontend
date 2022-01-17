@@ -97,5 +97,6 @@ module.exports = {
         acl: null,
       },
     },
+    `gatsby-plugin-twitter`
   ],
 };

@@ -47,7 +47,7 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
       <div className={formStyles.formContainer}>
         {formState === "thanks" && (
           <div className={formStyles.thanks}>
-            <p>Thank you!</p>
+            <p>Thank you for joining!</p>
           </div>
         )}
 

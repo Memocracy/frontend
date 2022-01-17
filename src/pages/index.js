@@ -6,7 +6,7 @@ import { useFooterMenu } from "../hooks";
 import { Content, ContentHeader } from "../components/Molecules/Content";
 import { FrontPageMobile, FrontPage } from "../components/Templates/FrontPage";
 import { HeaderMobile, Header } from "../components/Organisms/Header";
-import { FooterMobile } from "../components/Organisms/Footer";
+import { FooterMobile, Footer } from "../components/Organisms/Footer";
 
 const Home = ({ data }) => {
   const { content, title } = data.wpPage;
@@ -30,6 +30,7 @@ const Home = ({ data }) => {
       <Media greaterThanOrEqual="md">
         <Header />
         <FrontPage>{contents}</FrontPage>
+        <Footer items={footerMenuItems} />
       </Media>
     </>
   );

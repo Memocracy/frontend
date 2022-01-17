@@ -51,7 +51,7 @@
     height: 100%;
 
     > div {
-      left: 70% !important;
+      left: 60% !important;
     }
   }
 }
@@ -63,7 +63,7 @@
 
   @include breakpoints.respond-to("xxl") {
     > img {
-      width: 85vw;
+      width: 100vw;
     }
   }
 }
