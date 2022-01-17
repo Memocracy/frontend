@@ -5,6 +5,7 @@ import { Meta } from "../components/Other/Meta";
 import { Content, ContentHeader } from "../components/Molecules/Content";
 import { FrontPageMobile, FrontPage } from "../components/Templates/FrontPage";
 import { HeaderMobile, Header } from "../components/Organisms/Header";
+import { FooterMobile } from "../components/Organisms/Footer";
 
 const Home = ({ data }) => {
   const { content, title } = data.wpPage;
@@ -21,17 +22,13 @@ const Home = ({ data }) => {
       <Meta title={title} />
       <Media lessThan="md">
         <HeaderMobile />
+        <FrontPageMobile>{contents}</FrontPageMobile>
+        <FooterMobile />
       </Media>
       <Media greaterThanOrEqual="md">
         <Header />
-      </Media>
-      <Media lessThan="md">
-        <FrontPageMobile>{contents}</FrontPageMobile>
-      </Media>
-      <Media greaterThanOrEqual="md">
         <FrontPage>{contents}</FrontPage>
       </Media>
-      <footer style={{ height: "50vh" }}>aaa</footer>
     </>
   );
 };
