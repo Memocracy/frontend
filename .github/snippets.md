@@ -166,3 +166,21 @@ a {
   }
 }
 ```
+
+## GraphQL
+
+#### CPT query with ordering
+
+```graphql
+query MyQuery {
+  allWpTeamMember(sort: {fields: menuOrder, order: ASC}) {
+    nodes {
+      slug
+      twitterHandle
+      title
+      content
+      menuOrder
+    }
+  }
+}
+```
