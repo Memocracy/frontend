@@ -3,19 +3,33 @@
 @use "@styles/colors";
 
 .base {
+
+  @for $index from 1 through 6 {
+    h#{$index}{
+      font-family: typography.$heading-font;
+      line-height: typography.$line-height-sm;
+      font-weight: 600;
+    }
+  }
+
   h1 {
-    font-family: typography.$heading-font;
-    line-height: typography.$line-height-sm;
-    font-weight: 600;
     // This H3 size really
-    font-size: 2.59em;
-    margin-bottom: 0.5em;
+    // font-size: 2.59em;
+    // margin-bottom: 0.5em;
     color: colors.$black;
   }
 
   @include breakpoints.respond-to("lg") {
     h1 {
-      font-size: 3.55em;
+      // font-size: 3.55em;
     }
   }
+}
+
+.border-top {
+  border-top: colors.$mid-gray solid 1px;
+}
+
+.border-bottom {
+  border-bottom: colors.$mid-gray solid 1px;
 }

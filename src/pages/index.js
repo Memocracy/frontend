@@ -12,24 +12,33 @@ const Home = ({ data }) => {
   const { content, title } = data.wpPage;
   const footerMenuItems = useFooterMenu();
 
-  const contents = (
-    <>
-      <ContentHeader title="About the project" />
-      <Content content={content} />
-    </>
-  );
+  const contents = <Content content={content} />;
 
   return (
     <>
       <Meta title={title} />
       <Media lessThan="md">
         <HeaderMobile />
-        <FrontPageMobile>{contents}</FrontPageMobile>
+        <FrontPageMobile>
+          <ContentHeader
+            title="About the project"
+            size="h3"
+            spacingBottom="md"
+          />
+          {contents}
+        </FrontPageMobile>
         <FooterMobile items={footerMenuItems} />
       </Media>
       <Media greaterThanOrEqual="md">
         <Header />
-        <FrontPage>{contents}</FrontPage>
+        <FrontPage>
+          <ContentHeader
+            title="About the project"
+            size="h1"
+            spacingBottom="md"
+          />
+          {contents}
+        </FrontPage>
         <Footer items={footerMenuItems} />
       </Media>
     </>
