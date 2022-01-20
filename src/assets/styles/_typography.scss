@@ -7,4 +7,35 @@ $line-height-md: 1.45em;
 $line-height-xl: 1.618em;
 $line-height-xxl: 1.842em;
 
+// Horizontal space
+$horizontal-space-xs: 23.6%;
+$horizontal-space-sm: 38.2%;
+$horizontal-space-md: 50%;
+$horizontal-space-lg: 61.8%;
+$horizontal-space-xl: 161.8%;
+$horizontal-space-xxl: 423%;
+
+// Desktop font sizes
+$desktop-font-size-xs: .82em;
+$desktop-font-size-sm: .99em;
+$desktop-font-size-p: 1.19em;
+$desktop-font-size-h6: 1.43em;
+$desktop-font-size-h5: 1.71em;
+$desktop-font-size-h4: 2.05em;
+$desktop-font-size-h4: 2.46em;
+$desktop-font-size-h3: 2.95em;
+$desktop-font-size-h2: 3.55em;
+
+// Mobile font sizes
+$mobile-font-size-xs: .68em;
+$mobile-font-size-sm: .85em;
+$mobile-font-size-p: 1.06em;
+$mobile-font-size-h6: 1.33em;
+$mobile-font-size-h5: 1.66em;
+$mobile-font-size-h4: 2.08em;
+$mobile-font-size-h4: 2.59em;
+$mobile-font-size-h3: 3.24em;
+$mobile-font-size-h2: 4.05em;
+
+// This works only for big screens
 $fluid-setting: clamp(1rem, 1.5vw - 1rem, 2.5rem) !default;
