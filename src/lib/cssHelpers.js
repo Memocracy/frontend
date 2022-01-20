@@ -2,6 +2,7 @@ import { capitalize } from "./stringHelpers";
 import * as fontSizes from "../assets/styles/FontSizes.module.scss";
 import * as lineHeights from "../assets/styles/LineHeights.module.scss";
 import * as horizontalSpacing from "../assets/styles/HorizontalSpacing.module.scss";
+import * as standard from "../assets/styles/Standard.module.scss";
 
 /**
  * @returns {string} classes A list of ready classes
@@ -9,8 +10,9 @@ import * as horizontalSpacing from "../assets/styles/HorizontalSpacing.module.sc
 export const typographer = (
   size,
   lineHeight,
-  spacingTop = null,
-  spacingBottom = null
+  spacingTop ,
+  spacingBottom,
+  textAlign
 ) => {
   const classes = [];
 
@@ -43,6 +45,15 @@ export const typographer = (
 
     if (horizontalSpacing[spacingBottomName]) {
       classes.push(horizontalSpacing[spacingBottomName]);
+    }
+  }
+
+  // Spacing bottom
+  if (textAlign) {
+    const textAlignName = `textAlign${capitalize(textAlign)}`;
+
+    if (standard[textAlignName]) {
+      classes.push(standard[textAlignName]);
     }
   }
 

@@ -11,7 +11,7 @@ import { FooterMobile, Footer } from "../components/Organisms/Footer";
 const Home = ({ data }) => {
   const { content, title } = data.wpPage;
   const footerMenuItems = useFooterMenu();
-
+  const headingTitle = "About the project";
   const contents = <Content content={content} />;
 
   return (
@@ -21,7 +21,7 @@ const Home = ({ data }) => {
         <HeaderMobile />
         <FrontPageMobile>
           <ContentHeader
-            title="About the project"
+            title={headingTitle}
             size="h3"
             spacingBottom="md"
           />
@@ -33,7 +33,7 @@ const Home = ({ data }) => {
         <Header />
         <FrontPage>
           <ContentHeader
-            title="About the project"
+            title={headingTitle}
             size="h1"
             spacingBottom="md"
           />

@@ -11,9 +11,9 @@ import { FooterMobile, Footer } from "../components/Organisms/Footer";
 const title = "team";
 
 const Team = ({ data }) => {
-  const { categories } = data;
+  const { nodes: categories } = data.categories;
   const footerMenuItems = useFooterMenu();
-
+  const headingTitle = "Team";
 
   return (
     <>
@@ -21,14 +21,25 @@ const Team = ({ data }) => {
       <Media lessThan="md">
         <HeaderMobile />
         <Container>
-          <ContentHeader title="Team" />
+          <ContentHeader
+            title={headingTitle}
+            size="h3"
+            spacingBottom="md"
+          />
+          {categories.map((category) => {
+            return <p key={category.slug}>{category.name}</p>
+          })}
         </Container>
         <FooterMobile items={footerMenuItems} />
       </Media>
       <Media greaterThanOrEqual="md">
         <Header />
         <Container>
-          <ContentHeader title="Team" />
+          <ContentHeader
+            title={headingTitle}
+            size="h1"
+            spacingBottom="md"
+          />
           <pre>{JSON.stringify(categories, null, 4)}</pre>
         </Container>
         <Footer items={footerMenuItems} />
@@ -40,7 +51,7 @@ const Team = ({ data }) => {
 export const query = graphql`
   {
     categories: allWpMemberCategory(
-      sort: {fields: teamMembers___nodes___menuOrder, order: ASC}
+      sort: { fields: teamMembers___nodes___menuOrder, order: ASC }
     ) {
       nodes {
         teamMembers {
@@ -58,6 +69,7 @@ export const query = graphql`
           }
         }
         name
+        slug
       }
     }
   }

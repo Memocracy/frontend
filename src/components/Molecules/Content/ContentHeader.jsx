@@ -1,7 +1,5 @@
 import React from "react";
-import { capitalize } from "../../../lib/stringHelpers";
 import { typographer } from "../../../lib/cssHelpers";
-import * as fontSizes from "../../../assets/styles/FontSizes.module.scss";
 import * as contentStyles from "./ContentHeader.module.scss";
 
 /**
@@ -16,6 +14,7 @@ export const ContentHeader = ({
   hr = "none",
   size = "h1",
   lineHeight = "sm",
+  textAlign = "left",
   spacinTop = null,
   spacingBottom = null,
 }) => {
@@ -37,7 +36,7 @@ export const ContentHeader = ({
   `;
 
   // Inner element classes
-  const typography = typographer(size, lineHeight, spacinTop, spacingBottom);
+  const typography = typographer(size, lineHeight, spacinTop, spacingBottom, textAlign);
 
   return (
     <header className={classes}>
