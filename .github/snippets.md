@@ -90,7 +90,6 @@ export const ProjectBaner = ({ additionalClasses = [], breakLine = false }) => {
     </div>
   );
 };
-
 ```
 
 ### Spread props
@@ -160,7 +159,7 @@ a {
 ```scss
 .selector {
   color: red;
-  
+
   @include breakpoints.respond-to('md|lg|xl') {
     color: blue;
   }
@@ -170,6 +169,8 @@ a {
 ## GraphQL
 
 #### CPT query with ordering
+
+> Please remember to clean Gatsby cache after changes in schema!
 
 ```graphql
 query MyQuery {
