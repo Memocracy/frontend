@@ -23,7 +23,7 @@ const Home = ({ data }) => {
           <ContentHeader
             title={headingTitle}
             size="h3"
-            spacingBottom="md"
+            paddingBottom="md"
           />
           {contents}
         </FrontPageMobile>
@@ -35,7 +35,7 @@ const Home = ({ data }) => {
           <ContentHeader
             title={headingTitle}
             size="h1"
-            spacingBottom="md"
+            paddingBottom="md"
           />
           {contents}
         </FrontPage>

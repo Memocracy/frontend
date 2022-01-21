@@ -15,8 +15,10 @@ export const ContentHeader = ({
   size = "h1",
   lineHeight = "sm",
   textAlign = "left",
-  spacinTop = null,
-  spacingBottom = null,
+  paddingTop = null,
+  paddingBottom = null,
+  marginTop = null,
+  marginBottom = null,
 }) => {
   const Element = `${as}`;
 
@@ -36,7 +38,15 @@ export const ContentHeader = ({
   `;
 
   // Inner element classes
-  const typography = typographer(size, lineHeight, spacinTop, spacingBottom, textAlign);
+  const typography = typographer(
+    size,
+    lineHeight,
+    paddingTop,
+    paddingBottom,
+    marginTop,
+    marginBottom,
+    textAlign
+  );
 
   return (
     <header className={classes}>

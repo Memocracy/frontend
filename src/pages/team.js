@@ -21,13 +21,20 @@ const Team = ({ data }) => {
       <Media lessThan="md">
         <HeaderMobile />
         <Container>
-          <ContentHeader
-            title={headingTitle}
-            size="h3"
-            spacingBottom="md"
-          />
+          <ContentHeader title={headingTitle} size="h3" paddingBottom="md" />
           {categories.map((category) => {
-            return <p key={category.slug}>{category.name}</p>
+            return (
+              <ContentHeader
+                as="h2"
+                size="h6"
+                key={category.slug}
+                hr="bottom"
+                paddingBottom="md"
+                marginBottom="md"
+                textAlign="center"
+                title={category.name}
+              />
+            );
           })}
         </Container>
         <FooterMobile items={footerMenuItems} />
@@ -35,11 +42,7 @@ const Team = ({ data }) => {
       <Media greaterThanOrEqual="md">
         <Header />
         <Container>
-          <ContentHeader
-            title={headingTitle}
-            size="h1"
-            spacingBottom="md"
-          />
+          <ContentHeader title={headingTitle} size="h1" paddingBottom="md" />
           <pre>{JSON.stringify(categories, null, 4)}</pre>
         </Container>
         <Footer items={footerMenuItems} />
