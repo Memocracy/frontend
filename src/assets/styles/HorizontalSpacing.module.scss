@@ -1,6 +1,8 @@
 @use "@styles/typography";
 
-// Padding top
+///
+/// Padding top
+///
 .padding-top-xs {
   padding-top: typography.$horizontal-space-xs;
 }
@@ -25,7 +27,9 @@
   padding-top: typography.$horizontal-space-xxl;
 }
 
-// Padding bottom
+///
+/// Padding bottom
+///
 .padding-bottom-xs {
   padding-bottom: typography.$horizontal-space-xs;
 }
@@ -48,4 +52,59 @@
 
 .padding-bottom-xxl {
   padding-bottom: typography.$horizontal-space-xxl;
+}
+
+
+///
+/// Margin top
+///
+.margin-top-xs {
+  margin-top: typography.$horizontal-space-xs;
+}
+
+.margin-top-sm {
+  margin-top: typography.$horizontal-space-sm;
+}
+
+.margin-top-md {
+  margin-top: typography.$horizontal-space-md;
+}
+
+.margin-top-lg {
+  margin-top: typography.$horizontal-space-lg;
+}
+
+.margin-top-xl {
+  margin-top: typography.$horizontal-space-xl;
+}
+
+.margin-top-xxl {
+  margin-top: typography.$horizontal-space-xxl;
+}
+
+///
+/// Margin bottom
+///
+.margin-bottom-xs {
+  margin-bottom: typography.$horizontal-space-xs;
+}
+
+.margin-bottom-sm {
+  margin-bottom: typography.$horizontal-space-sm;
+}
+
+.margin-bottom-md {
+  margin-bottom: typography.$horizontal-space-md;
+}
+
+.margin-bottom-lg {
+  margin-bottom: typography.$horizontal-space-lg;
+}
+
+.margin-bottom-xl {
+  margin-bottom: typography.$horizontal-space-xl;
+}
+
+.margin-bottom-xxl {
+  margin-bottom: typography.$horizontal-space-xxl;
 }
