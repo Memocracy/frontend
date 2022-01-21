@@ -46,12 +46,17 @@
   justify-content: flex-start;
   align-content: stretch;
   align-items: center;
-  column-gap: 3vw;
+  // column-gap: 3vw;
 
   z-index: 1;
 
   padding: 0 20px;
   width: 100%;
+
+  // Safari fix
+  > div ~ div {
+    padding-left: 3vw;
+  }
 
   > :nth-child(2) {
     order: 0;
@@ -61,6 +66,7 @@
 
   > :nth-child(3) {
     width: 24%;
+    min-width: 225px;
   }
 
   @include breakpoints.respond-to("lg") {
