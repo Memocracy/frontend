@@ -10,8 +10,10 @@ import * as standard from "../assets/styles/Standard.module.scss";
 export const typographer = (
   size,
   lineHeight,
-  spacingTop ,
-  spacingBottom,
+  paddingTop ,
+  paddingBottom,
+  marginTop,
+  marginBottom,
   textAlign
 ) => {
   const classes = [];
@@ -31,20 +33,38 @@ export const typographer = (
   }
 
   // Spacing top
-  if (spacingTop) {
-    const spacingTopName = `paddingTop${capitalize(spacingTop)}`;
+  if (paddingTop) {
+    const paddingTopName = `paddingTop${capitalize(paddingTop)}`;
 
-    if (horizontalSpacing[spacingTopName]) {
-      classes.push(horizontalSpacing[spacingTopName]);
+    if (horizontalSpacing[paddingTopName]) {
+      classes.push(horizontalSpacing[paddingTopName]);
     }
   }
 
   // Spacing bottom
-  if (spacingBottom) {
-    const spacingBottomName = `paddingBottom${capitalize(spacingBottom)}`;
+  if (paddingBottom) {
+    const paddingBottomName = `paddingBottom${capitalize(paddingBottom)}`;
 
-    if (horizontalSpacing[spacingBottomName]) {
-      classes.push(horizontalSpacing[spacingBottomName]);
+    if (horizontalSpacing[paddingBottomName]) {
+      classes.push(horizontalSpacing[paddingBottomName]);
+    }
+  }
+
+  // Margin top
+  if (marginTop) {
+    const marginTopName = `marginTop${capitalize(marginTop)}`;
+
+    if (horizontalSpacing[marginTopName]) {
+      classes.push(horizontalSpacing[marginTopName]);
+    }
+  }
+
+  // Margin bottom
+  if (marginBottom) {
+    const marginBottomName = `marginBottom${capitalize(marginBottom)}`;
+
+    if (horizontalSpacing[marginBottomName]) {
+      classes.push(horizontalSpacing[marginBottomName]);
     }
   }
 
