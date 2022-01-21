@@ -79,7 +79,7 @@ import * as banerStyles from "./ProjectBaner.module.scss";
  * @param  props
  * @param  {array} props.items
  */
-export const ProjectBaner = ({ additionalClasses = [], breakLine = false }) => {
+export const ProjectBaner = ({ additionalClasses = [] }) => {
   const classes = `
     ${banerStyles.base}
     ${additionalClasses.join(" ")}
