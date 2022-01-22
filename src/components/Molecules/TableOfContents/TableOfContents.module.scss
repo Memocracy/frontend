@@ -1,0 +1,32 @@
+@use "@styles/colors";
+@use "@styles/typography";
+
+.base {
+  // border-left: 1px solid colors.$hr-gray;
+  // padding-left: 20px;
+  // padding-top: 20px;
+  // padding-bottom: 20px;
+  // margin-bottom: typography.$horizontal-space-lg;
+
+  ul {
+    li {
+      // font-size: typography.$mobile-font-size-p;
+
+
+      button {
+        display: block;
+        color: colors.$blue;
+
+        > span {
+          // font-size: typography.$mobile-font-size-p;
+          line-height: typography.$line-height-xxl;
+          font-size: typography.$mobile-font-size-p;
+        }
+      }
+    }
+
+    li ~ li {
+      padding-top: typography.$horizontal-space-lg;
+    }
+  }
+}

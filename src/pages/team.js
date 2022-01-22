@@ -1,9 +1,11 @@
-import React from "react";
+import React, { createRef } from "react";
 import { graphql } from "gatsby";
 import { Media } from "gatsby-plugin-fresnel";
 import { Meta } from "../components/Other/Meta";
 import { Container } from "../components/Molecules/Container";
 import { ContentHeader } from "../components/Molecules/Content";
+import { TableOfContents } from "../components/Molecules/TableOfContents";
+import { Bio } from "../components/Organisms/Bio";
 import { useFooterMenu } from "../hooks";
 import { HeaderMobile, Header } from "../components/Organisms/Header";
 import { FooterMobile, Footer } from "../components/Organisms/Footer";
@@ -15,25 +17,42 @@ const Team = ({ data }) => {
   const footerMenuItems = useFooterMenu();
   const headingTitle = "Team";
 
+  const categoryNames = categories.map((category) => ({
+    name: category.name,
+    slug: category.slug,
+    ref: createRef(null),
+  }));
+
   return (
     <>
       <Meta title={title} />
       <Media lessThan="md">
         <HeaderMobile />
         <Container>
-          <ContentHeader title={headingTitle} size="h3" paddingBottom="md" />
-          {categories.map((category) => {
+          <ContentHeader title={headingTitle} size="h3" paddingBottom="xs" />
+          <TableOfContents elements={categoryNames} />
+          {categories.map((category, index) => {
+            const { ref } = categoryNames[index];
+            const { nodes } = category.teamMembers;
+
             return (
-              <ContentHeader
-                as="h2"
-                size="h6"
-                key={category.slug}
-                hr="bottom"
-                paddingBottom="md"
-                marginBottom="md"
-                textAlign="center"
-                title={category.name}
-              />
+              <>
+                <ContentHeader
+                  as="h2"
+                  size="h4"
+                  key={category.slug}
+                  hr="bottom"
+                  paddingBottom="md"
+                  marginBottom="md"
+                  textAlign="center"
+                  title={category.name}
+                  ref={ref}
+                />
+                {nodes.map((bio, bioIndex) => (
+                  <Bio key={bioIndex} data={bio} />
+                ))}
+                <pre style={{display: "none"}}>{JSON.stringify(nodes, null, 4)}</pre>
+              </>
             );
           })}
         </Container>
@@ -65,14 +84,20 @@ export const query = graphql`
             menuOrder
             featuredImage {
               node {
-                uri
-                sourceUrl
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(
+                      quality: 85,
+                      placeholder: BLURRED
+                    )
+                  }
+                }
               }
             }
           }
         }
         name
-        slug
       }
     }
   }

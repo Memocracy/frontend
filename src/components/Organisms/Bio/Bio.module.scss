@@ -1,0 +1,10 @@
+.base {
+  display: block;
+}
+
+.portrait {
+  text-align: center;
+  > div {
+    width: 66%;
+  }
+}

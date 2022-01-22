@@ -7,7 +7,7 @@ import * as contentStyles from "./ContentHeader.module.scss";
  * @param  props
  * @param  {array} props.items
  */
-export const ContentHeader = ({
+export const ContentHeader = React.forwardRef(({
   title = "",
   additionalClasses = [],
   as = "h1",
@@ -19,7 +19,7 @@ export const ContentHeader = ({
   paddingBottom = null,
   marginTop = null,
   marginBottom = null,
-}) => {
+}, ref) => {
   const Element = `${as}`;
 
   // Top or bottom line
@@ -49,8 +49,8 @@ export const ContentHeader = ({
   );
 
   return (
-    <header className={classes}>
+    <header className={classes} ref={ref}>
       <Element className={typography}>{title}</Element>
     </header>
   );
-};
+});

@@ -2,6 +2,7 @@
 
 .base {
   font-family: typography.$main-font;
+  font-size: 1em;
   background: none;
   border: none;
   padding: 0;
@@ -15,6 +16,11 @@
   justify-content: center;
   align-content: stretch;
   align-items: center;
+
+  > span {
+    // line-height: typography.$line-height-md;
+    display: inline-block;
+  }
 }
 
 .primary {
@@ -24,10 +30,14 @@
 .twitter {
   background-color: #1DA1F2;
   border-radius: 8px;
-  padding: 1em 2em;
+  padding: .5em 2em;
   color: white;
   font-weight: 700;
   text-transform: uppercase;
+
+  > span {
+    line-height: 100%;
+  }
 }
 
 .transparent {
