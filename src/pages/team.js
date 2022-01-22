@@ -1,6 +1,7 @@
 import React, { createRef } from "react";
 import { graphql } from "gatsby";
 import { Media } from "gatsby-plugin-fresnel";
+import uuid from "react-uuid";
 import { Meta } from "../components/Other/Meta";
 import { Container } from "../components/Molecules/Container";
 import { ContentHeader } from "../components/Molecules/Content";
@@ -36,11 +37,10 @@ const Team = ({ data }) => {
             const { nodes } = category.teamMembers;
 
             return (
-              <>
+              <div key={uuid()}>
                 <ContentHeader
                   as="h2"
                   size="h4"
-                  key={category.slug}
                   hr="bottom"
                   paddingBottom="md"
                   marginBottom="md"
@@ -49,10 +49,9 @@ const Team = ({ data }) => {
                   ref={ref}
                 />
                 {nodes.map((bio, bioIndex) => (
-                  <Bio key={bioIndex} data={bio} />
+                  <Bio key={uuid()} data={bio} />
                 ))}
-                <pre style={{display: "none"}}>{JSON.stringify(nodes, null, 4)}</pre>
-              </>
+              </div>
             );
           })}
         </Container>

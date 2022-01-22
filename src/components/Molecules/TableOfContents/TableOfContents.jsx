@@ -1,4 +1,5 @@
 import React from "react";
+import uuid from "react-uuid";
 import { scrollToRef } from "../../../lib/browserHelpers";
 import { Button } from "../../Atoms/Button";
 import { ContentHeader } from "../Content";
@@ -20,7 +21,7 @@ export const TableOfContents = ({ additionalClasses = [], elements }) => {
       <ContentHeader title="Table of contents" as="h3" paddingBottom="sm" size="h6" />
       <ul>
         {elements.map((element) => (
-          <li key={element.slug}>
+          <li key={uuid()}>
             <Button type="transparent" onClick={() => scrollToRef(element.ref)}>
               <span>{element.name}</span>
             </Button>
