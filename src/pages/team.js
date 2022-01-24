@@ -10,6 +10,7 @@ import { Bio } from "../components/Organisms/Bio";
 import { useFooterMenu } from "../hooks";
 import { HeaderMobile, Header } from "../components/Organisms/Header";
 import { FooterMobile, Footer } from "../components/Organisms/Footer";
+import * as standardStyles from "../assets/styles/Standard.module.scss";
 
 const title = "team";
 
@@ -30,9 +31,17 @@ const Team = ({ data }) => {
       <Media lessThan="md">
         <HeaderMobile />
         <Container>
-          <ContentHeader title={headingTitle} size="h3" paddingBottom="xs" />
+          <ContentHeader title={headingTitle} size="h3" paddingBottom="md" />
 
-          <InnerContainer marginBottom="xl" paddingLeft="md">
+          <InnerContainer
+            marginBottom="xl"
+            paddingLeft="md"
+            paddingTop="xl"
+            paddingBottom="xl"
+            additionalClasses={[
+              standardStyles.borderLeft
+            ]}
+          >
             <TableOfContents elements={categoryNames} />
           </InnerContainer>
 
