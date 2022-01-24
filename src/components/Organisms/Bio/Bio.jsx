@@ -1,5 +1,5 @@
 import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { Portrait } from "../../Atoms/Portrait";
 import { ContentHeader } from "../../Molecules/Content";
 import * as bioStyles from "./Bio.module.scss";
 
@@ -24,7 +24,7 @@ export const Bio = ({ additionalClasses = [], data }) => {
       {/* if we have a featured image for this post let's display it */}
       {featuredImage?.data && (
         <div className={bioStyles.portrait}>
-          <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} />
+          <Portrait featuredImage={featuredImage} />
         </div>
       )}
       <ContentHeader as="h2" size="h5" title={data.title} textAlign="center" />

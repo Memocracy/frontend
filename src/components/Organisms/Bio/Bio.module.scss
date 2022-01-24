@@ -1,10 +1,16 @@
+@use "@styles/typography";
+
 .base {
   display: block;
 }
 
 .portrait {
   text-align: center;
-  > div {
+  margin-bottom: typography.$horizontal-space-lg;
+
+  > figure {
     width: 66%;
+    border-radius: 50%;
+    display: inline-block;
   }
 }

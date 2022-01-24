@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { Media } from "gatsby-plugin-fresnel";
 import uuid from "react-uuid";
 import { Meta } from "../components/Other/Meta";
-import { Container } from "../components/Molecules/Container";
+import { Container, InnerContainer } from "../components/Molecules/Container";
 import { ContentHeader } from "../components/Molecules/Content";
 import { TableOfContents } from "../components/Molecules/TableOfContents";
 import { Bio } from "../components/Organisms/Bio";
@@ -31,7 +31,11 @@ const Team = ({ data }) => {
         <HeaderMobile />
         <Container>
           <ContentHeader title={headingTitle} size="h3" paddingBottom="xs" />
-          <TableOfContents elements={categoryNames} />
+
+          <InnerContainer marginBottom="xl" paddingLeft="md">
+            <TableOfContents elements={categoryNames} />
+          </InnerContainer>
+
           {categories.map((category, index) => {
             const { ref } = categoryNames[index];
             const { nodes } = category.teamMembers;
@@ -48,7 +52,7 @@ const Team = ({ data }) => {
                   title={category.name}
                   ref={ref}
                 />
-                {nodes.map((bio, bioIndex) => (
+                {nodes.map((bio) => (
                   <Bio key={uuid()} data={bio} />
                 ))}
               </div>
@@ -87,9 +91,9 @@ export const query = graphql`
                 localFile {
                   childImageSharp {
                     gatsbyImageData(
-                      quality: 85,
-                      placeholder: BLURRED,
-                      width: 1000,
+                      quality: 85
+                      placeholder: BLURRED
+                      width: 1000
                       height: 1000
                     )
                   }
