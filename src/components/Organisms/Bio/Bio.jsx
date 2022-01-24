@@ -29,7 +29,13 @@ export const Bio = ({ additionalClasses = [], data }) => {
           <Portrait featuredImage={featuredImage} />
         </div>
       )}
-      <ContentHeader as="h2" size="h5" title={data.title} textAlign="center" marginBottom="sm" />
+      <ContentHeader
+        as="h2"
+        size="h5"
+        title={data.title}
+        textAlign="center"
+        marginBottom="sm"
+      />
       {/* if we have a Twitter handle let's display it */}
       {data.twitterHandle && (
         <InnerContainer textAlign="center" marginBottom="md">
