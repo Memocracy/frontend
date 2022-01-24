@@ -8,6 +8,7 @@ import { ContentHeader } from "../components/Molecules/Content";
 import { TableOfContents } from "../components/Molecules/TableOfContents";
 import { Bio } from "../components/Organisms/Bio";
 import { useFooterMenu } from "../hooks";
+import { OffScreenContainer } from "../components/Molecules/OffScreenContainer";
 import { HeaderMobile, Header } from "../components/Organisms/Header";
 import { FooterMobile, Footer } from "../components/Organisms/Footer";
 import * as standardStyles from "../assets/styles/Standard.module.scss";
@@ -29,6 +30,7 @@ const Team = ({ data }) => {
     <>
       <Meta title={title} />
       <Media lessThan="md">
+        {/* Mobile version */}
         <HeaderMobile />
         <Container>
           <ContentHeader title={headingTitle} size="h3" paddingBottom="md" />
@@ -71,10 +73,13 @@ const Team = ({ data }) => {
         <FooterMobile items={footerMenuItems} />
       </Media>
       <Media greaterThanOrEqual="md">
+        {/* Destkop version */}
         <Header />
         <Container>
           <ContentHeader title={headingTitle} size="h1" paddingBottom="md" />
-          <pre>{JSON.stringify(categories, null, 4)}</pre>
+          <OffScreenContainer>
+            <TableOfContents elements={categoryNames} />
+          </OffScreenContainer>
         </Container>
         <Footer items={footerMenuItems} />
       </Media>

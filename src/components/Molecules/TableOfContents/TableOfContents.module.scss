@@ -16,11 +16,17 @@
       button {
         display: block;
         color: colors.$blue;
+        cursor: pointer;
+        transition: color .25s ease-out;
 
         > span {
           // font-size: typography.$mobile-font-size-p;
           line-height: typography.$line-height-xxl;
           font-size: typography.$mobile-font-size-p;
+        }
+
+        &:hover {
+          color: lighten(colors.$blue, 25%);
         }
       }
     }

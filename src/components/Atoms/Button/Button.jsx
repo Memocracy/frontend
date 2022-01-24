@@ -18,6 +18,9 @@ export const Button = (props) => {
     case "twitter":
       typeClass = buttonStyles.twitter;
       break;
+    case "dark":
+      typeClass = buttonStyles.dark;
+      break;
     case "transparent":
     default:
       typeClass = buttonStyles.transparent;
