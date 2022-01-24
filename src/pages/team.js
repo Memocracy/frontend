@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { Media } from "gatsby-plugin-fresnel";
 import uuid from "react-uuid";
 import { Meta } from "../components/Other/Meta";
-import { Container, InnerContainer } from "../components/Molecules/Container";
+import { Container, InnerContainer, GridContainer } from "../components/Molecules/Container";
 import { ContentHeader } from "../components/Molecules/Content";
 import { TableOfContents } from "../components/Molecules/TableOfContents";
 import { Bio } from "../components/Organisms/Bio";
@@ -40,9 +40,7 @@ const Team = ({ data }) => {
             paddingLeft="md"
             paddingTop="xl"
             paddingBottom="xl"
-            additionalClasses={[
-              standardStyles.borderLeft
-            ]}
+            additionalClasses={[standardStyles.borderLeft]}
           >
             <TableOfContents elements={categoryNames} />
           </InnerContainer>
@@ -74,12 +72,37 @@ const Team = ({ data }) => {
       </Media>
       <Media greaterThanOrEqual="md">
         {/* Destkop version */}
+        <OffScreenContainer>
+          <TableOfContents elements={categoryNames} />
+        </OffScreenContainer>
+
         <Header />
         <Container>
           <ContentHeader title={headingTitle} size="h1" paddingBottom="md" />
-          <OffScreenContainer>
-            <TableOfContents elements={categoryNames} />
-          </OffScreenContainer>
+
+          {categories.map((category, index) => {
+            const { ref } = categoryNames[index];
+            const { nodes } = category.teamMembers;
+
+            return (
+              <div key={uuid()}>
+                <ContentHeader
+                  as="h2"
+                  size="h3"
+                  hr="top"
+                  paddingTop="md"
+                  marginBottom="xl"
+                  title={category.name}
+                  ref={ref}
+                />
+                <GridContainer>
+                  {nodes.map((bio) => (
+                    <Bio key={uuid()} data={bio} />
+                  ))}
+                </GridContainer>
+              </div>
+            );
+          })}
         </Container>
         <Footer items={footerMenuItems} />
       </Media>

@@ -17,6 +17,13 @@
 
   @include breakpoints.respond-to("xl") {
     padding: 4em 0;
+    width: 90%;
+
+    font-size: typography.$fluid-setting;
+  }
+
+  @include breakpoints.respond-to("xxl") {
+    padding: 4em 0;
     width: 80%;
 
     font-size: typography.$fluid-setting;

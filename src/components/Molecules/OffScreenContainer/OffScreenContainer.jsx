@@ -23,7 +23,7 @@ export const OffScreenContainer = ({
 
   return (
     <div className={classes}>
-      <div className={containerStyles.content} aria-hidden={hide}>
+      <div className={containerStyles.content} aria-hidden={hide} >
         {children}
       </div>
       <div className={containerStyles.control}>

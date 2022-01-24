@@ -24,7 +24,7 @@
 
   @include breakpoints.respond-to("xl") {
     padding: 4em 0;
-    width: 80%;
+    width: 90%;
 
     > section {
       width: 66%;
@@ -32,6 +32,8 @@
   }
 
   @include breakpoints.respond-to("xxl") {
+    width: 80%;
+
     > section {
       width: 50%;
     }

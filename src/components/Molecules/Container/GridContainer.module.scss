@@ -1,0 +1,16 @@
+@use "@styles/breakpoints";
+
+.base {
+  display: block;
+}
+
+// From lg we use grids
+@include breakpoints.respond-to("lg") {
+  .base {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: start;
+    grid-gap: 60px;
+  }
+}
