@@ -56,7 +56,7 @@ const Team = ({ data }) => {
                   size="h4"
                   hr="bottom"
                   paddingBottom="md"
-                  marginBottom="md"
+                  marginBottom="xl"
                   textAlign="center"
                   title={category.name}
                   ref={ref}

@@ -1,5 +1,6 @@
 import React from "react";
 import { horizontalSpacer, verticalSpacer } from "../../../lib/cssHelpers";
+import * as standard from "../../../assets/styles/Standard.module.scss";
 import * as containerStyles from "./InnerContainer.module.scss";
 
 /**
@@ -15,8 +16,21 @@ export const InnerContainer = ({
   marginBottom,
   paddingLeft,
   paddingRight,
+  textAlign,
   additionalClasses = [],
 }) => {
+  switch (textAlign) {
+    case "right":
+      additionalClasses.push(standard.textAlignRight);
+      break;
+    case "center":
+      additionalClasses.push(standard.textAlignCenter);
+      break;
+    case "left":
+    default:
+      additionalClasses.push(standard.textAlignLeft);
+  }
+
   const classes = `
     ${containerStyles.base}
     ${additionalClasses.join(" ")}
