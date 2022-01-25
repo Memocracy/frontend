@@ -37,6 +37,7 @@ export const News = ({ data, additionalClasses = [] }) => {
         title={data.title}
         marginBottom="sm"
       />
+      <div dangerouslySetInnerHTML={{ __html: data.content }} />
     </article>
   );
 };
