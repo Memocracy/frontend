@@ -42,9 +42,9 @@ const News = ({ data, pageContext }) => {
         {/* Destkop version */}
         <pre>{JSON.stringify(data, null, 4)}</pre>
         <pre>{JSON.stringify(pageContext, null, 4)}</pre>
-        <div
+        {/* <div
           dangerouslySetInnerHTML={{ __html: data.news.edges[1].node.content }}
-        />
+        /> */}
       </Media>
     </>
   );

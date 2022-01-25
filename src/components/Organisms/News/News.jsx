@@ -1,4 +1,7 @@
 import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { ContentHeader } from "../../Molecules/Content";
+import { Date } from "../../Atoms/Date";
 import * as newsStyles from "./News.module.scss";
 
 /**
@@ -12,9 +15,28 @@ export const News = ({ data, additionalClasses = [] }) => {
     ${additionalClasses.join(" ")}
   `;
 
+  const featuredImage = {
+    data: data.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: data.featuredImage?.node?.alt || ``,
+  };
+
   return (
     <article className={classes}>
-      <h1>{data.title}</h1>
+      {/* if we have a featured image for this post let's display it */}
+      {featuredImage?.data && (
+        <div className={newsStyles.illustration}>
+          <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} />
+        </div>
+      )}
+      <div>
+        <Date dateTime={data.date} humanTime={data.date} />
+      </div>
+      <ContentHeader
+        as="h2"
+        size="h5"
+        title={data.title}
+        marginBottom="sm"
+      />
     </article>
   );
 };
