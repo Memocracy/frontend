@@ -9,23 +9,48 @@
   overflow: hidden;
 }
 
-.inner-container {
-  width: 100%;
+.main {
+  .inner-container {
+    width: 100%;
 
-  padding: 40px 20px;
-  z-index: 1;
+    padding: 40px 20px;
+    z-index: 1;
 
-  @include breakpoints.respond-to("xl") {
-    padding: 4em 0;
-    width: 90%;
+    @include breakpoints.respond-to("xl") {
+      padding: 4em 0;
+      width: 90%;
 
-    font-size: typography.$fluid-setting;
+      font-size: typography.$fluid-setting;
+    }
+
+    @include breakpoints.respond-to("xxl") {
+      padding: 4em 0;
+      width: 80%;
+
+      font-size: typography.$fluid-setting;
+    }
   }
+}
 
-  @include breakpoints.respond-to("xxl") {
-    padding: 4em 0;
-    width: 80%;
+.standard {
+  .inner-container {
+    width: 100%;
 
-    font-size: typography.$fluid-setting;
+    padding: 0 20px;
+    z-index: 1;
+
+    @include breakpoints.respond-to("xl") {
+      padding: 0;
+      width: 90%;
+
+      font-size: typography.$fluid-setting;
+    }
+
+    @include breakpoints.respond-to("xxl") {
+      padding: 0;
+      width: 80%;
+
+      font-size: typography.$fluid-setting;
+    }
   }
 }

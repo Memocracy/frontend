@@ -6,15 +6,24 @@ import * as containerStyles from "./Container.module.scss";
  * @param  props
  * @param  {array} props.items
  */
-export const Container = ({ children, additionalClasses = [] }) => {
+export const Container = ({ children, type = "main", additionalClasses = [] }) => {
+  let As;
+
   const classes = `
     ${containerStyles.base}
+    ${type === "main" ? containerStyles.main : containerStyles.standard}
     ${additionalClasses.join(" ")}
   `;
 
+  if (type === "main") {
+    As = "main";
+  } else {
+    As = "div";
+  }
+
   return (
-    <main className={classes}>
+    <As className={classes}>
       <div className={containerStyles.innerContainer}>{children}</div>
-    </main>
+    </As>
   );
 };
