@@ -1,7 +1,12 @@
 @use "@styles/colors";
+@use "@styles/typography";
+@use "@styles/breakpoints";
 
 .base {
   position: relative;
+  box-shadow: 0 10px 8px rgba(0, 0, 0, .1);
+  margin-bottom: 80px;
+  padding-bottom: 60px;
 
   &::before {
     content: "";
@@ -18,17 +23,24 @@
 }
 
 .illustration {
-  border: solid 8px yellow;
-}
-
-.content {
-  border: solid 8px red;
-}
-
-.header {
-  border: solid 8px green;
+  border: none;
 }
 
 .date {
-  border: solid 8px turquoise;
+
+  padding: 0 20px;
+
+  > time {
+    padding: typography.$horizontal-space-lg 0 0 0;
+  }
+
 }
+
+.header {
+  padding: 0 20px;
+}
+
+.content {
+  padding: 0 20px;
+}
+

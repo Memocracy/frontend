@@ -14,7 +14,7 @@
 .inner-container {
   font-size: typography.$fluid-setting;
 
-  padding: 40px 20px;
+  padding: 40px 20px 80px 20px;
   // border: solid 1px Black;
   z-index: 1;
 
@@ -23,7 +23,7 @@
   }
 
   @include breakpoints.respond-to("xl") {
-    padding: 4em 0;
+    padding: 4em 0 6em 0;
     width: 90%;
 
     > section {

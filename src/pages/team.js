@@ -50,6 +50,7 @@ const Team = ({ data }) => {
             const { nodes } = category.teamMembers;
 
             return (
+
               <div key={uuid()}>
                 <ContentHeader
                   as="h2"
@@ -62,7 +63,9 @@ const Team = ({ data }) => {
                   ref={ref}
                 />
                 {nodes.map((bio) => (
-                  <Bio key={uuid()} data={bio} />
+                  <InnerContainer key={uuid()} marginBottom="xxl">
+                    <Bio data={bio} />
+                  </InnerContainer>
                 ))}
               </div>
             );

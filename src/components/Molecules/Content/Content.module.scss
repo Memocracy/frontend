@@ -40,6 +40,11 @@
     max-width: 100%;
   }
 
+  :last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
   @include breakpoints.respond-to("xxl") {
     p, li {
       font-size: 1.19em;
