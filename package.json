@@ -9,6 +9,7 @@
     "develop:public": "gatsby develop -H 0.0.0.0 -p 9000 -o",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "serve:public": "gatsby serve -H 0.0.0.0 -p 9000 -o",
     "clean": "gatsby clean",
     "lint": "eslint src/* --no-error-on-unmatched-pattern",
     "lint:fix": "eslint src/* --fix --no-error-on-unmatched-pattern",
