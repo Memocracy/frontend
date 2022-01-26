@@ -6,7 +6,7 @@ import { Meta } from "../../Other/Meta";
 import { FooterMobile, Footer } from "../../Organisms/Footer";
 import { ContentHeader } from "../../Molecules/Content";
 import { Header, HeaderMobile } from "../../Organisms/Header";
-import { InnerContainer, Container } from "../../Molecules/Container";
+import { InnerContainer, Container, GridContainer } from "../../Molecules/Container";
 import { Pagination } from "../../Molecules/Pagination";
 import { News as NewsComponent } from "../../Organisms/News";
 import { useFooterMenu } from "../../../hooks";
@@ -63,7 +63,11 @@ const News = ({ data, pageContext }) => {
           {NewsRendered}
 
           <InnerContainer paddingBottom="xxl">
-            {PaginationRendered}
+            <GridContainer columns={12}>
+              <div style={{gridColumnStart: "5", gridColumnEnd: "12"}}>
+                {PaginationRendered}
+              </div>
+            </GridContainer>
           </InnerContainer>
 
         </Container>

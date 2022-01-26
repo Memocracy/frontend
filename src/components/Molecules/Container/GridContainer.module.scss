@@ -8,9 +8,15 @@
 @include breakpoints.respond-to("lg") {
   .base {
     display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
     justify-content: start;
     grid-gap: 60px;
+  }
+
+  .columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .columns-12 {
+    grid-template-columns: repeat(12, 1fr);
   }
 }

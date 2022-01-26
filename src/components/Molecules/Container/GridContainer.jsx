@@ -7,8 +7,11 @@ import * as gridStyles from "./GridContainer.module.scss";
  * @param  {array} props.items
  */
 export const GridContainer = ({ children, columns = 3, additionalClasses = [] }) => {
+  const columnsClass = `columns${columns}`;
+
   const classes = `
     ${gridStyles.base}
+    ${gridStyles[columnsClass]}
     ${additionalClasses.join(" ")}
   `;
 
