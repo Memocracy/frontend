@@ -26,16 +26,23 @@ const News = ({ data, pageContext }) => {
         {/* Mobile version */}
         <HeaderMobile />
         <Container type="standard">
-          <ContentHeader title={headingTitle} size="h3" paddingBottom="md" paddingTop="lg" />
+          <ContentHeader
+            title={headingTitle}
+            size="h3"
+            paddingBottom="md"
+            paddingTop="lg"
+          />
         </Container>
 
-          {news.map(({node}) => {
-            return (
-              <NewsComponent key={uuid()} data={node} />
-            );
-          })}
+        {news.map(({ node }) => {
+          return <NewsComponent key={uuid()} data={node} />;
+        })}
 
-          <Pagination {...pageContext} />
+        <Container type="standard">
+          <InnerContainer paddingBottom="xxl">
+            <Pagination {...pageContext} />
+          </InnerContainer>
+        </Container>
 
         <FooterMobile items={footerMenuItems} />
       </Media>

@@ -5,7 +5,7 @@
 .base {
   position: relative;
   box-shadow: 0 10px 8px rgba(0, 0, 0, .1);
-  margin-bottom: 80px;
+  margin-bottom: 70px;
   padding-bottom: 60px;
 
   &::before {
@@ -31,7 +31,7 @@
   padding: 0 20px;
 
   > time {
-    padding: typography.$horizontal-space-lg 0 0 0;
+    padding: typography.$horizontal-space-xl 0 0 0;
   }
 
 }

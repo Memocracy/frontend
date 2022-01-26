@@ -20,6 +20,9 @@ export const Pagination = ({
 
   return (
     <div className={classes}>
+      <div className={paginationStyles.info}>
+        Page {currentPage} of {pageCount}
+      </div>
       <nav>
         {currentPage === 2 ? (
           <Link title="Go to previous page" to={`/${base}`}>
@@ -35,7 +38,6 @@ export const Pagination = ({
         ) : (
           <span />
         )}
-        Page {currentPage} of {pageCount}
         {currentPage < pageCount ? (
           <Link title="Go to next page" to={`/${base}/${currentPage + 1}`}>
             Older posts →

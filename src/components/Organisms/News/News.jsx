@@ -36,7 +36,7 @@ export const News = ({ data, additionalClasses = [] }) => {
         size="h5"
         title={data.title}
         paddingTop="md"
-        paddingBottom="md"
+        paddingBottom="lg"
         additionalClasses={[newsStyles.header]}
       />
       <Content
