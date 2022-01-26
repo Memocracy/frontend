@@ -1,11 +1,13 @@
 @use "@styles/breakpoints";
 @use "@styles/colors";
 @use "@styles/typography";
+@use "@styles/ui";
 
 .base {
   color: colors.$black;
 
-  p, li {
+  p,
+  li {
     font-size: 1.06em;
     line-height: 1.842em;
     padding-bottom: 1.618em;
@@ -13,7 +15,7 @@
 
   // Headings
   @for $index from 1 through 6 {
-    h#{$index}{
+    h#{$index} {
       font-family: typography.$heading-font;
       line-height: typography.$line-height-sm;
       font-weight: 600;
@@ -35,9 +37,35 @@
     padding-left: 1.75em;
   }
 
-  // Youtube embeds
-  iframe {
-    max-width: 100%;
+  ///
+  /// Wordpress content
+  ///
+
+  :global {
+    // Youtube embeds etc.
+    iframe {
+      max-width: 100%;
+    }
+
+    // File downloads
+    .wp-block-file {
+      border-top: solid 1px colors.$hr-gray;
+      border-bottom: solid 1px colors.$hr-gray;
+      padding: typography.$horizontal-space-xl 0;
+
+      text-align: center;
+
+      a:first-of-type {
+        display: inline-block;
+        padding: 1em 1.5em;
+      }
+
+      .wp-block-file__button {
+        @include ui.standard-button;
+        padding-right: 1.5em;
+        padding-left: 1.5em;
+      }
+    }
   }
 
   :last-child {
@@ -46,7 +74,8 @@
   }
 
   @include breakpoints.respond-to("xxl") {
-    p, li {
+    p,
+    li {
       font-size: 1.19em;
     }
 
@@ -68,4 +97,3 @@
     }
   }
 }
-

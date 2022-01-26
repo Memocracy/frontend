@@ -1,5 +1,6 @@
 @use "@styles/colors";
 @use "@styles/typography";
+@use "@styles/ui";
 
 .base {
   nav {
@@ -24,24 +25,7 @@
 
   // Next / prev buttons
   a {
-    font-size: 1em;
-    line-height: 1em;
-    display: inline-block;
-    background-color: colors.$blue;
-    border-radius: 8px;
-    color: White;
-    text-decoration: none;
-    text-transform: uppercase;
-    vertical-align: middle;
-    text-align: center;
-
-    padding: 1em 0;
-
-    transition: background .5s ease-out;
-
-    &:hover {
-      background-color: darken(colors.$blue, 5%);
-    }
+    @include ui.standard-button;
   }
 }
 
