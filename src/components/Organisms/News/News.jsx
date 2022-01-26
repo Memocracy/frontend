@@ -1,6 +1,6 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { ContentHeader } from "../../Molecules/Content";
+import { ContentHeader, Content } from "../../Molecules/Content";
 import { Date } from "../../Atoms/Date";
 import * as newsStyles from "./News.module.scss";
 
@@ -28,7 +28,7 @@ export const News = ({ data, additionalClasses = [] }) => {
           <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} />
         </div>
       )}
-      <div>
+      <div className={newsStyles.date}>
         <Date dateTime={data.date} humanTime={data.date} />
       </div>
       <ContentHeader
@@ -36,8 +36,12 @@ export const News = ({ data, additionalClasses = [] }) => {
         size="h5"
         title={data.title}
         marginBottom="sm"
+        additionalClasses={[newsStyles.header]}
       />
-      <div dangerouslySetInnerHTML={{ __html: data.content }} />
+      <Content
+        content={data.content}
+        additionalClasses={[newsStyles.content]}
+      />
     </article>
   );
 };

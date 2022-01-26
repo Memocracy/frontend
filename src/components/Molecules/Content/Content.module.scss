@@ -35,6 +35,11 @@
     padding-left: 1.75em;
   }
 
+  // Youtube embeds
+  iframe {
+    max-width: 100%;
+  }
+
   @include breakpoints.respond-to("xxl") {
     p, li {
       font-size: 1.19em;
@@ -58,3 +63,4 @@
     }
   }
 }
+

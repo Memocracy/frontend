@@ -7,6 +7,7 @@ import { FooterMobile } from "../../Organisms/Footer";
 import { ContentHeader } from "../../Molecules/Content";
 import { HeaderMobile } from "../../Organisms/Header";
 import { InnerContainer, Container } from "../../Molecules/Container";
+import { Pagination } from "../../Molecules/Pagination";
 import { News as NewsComponent } from "../../Organisms/News";
 import { useFooterMenu } from "../../../hooks";
 
@@ -34,6 +35,7 @@ const News = ({ data, pageContext }) => {
             );
           })}
 
+          <Pagination {...pageContext} />
 
         <FooterMobile items={footerMenuItems} />
       </Media>
@@ -42,9 +44,6 @@ const News = ({ data, pageContext }) => {
         {/* Destkop version */}
         <pre>{JSON.stringify(data, null, 4)}</pre>
         <pre>{JSON.stringify(pageContext, null, 4)}</pre>
-        {/* <div
-          dangerouslySetInnerHTML={{ __html: data.news.edges[1].node.content }}
-        /> */}
       </Media>
     </>
   );
