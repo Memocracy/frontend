@@ -19,7 +19,7 @@
     text-align: center;
 
     li {
-      font-size: .85em;
+      font-size: 0.85em;
       display: inline-block;
 
       position: relative;
@@ -38,7 +38,7 @@
         background-color: darken(colors.$blue, 5%);
         height: 0;
         z-index: 0;
-        transition: height .25s linear;
+        transition: height 0.25s linear;
       }
     }
 
@@ -64,6 +64,12 @@
       z-index: 1;
 
       &[aria-current] {
+        background-color: darken(colors.$blue, 5%);
+      }
+    }
+
+    :global {
+      .active {
         background-color: darken(colors.$blue, 5%);
       }
     }
