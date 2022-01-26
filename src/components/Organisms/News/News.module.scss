@@ -20,27 +20,80 @@
     left: 0;
     z-index: 2;
   }
+
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    border-top: solid 1px colors.$hr-gray;
+    box-shadow: none;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    justify-content: start;
+    grid-gap: 60px;
+
+    &::before {
+      display: none;
+    }
+  }
+
 }
 
 .illustration {
   border: none;
+
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    grid-column-start: span 4;
+  }
+}
+
+.container {
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    grid-column-start: span 6;
+  }
 }
 
 .date {
-
   padding: 0 20px;
 
   > time {
     padding: typography.$horizontal-space-xl 0 0 0;
   }
 
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    padding: 0 0;
+  }
 }
 
 .header {
   padding: 0 20px;
+
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    padding: 0 0;
+  }
 }
 
 .content {
   padding: 0 20px;
+
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    padding: 0 0;
+  }
 }
 

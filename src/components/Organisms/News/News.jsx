@@ -1,5 +1,6 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { Media } from "gatsby-plugin-fresnel";
 import { ContentHeader, Content } from "../../Molecules/Content";
 import { Date } from "../../Atoms/Date";
 import * as newsStyles from "./News.module.scss";
@@ -23,26 +24,42 @@ export const News = ({ data, additionalClasses = [] }) => {
   return (
     <article className={classes}>
       {/* if we have a featured image for this post let's display it */}
-      {featuredImage?.data && (
-        <div className={newsStyles.illustration}>
+      <div className={newsStyles.illustration}>
+        {featuredImage?.data && (
           <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} />
-        </div>
-      )}
-      <div className={newsStyles.date}>
-        <Date dateTime={data.date} humanTime={data.date} />
+        )}
       </div>
-      <ContentHeader
-        as="h2"
-        size="h5"
-        title={data.title}
-        paddingTop="md"
-        paddingBottom="lg"
-        additionalClasses={[newsStyles.header]}
-      />
-      <Content
-        content={data.content}
-        additionalClasses={[newsStyles.content]}
-      />
+      <section className={newsStyles.container}>
+        <div className={newsStyles.date}>
+          <Date dateTime={data.date} humanTime={data.date} />
+        </div>
+        <Media lessThan="md">
+          {/* Mobile version */}
+          <ContentHeader
+            as="h2"
+            size="h5"
+            title={data.title}
+            paddingTop="md"
+            paddingBottom="lg"
+            additionalClasses={[newsStyles.header]}
+          />
+        </Media>
+        <Media greaterThanOrEqual="md">
+          {/* Desktop version */}
+          <ContentHeader
+            as="h2"
+            size="h2"
+            title={data.title}
+            paddingTop="md"
+            paddingBottom="lg"
+            additionalClasses={[newsStyles.header]}
+          />
+        </Media>
+        <Content
+          content={data.content}
+          additionalClasses={[newsStyles.content]}
+        />
+      </section>
     </article>
   );
 };

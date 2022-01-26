@@ -3,9 +3,9 @@ import { Media } from "gatsby-plugin-fresnel";
 import uuid from "react-uuid";
 import { graphql } from "gatsby";
 import { Meta } from "../../Other/Meta";
-import { FooterMobile } from "../../Organisms/Footer";
+import { FooterMobile, Footer } from "../../Organisms/Footer";
 import { ContentHeader } from "../../Molecules/Content";
-import { HeaderMobile } from "../../Organisms/Header";
+import { Header, HeaderMobile } from "../../Organisms/Header";
 import { InnerContainer, Container } from "../../Molecules/Container";
 import { Pagination } from "../../Molecules/Pagination";
 import { News as NewsComponent } from "../../Organisms/News";
@@ -18,6 +18,15 @@ const News = ({ data, pageContext }) => {
   const headingTitle = "News";
 
   const { edges: news } = data.news;
+
+  const NewsRendered =
+    <>
+      {news.map(({ node }) => {
+        return <NewsComponent key={uuid()} data={node} />;
+      })}
+    </>;
+
+  const PaginationRendered = <Pagination {...pageContext} />;
 
   return (
     <>
@@ -34,13 +43,11 @@ const News = ({ data, pageContext }) => {
           />
         </Container>
 
-        {news.map(({ node }) => {
-          return <NewsComponent key={uuid()} data={node} />;
-        })}
+        {NewsRendered}
 
         <Container type="standard">
           <InnerContainer paddingBottom="xxl">
-            <Pagination {...pageContext} />
+            {PaginationRendered}
           </InnerContainer>
         </Container>
 
@@ -49,8 +56,18 @@ const News = ({ data, pageContext }) => {
 
       <Media greaterThanOrEqual="md">
         {/* Destkop version */}
-        <pre>{JSON.stringify(data, null, 4)}</pre>
-        <pre>{JSON.stringify(pageContext, null, 4)}</pre>
+        <Header />
+        <Container>
+          <ContentHeader title={headingTitle} size="h1" paddingBottom="md" />
+
+          {NewsRendered}
+
+          <InnerContainer paddingBottom="xxl">
+            {PaginationRendered}
+          </InnerContainer>
+
+        </Container>
+        <Footer items={footerMenuItems} />
       </Media>
     </>
   );
