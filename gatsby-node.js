@@ -36,7 +36,8 @@ const createPaginationPages = (categories, createPage) => {
           skip: i * pageSize,
           limit: pageSize,
           pageCount,
-          currentPage: i + 1
+          currentPage: i + 1,
+          base: categoryName
         }
       });
     })
