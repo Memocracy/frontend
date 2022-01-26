@@ -66,6 +66,26 @@
         padding-left: 1.5em;
       }
     }
+
+    // Gallery
+    .wp-block-gallery {
+      ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: masonry;
+        > li {
+          overflow: hidden;
+          font-size: 0;
+
+          .gatsby-image-wrapper {
+            height: 200px;
+            object-position: 50% 50%;
+          }
+          // grid-row: 1 / -1;
+          // grid-column: 1;
+        }
+      }
+    }
   }
 
   :last-child {
