@@ -44,6 +44,7 @@
   :global {
     // Youtube embeds etc.
     iframe {
+      // width: auto;
       max-width: 100%;
     }
 
@@ -71,18 +72,38 @@
     .wp-block-gallery {
       ul {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: masonry;
         > li {
           overflow: hidden;
           font-size: 0;
 
           .gatsby-image-wrapper {
-            height: 12vw;
+            height: 40vw;
             object-position: 50% 50%;
           }
-          // grid-row: 1 / -1;
-          // grid-column: 1;
+
+          a:hover {
+            opacity: .5;
+          }
+        }
+      }
+
+      ///
+      /// Desktop
+      ///
+      @include breakpoints.respond-to("lg") {
+        ul {
+          grid-template-columns: repeat(3, 1fr);
+          > li {
+            overflow: hidden;
+            font-size: 0;
+
+            .gatsby-image-wrapper {
+              height: 12vw;
+              object-position: 50% 50%;
+            }
+          }
         }
       }
     }
