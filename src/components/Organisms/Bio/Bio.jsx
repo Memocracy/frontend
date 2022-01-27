@@ -1,4 +1,5 @@
 import React from "react";
+import { Media } from "gatsby-plugin-fresnel";
 import { Portrait } from "../../Atoms/Portrait";
 import { ContentHeader, Content } from "../../Molecules/Content";
 import { InnerContainer } from "../../Molecules/Container";
@@ -29,13 +30,24 @@ export const Bio = ({ additionalClasses = [], data }) => {
           <Portrait featuredImage={featuredImage} />
         </div>
       )}
-      <ContentHeader
-        as="h2"
-        size="h5"
-        title={data.title}
-        textAlign="center"
-        marginBottom="sm"
-      />
+      <Media lessThan="md">
+        <ContentHeader
+          as="h2"
+          size="h5"
+          title={data.title}
+          textAlign="center"
+          marginBottom="sm"
+        />
+      </Media>
+      <Media greaterThanOrEqual="md">
+        <ContentHeader
+          as="h2"
+          size="h4"
+          title={data.title}
+          textAlign="center"
+          marginBottom="sm"
+        />
+      </Media>
       {/* if we have a Twitter handle let's display it */}
       {data.twitterHandle && (
         <InnerContainer textAlign="center" marginBottom="md">
