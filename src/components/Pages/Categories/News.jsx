@@ -62,7 +62,7 @@ const News = ({ data, pageContext }) => {
 
           {NewsRendered}
 
-          <InnerContainer paddingBottom="xxl">
+          <InnerContainer paddingBottom="lg">
             <GridContainer columns={12}>
               <div style={{gridColumnStart: "5", gridColumnEnd: "12"}}>
                 {PaginationRendered}

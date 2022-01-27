@@ -13,23 +13,29 @@
   .inner-container {
     width: 100%;
 
-    padding: 40px 20px;
+    padding: 40px 20px 100px 20px;
     z-index: 1;
 
     @include breakpoints.respond-to("xl") {
-      padding: 4em 0;
+      padding: 4em 0 8em 0;
       width: 90%;
 
       font-size: typography.$fluid-setting;
     }
 
     @include breakpoints.respond-to("xxl") {
-      padding: 4em 0;
+      padding: 4em 0 8em 0;
       width: 80%;
 
       font-size: typography.$fluid-setting;
     }
+
+    > :last-child {
+      margin-bottom: 0 !important;
+    }
   }
+
+
 }
 
 .standard {

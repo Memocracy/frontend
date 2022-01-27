@@ -11,7 +11,7 @@ import * as bioStyles from "./Bio.module.scss";
  * @param  props
  * @param  {array} props.items
  */
-export const Bio = ({ additionalClasses = [], data }) => {
+export const Bio = ({ data, additionalClasses = [] }) => {
   const classes = `
     ${bioStyles.base}
     ${additionalClasses.join(" ")}
