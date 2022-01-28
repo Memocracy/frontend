@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   unstable_useFormState as useFormState,
   unstable_Form as Form,
@@ -36,24 +36,34 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
 
       const { GATSBY_NEWSLETTER_API: apiUrl } = process.env;
 
-      postData(`${apiUrl}/subscribe`, values).then(data => {
-        // eslint-disable-next-line no-console
-        console.log(data);
+      postData(`${apiUrl}/subscribe`, values)
+        .then((data) => {
+          // eslint-disable-next-line no-console
+          console.log(data);
 
-        if(!data.error) {
-          setFormState("thanks");
-        } else {
-          setApiError(data.error);
+          if (!data.error) {
+            setFormState("thanks");
+          } else {
+            setApiError(data.error);
+            setFormState("initial");
+          }
+        })
+        .catch((e) => {
+          // eslint-disable-next-line no-console
+          console.error(e);
           setFormState("initial");
-        }
-      }).catch(e => {
-        // eslint-disable-next-line no-console
-        console.error(e);
-        setFormState("initial");
-        setApiError("Please try again later");
-      });
+          setApiError("Please try again later");
+        });
     },
   });
+
+  useEffect(() => {
+    if (apiError) {
+      setTimeout(() => {
+        setApiError(null);
+      }, 3000);
+    }
+  }, [apiError]);
 
   const classes = `
     ${formStyles.base}
@@ -75,12 +85,18 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
             Email Address
           </FormLabel>
           <FormInput {...form} name="email" />
-          <FormMessage
-            {...form}
-            name="email"
-            className={formStyles.inputError}
-          />
-          <p>{apiError}</p>
+          {apiError ? (
+            <div role="alert" className={formStyles.inputError}>
+              {apiError}
+            </div>
+          ) : (
+            <FormMessage
+              {...form}
+              name="email"
+              className={formStyles.inputError}
+            />
+          )}
+
           <FormSubmitButton {...form}>Subscribe</FormSubmitButton>
         </Form>
 
