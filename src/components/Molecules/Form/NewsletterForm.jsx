@@ -9,6 +9,7 @@ import {
 } from "reakit/Form";
 import { Loader } from "../../Atoms/Loader";
 import { isEmailValid } from "../../../lib/stringHelpers";
+import { postData } from "../../../lib/browserHelpers";
 import * as formStyles from "./Form.module.scss";
 
 /**
@@ -18,6 +19,8 @@ import * as formStyles from "./Form.module.scss";
  */
 export const NewsletterForm = ({ additionalClasses = [] }) => {
   const [formState, setFormState] = useState("initial");
+  const [apiError, setApiError] = useState();
+
   const form = useFormState({
     values: { email: "" },
     onValidate: (values) => {
@@ -31,8 +34,24 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
     onSubmit: (values) => {
       setFormState("busy");
 
-      setTimeout(() => setFormState("thanks"), 2000);
-      // alert(JSON.stringify(values, null, 2));
+      const { GATSBY_NEWSLETTER_API: apiUrl } = process.env;
+
+      postData(`${apiUrl}/subscribe`, values).then(data => {
+        // eslint-disable-next-line no-console
+        console.log(data);
+
+        if(!data.error) {
+          setFormState("thanks");
+        } else {
+          setApiError(data.error);
+          setFormState("initial");
+        }
+      }).catch(e => {
+        // eslint-disable-next-line no-console
+        console.error(e);
+        setFormState("initial");
+        setApiError("Please try again later");
+      });
     },
   });
 
@@ -61,6 +80,7 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
             name="email"
             className={formStyles.inputError}
           />
+          <p>{apiError}</p>
           <FormSubmitButton {...form}>Subscribe</FormSubmitButton>
         </Form>
 
