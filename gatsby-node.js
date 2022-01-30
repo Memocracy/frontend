@@ -14,6 +14,7 @@ const pageSize = 2;
 const createPaginationPages = (categories, createPage) => {
   const { categorizedPosts} = categories;
 
+  // Loop through the categories
   categorizedPosts.map(category => {
     const pageCount = Math.ceil(category.edges.length / pageSize);
     const { fieldValue: categoryName } = category;
@@ -23,6 +24,9 @@ const createPaginationPages = (categories, createPage) => {
     switch (categoryName) {
       case "news":
         template = "./src/components/Pages/Categories/News.jsx";
+        break;
+      case "project-workshops":
+        template = "./src/components/Pages/Categories/ProjectWorkshops.jsx";
         break;
       default:
         template = "./src/components/Pages/Categories/Default.jsx";
