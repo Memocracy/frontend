@@ -81,7 +81,7 @@ export const query = graphql`
   query newsListQuery($skip: Int!, $limit: Int!) {
     news: allWpPost(
       sort: { fields: date, order: DESC }
-      # filter: { categories: { nodes: { elemMatch: { slug: { eq: "news" } } } } }
+      filter: { categories: { nodes: { elemMatch: { slug: { eq: "news" } } } } }
       limit: $limit
       skip: $skip
     ) {
