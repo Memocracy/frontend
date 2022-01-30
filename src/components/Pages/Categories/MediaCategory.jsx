@@ -11,11 +11,11 @@ import { Pagination } from "../../Molecules/Pagination";
 import { News as NewsComponent } from "../../Organisms/News";
 import { useFooterMenu } from "../../../hooks";
 
-const title = "project workshops";
+const title = "media";
 
-const ProjectWorkshops = ({ data, pageContext }) => {
+const MediaCategory = ({ data, pageContext }) => {
   const footerMenuItems = useFooterMenu();
-  const headingTitle = "Project Workshops";
+  const headingTitle = "Media";
 
   const { edges: news } = data.news;
 
@@ -78,10 +78,10 @@ const ProjectWorkshops = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query projectWorkshopListQuery($skip: Int!, $limit: Int!) {
+  query mediaListQuery($skip: Int!, $limit: Int!) {
     news: allWpPost(
       sort: { fields: date, order: DESC }
-      filter: { categories: { nodes: { elemMatch: { slug: { eq: "project-workshops" } } } } }
+      filter: { categories: { nodes: { elemMatch: { slug: { eq: "media" } } } } }
       limit: $limit
       skip: $skip
     ) {
@@ -110,4 +110,4 @@ export const query = graphql`
   }
 `;
 
-export default ProjectWorkshops;
+export default MediaCategory;

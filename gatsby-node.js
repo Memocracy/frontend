@@ -2,7 +2,6 @@
 const fs = require("fs");
 const path = require("path");
 
-
 const pageSize = 2;
 
 /**
@@ -12,10 +11,10 @@ const pageSize = 2;
  * @param {*} createPage
  */
 const createPaginationPages = (categories, createPage) => {
-  const { categorizedPosts} = categories;
+  const { categorizedPosts } = categories;
 
   // Loop through the categories
-  categorizedPosts.map(category => {
+  categorizedPosts.map((category) => {
     const pageCount = Math.ceil(category.edges.length / pageSize);
     const { fieldValue: categoryName } = category;
     let template;
@@ -27,6 +26,9 @@ const createPaginationPages = (categories, createPage) => {
         break;
       case "project-workshops":
         template = "./src/components/Pages/Categories/ProjectWorkshops.jsx";
+        break;
+      case "media":
+        template = "./src/components/Pages/Categories/MediaCategory.jsx";
         break;
       default:
         template = "./src/components/Pages/Categories/Default.jsx";
@@ -41,10 +43,10 @@ const createPaginationPages = (categories, createPage) => {
           limit: pageSize,
           pageCount,
           currentPage: i + 1,
-          base: categoryName
-        }
+          base: categoryName,
+        },
       });
-    })
+    });
   });
 };
 
