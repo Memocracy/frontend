@@ -39,8 +39,6 @@ export const Publication = ({ data, additionalClasses = [] }) => {
           </a>
         </div>
       </section>
-
-      <pre style={{ display: "none" }}>{JSON.stringify(data, null, 4)}</pre>
     </article>
   );
 };

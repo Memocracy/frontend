@@ -24,10 +24,12 @@
 
 .illustration {
   // border: solid 2px gray;
-
-  box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: typography.$horizontal-space-xl;
   font-size: typography.$mobile-font-size-p;
+
+  > div {
+    box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.25);
+  }
 
   ///
   /// Desktop version
