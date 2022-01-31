@@ -9,6 +9,7 @@ import { Header, HeaderMobile } from "../../Organisms/Header";
 import { InnerContainer, Container, GridContainer } from "../../Molecules/Container";
 import { Pagination } from "../../Molecules/Pagination";
 import { News as NewsComponent } from "../../Organisms/News";
+import { ImagePreview } from "../../Molecules/ImagePreview";
 import { useFooterMenu } from "../../../hooks";
 
 const title = "news";
@@ -32,6 +33,7 @@ const News = ({ data, pageContext }) => {
   return (
     <>
       <Meta title={title} description={pageDescription} />
+      <ImagePreview />
       <Media lessThan="md">
         {/* Mobile version */}
         <HeaderMobile />

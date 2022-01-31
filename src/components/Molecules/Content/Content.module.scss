@@ -83,6 +83,10 @@
             object-position: 50% 50%;
           }
 
+          a {
+            display: block;
+          }
+
           a:hover {
             opacity: .5;
           }
