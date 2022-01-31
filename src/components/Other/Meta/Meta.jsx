@@ -25,20 +25,23 @@ export const Meta = ({ title = "", description }) => {
     }
   `);
 
+  const { title: siteTitle, description: defaultDescription } =
+    data.site.siteMetadata;
+
+  const fullTitle = title ? `${siteTitle} — ${title}` : siteTitle;
+
   return (
     <Helmet
       htmlAttributes={{
         lang: "en",
       }}
     >
-      <title>
-        {data.site.siteMetadata.title}
-        {title && ` – ${title}`}
-      </title>
-      <meta
-        name="description"
-        content={description ?? data.site.siteMetadata.description}
-      />
+      <title>{fullTitle}</title>
+      <meta name="description" content={description ?? defaultDescription} />
+      <meta name="og:title" content={fullTitle} />
+      <meta name="og:description" content={description ?? defaultDescription} />
+      <meta name="og:image" content={"/images/opengraph.png"} />
+      <meta property="og:type" content="article" />
     </Helmet>
   );
 };
