@@ -1,0 +1,20 @@
+@use "@styles/breakpoints";
+
+.base {
+  @include breakpoints.respond-to("md") {
+    width: 66%;
+  }
+
+  @include breakpoints.respond-to("xxl") {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    justify-content: start;
+    grid-gap: 60px;
+
+    width: 100%;
+
+    > div {
+      grid-column: 2 / span 6;
+    }
+  }
+}
