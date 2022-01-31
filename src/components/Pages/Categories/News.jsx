@@ -12,10 +12,11 @@ import { News as NewsComponent } from "../../Organisms/News";
 import { useFooterMenu } from "../../../hooks";
 
 const title = "news";
+const headingTitle = "News";
+const pageDescription = "Memocracy project news";
 
 const News = ({ data, pageContext }) => {
   const footerMenuItems = useFooterMenu();
-  const headingTitle = "News";
 
   const { edges: news } = data.news;
 
@@ -30,7 +31,7 @@ const News = ({ data, pageContext }) => {
 
   return (
     <>
-      <Meta title={title} />
+      <Meta title={title} description={pageDescription} />
       <Media lessThan="md">
         {/* Mobile version */}
         <HeaderMobile />
