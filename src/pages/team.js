@@ -88,7 +88,7 @@ const Team = ({ data }) => {
             const { nodes } = category.teamMembers;
 
             return (
-              <div key={uuid()}>
+              <InnerContainer key={uuid()} paddingBottom="xxl">
                 <ContentHeader
                   as="h2"
                   size="h3"
@@ -103,7 +103,7 @@ const Team = ({ data }) => {
                     <Bio key={uuid()} data={bio} />
                   ))}
                 </GridContainer>
-              </div>
+              </InnerContainer>
             );
           })}
         </Container>
@@ -116,7 +116,7 @@ const Team = ({ data }) => {
 export const query = graphql`
   {
     categories: allWpMemberCategory(
-      sort: { fields: teamMembers___nodes___menuOrder, order: ASC }
+      sort: {fields: [slug, teamMembers___nodes___menuOrder], order: [ASC, ASC]}
     ) {
       nodes {
         teamMembers {
@@ -130,12 +130,7 @@ export const query = graphql`
                 altText
                 localFile {
                   childImageSharp {
-                    gatsbyImageData(
-                      quality: 85
-                      placeholder: BLURRED
-                      width: 1000
-                      height: 1000
-                    )
+                    gatsbyImageData(quality: 85, placeholder: BLURRED, width: 1000, height: 1000)
                   }
                 }
               }
