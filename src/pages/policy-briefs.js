@@ -29,6 +29,7 @@ const PolicyBriefs = ({ data }) => {
         <HeaderMobile />
         <Container>
           <ContentHeader title={headingTitle} size="h3" paddingBottom="md" />
+          {policyBriefs.length === 0 && "Sorry, nothing is published at the moment."}
           {policyBriefsRendered}
         </Container>
         <FooterMobile items={footerMenuItems} />
@@ -39,6 +40,7 @@ const PolicyBriefs = ({ data }) => {
         <Header />
         <Container>
           <ContentHeader title={headingTitle} size="h1" paddingBottom="md" />
+          {policyBriefs.length === 0 && "Sorry, nothing is published at the moment."}
           {policyBriefsRendered}
         </Container>
         <Footer items={footerMenuItems} />
