@@ -3,6 +3,8 @@ import { Button } from "../../Atoms/Button";
 import { Twitter } from "../../Atoms/Icon";
 import { Partners } from "../Partners";
 import { Menu } from "../../Molecules/Menu";
+import { Container, InnerContainer } from "../../Molecules/Container";
+import { NewsletterForm } from "../../Molecules/Form";
 import * as footerStyles from "./FooterMobile.module.scss";
 
 const twitterUrl = "https://twitter.com/MEMOCRACY_team";
@@ -14,23 +16,31 @@ const twitterUrl = "https://twitter.com/MEMOCRACY_team";
  */
 export const FooterMobile = ({ items = [] }) => {
   return (
-    <footer className={footerStyles.base}>
-      <div className={footerStyles.callToAction}>
-        <Button
-          type="twitter"
-          onClick={() => window.location.assign(twitterUrl)}
-          additionalClasses={[footerStyles.twitterButton]}
-        >
-          <Twitter />
-          <span>Follow us on Twitter</span>
-        </Button>
-      </div>
+    <>
+      <Container type="standard" additionalClasses={[footerStyles.newsletter]}>
+        <InnerContainer marginBottom="xxl" paddingTop="xxl">
+          <NewsletterForm />
+        </InnerContainer>
+      </Container>
 
-      <Partners additionalClasses={[footerStyles.logoGrid]} />
+      <footer className={footerStyles.base}>
+        <div className={footerStyles.callToAction}>
+          <Button
+            type="twitter"
+            onClick={() => window.location.assign(twitterUrl)}
+            additionalClasses={[footerStyles.twitterButton]}
+          >
+            <Twitter />
+            <span>Follow us on Twitter</span>
+          </Button>
+        </div>
 
-      <div className={footerStyles.menu}>
-        <Menu items={items} />
-      </div>
-    </footer>
+        <Partners additionalClasses={[footerStyles.logoGrid]} />
+
+        <div className={footerStyles.menu}>
+          <Menu items={items} />
+        </div>
+      </footer>
+    </>
   );
 };
