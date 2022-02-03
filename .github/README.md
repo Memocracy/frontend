@@ -16,7 +16,7 @@ This repository can be deployed from a developers computer or by using workflow.
 curl -X POST \
     -H "Accept: application/vnd.github.v3+json" \
     -H "Authorization: token [token]" \
-    --data '{"event_type": "publish"}' \
+    --data '{"event_type": "[publish-prod|publish-dev]"}' \
     https://api.github.com/repos/Memocracy/frontend/dispatches
 ```
 
