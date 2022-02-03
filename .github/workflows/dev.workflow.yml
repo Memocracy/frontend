@@ -4,7 +4,7 @@ on:
     types: [publish-dev]
   push:
     branches:
-      - main
+      - develop
 jobs:
   run:
     runs-on: ubuntu-latest
