@@ -43,7 +43,7 @@ const createPaginationPages = (categories, createPage) => {
           limit: pageSize,
           pageCount,
           currentPage: i + 1,
-          base: categoryName,
+          base: categoryName
         },
       });
     });
