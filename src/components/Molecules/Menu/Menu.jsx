@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
+import { getTypeOfLink } from "../../../lib/stringHelpers";
+
 
 /**
  * Renders a <Menu /> component
@@ -12,13 +14,22 @@ export const Menu = ({ items = [] }) => {
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            <Link
+            {/* Internal type of a link */}
+            {getTypeOfLink(item.path) === "internal" && <Link
               to={item.path}
               activeClassName="active"
               partiallyActive={item.path !== "/"}
             >
               {item.label}
-            </Link>
+            </Link>}
+            {/* External type of a link */}
+            {getTypeOfLink(item.path) !== "internal" && <a
+              href={item.path}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {item.label}
+            </a>}
           </li>
         ))}
       </ul>
