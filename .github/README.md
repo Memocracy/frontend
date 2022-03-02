@@ -41,6 +41,8 @@ This project uses [Atomic Design by Brad Frost](https://atomicdesign.bradfrost.c
 
 * Please remember to run `gatsby clean` before switching `npm run develop` and `npm run develop:public` 😅
 
+* If Gatsby is not refreshing SCSS modules please save any JS file. It should start working! 
+
 ---
 
 **Project info**
