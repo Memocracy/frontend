@@ -14,10 +14,10 @@ Using fresnel:
 ```
 
 ```jsx
-        <Media greaterThanOrEqual="lg">
-          This is desktop version
-          <Logo sizing="width" />
-        </Media>
+<Media greaterThanOrEqual="lg">
+  This is desktop version
+  <Logo sizing="width" />
+</Media>
 ```
 
 ```jsx
@@ -42,7 +42,7 @@ export const Menu = ({ items = [] }) => {
     <nav>
       {items.map((item) => (
         <Link key={item.id} to={item.path} activeClassName="active">
-          { item.label }
+          {item.label}
         </Link>
       ))}
     </nav>
@@ -60,11 +60,8 @@ import React from "react";
  * @param  props
  * @param  {array} props.items
  */
-export const Menu = ({items = []}) => {
-  return (
-    <nav>
-    </nav>
-  );
+export const Menu = ({ items = [] }) => {
+  return <nav></nav>;
 };
 ```
 
@@ -85,17 +82,14 @@ export const ProjectBaner = ({ additionalClasses = [] }) => {
     ${additionalClasses.join(" ")}
   `;
 
-  return (
-    <div className={classes}>
-    </div>
-  );
+  return <div className={classes}></div>;
 };
 ```
 
 ### Spread props
 
 ```jsx
-const Button = props => {
+const Button = (props) => {
   const { kind, ...other } = props;
   const className = kind === "primary" ? "PrimaryButton" : "SecondaryButton";
   return <button className={className} {...other} />;
@@ -121,7 +115,7 @@ import * as logoStyles from "./Logo.module.scss";
 ### Extending classes
 
 ```jsx
-  const classes = `
+const classes = `
     ${sizing === "width" ? logoStyles.fullWidth : logoStyles.fullHeight}
     ${additionalClasses.join(" ")}
   `;
@@ -136,7 +130,7 @@ import MemocracyLogo from "../../../assets/images/logo-memocracy.svg";
 ### Importing images
 
 ```jsx
-import { StaticImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image";
 ```
 
 ## Styling
@@ -148,9 +142,8 @@ import { StaticImage } from "gatsby-plugin-image"
 @use "@styles/colors";
 @use "@styles/typography";
 
-
 a {
-    color: colors.$blue;
+  color: colors.$blue;
 }
 ```
 
@@ -160,9 +153,17 @@ a {
 .selector {
   color: red;
 
-  @include breakpoints.respond-to('md|lg|xl') {
+  @include breakpoints.respond-to("md|lg|xl") {
     color: blue;
   }
+}
+```
+
+### Raw CSS classes
+
+```scss
+:global(.pan) {
+  max-width: 66%;
 }
 ```
 
@@ -174,7 +175,7 @@ a {
 
 ```graphql
 query MyQuery {
-  allWpTeamMember(sort: {fields: menuOrder, order: ASC}) {
+  allWpTeamMember(sort: { fields: menuOrder, order: ASC }) {
     nodes {
       slug
       twitterHandle
