@@ -71,6 +71,7 @@
   }
 }
 
+/*
 .logo-grid {
   div {
     > div {
@@ -88,7 +89,7 @@
     justify-content: flex-start;
   }
 }
-
+*/
 @include breakpoints.respond-to("xl") {
   .inner-container {
     display: flex;
@@ -101,7 +102,7 @@
     // column-gap: 40px;
 
     > div ~ div {
-      padding-right: 40px;
+      padding-left: 40px;
     }
   }
 

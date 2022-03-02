@@ -13,7 +13,7 @@ export const Footer = ({ items = [] }) => {
     <footer className={footerStyles.base}>
       <div className={footerStyles.innerContainer}>
         <div className={footerStyles.columnLeft}>
-          <Partners additionalClasses={[footerStyles.logoGrid]} />
+          <Partners />
         </div>
         <div className={footerStyles.columnCenter}>
           <a

@@ -35,7 +35,9 @@ export const FooterMobile = ({ items = [] }) => {
           </Button>
         </div>
 
-        <Partners additionalClasses={[footerStyles.logoGrid]} />
+        <div className={footerStyles.logoGrid}>
+          <Partners additionalClasses={[footerStyles.logoGrid]} />
+        </div>
 
         <div className={footerStyles.menu}>
           <Menu items={items} />

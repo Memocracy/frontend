@@ -14,13 +14,11 @@
   align-items: center;
   justify-content: center;
 
-  flex: 0 1 50%;
+  flex: 0 1 auto;
   box-sizing: border-box;
   padding: 0 20px;
 
-
   img {
-    // width: 200px;
     height: auto;
   }
 }
