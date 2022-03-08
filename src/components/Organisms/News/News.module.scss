@@ -43,6 +43,16 @@
 
 }
 
+a.base {
+  text-decoration: none;
+  color: colors.$black;
+  transition: opacity .5s ease-out;
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
 .illustration {
   border: none;
 
