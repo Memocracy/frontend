@@ -2,7 +2,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const pageSize = 2;
+const pageSize = 6;
 
 /**
  * Helper for creating paginated pages based on categories.
