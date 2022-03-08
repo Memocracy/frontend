@@ -6,7 +6,7 @@
   align-content: stretch;
 
   // column-gap: 10px;
-  row-gap: 20px;
+  //row-gap: 20px;
 }
 
 .logo {
@@ -20,5 +20,13 @@
 
   img {
     height: auto;
+  }
+
+  a {
+    transition: opacity .25s ease-out;
+  }
+
+  a:hover {
+    opacity: .5;
   }
 }
