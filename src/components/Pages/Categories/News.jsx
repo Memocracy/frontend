@@ -6,7 +6,11 @@ import { Meta } from "../../Other/Meta";
 import { FooterMobile, Footer } from "../../Organisms/Footer";
 import { ContentHeader } from "../../Molecules/Content";
 import { Header, HeaderMobile } from "../../Organisms/Header";
-import { InnerContainer, Container, GridContainer } from "../../Molecules/Container";
+import {
+  InnerContainer,
+  Container,
+  GridContainer,
+} from "../../Molecules/Container";
 import { Pagination } from "../../Molecules/Pagination";
 import { News as NewsComponent } from "../../Organisms/News";
 import { ImagePreview } from "../../Molecules/ImagePreview";
@@ -21,12 +25,14 @@ const News = ({ data, pageContext }) => {
 
   const { edges: news } = data.news;
 
-  const NewsRendered =
+  const NewsRendered = (
     <>
       {news.map(({ node }) => {
-        return <NewsComponent key={uuid()} data={node} />;
+        const link = `${pageContext.base}/${node.slug}`;
+        return <NewsComponent key={uuid()} data={node} link={link} />;
       })}
-    </>;
+    </>
+  );
 
   const PaginationRendered = <Pagination {...pageContext} />;
 
@@ -67,12 +73,11 @@ const News = ({ data, pageContext }) => {
 
           <InnerContainer paddingBottom="lg">
             <GridContainer columns={12}>
-              <div style={{gridColumnStart: "5", gridColumnEnd: "12"}}>
+              <div style={{ gridColumnStart: "5", gridColumnEnd: "12" }}>
                 {PaginationRendered}
               </div>
             </GridContainer>
           </InnerContainer>
-
         </Container>
         <Footer items={footerMenuItems} />
       </Media>
@@ -91,7 +96,8 @@ export const query = graphql`
       edges {
         node {
           title
-          content
+          content: excerpt
+          slug
           date(formatString: "YYYY-MM-DD")
           featuredImage {
             node {

@@ -26,21 +26,21 @@ export const Pagination = ({
       <nav>
         {currentPage === 2 ? (
           <Link title="Go to previous page" to={`/${base}`}>
-            ← Newest posts
+            ← Newest
           </Link>
         ) : (
           <span />
         )}
         {currentPage > 2 ? (
           <Link title="Go to previous page" to={`/${base}/${currentPage - 1}`}>
-            ← Newer posts
+            ← Newer
           </Link>
         ) : (
           <span />
         )}
         {currentPage < pageCount ? (
           <Link title="Go to next page" to={`/${base}/${currentPage + 1}`}>
-            Older posts →
+            Older →
           </Link>
         ) : (
           <span />

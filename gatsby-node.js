@@ -18,11 +18,13 @@ const createPaginationPages = (categories, createPage) => {
     const pageCount = Math.ceil(category.edges.length / pageSize);
     const { fieldValue: categoryName } = category;
     let template;
+    let templateFull;
 
     // Switch based on a category slug
     switch (categoryName) {
       case "news":
         template = "./src/components/Pages/Categories/News.jsx";
+        templateFull = "./src/components/Pages/Categories/NewsFull.jsx";
         break;
       case "project-workshops":
         template = "./src/components/Pages/Categories/ProjectWorkshops.jsx";
@@ -34,7 +36,10 @@ const createPaginationPages = (categories, createPage) => {
         template = "./src/components/Pages/Categories/Default.jsx";
     }
 
-    return Array.from({ length: pageCount }).forEach((_, i) => {
+    /**
+     * Create category pagination
+     */
+    Array.from({ length: pageCount }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/${categoryName}` : `/${categoryName}/${i + 1}`,
         component: path.resolve(template),
@@ -43,10 +48,27 @@ const createPaginationPages = (categories, createPage) => {
           limit: pageSize,
           pageCount,
           currentPage: i + 1,
-          base: categoryName
+          base: categoryName,
         },
       });
     });
+
+    /**
+     * Create permalinks.
+     */
+    if (templateFull) {
+      category.edges.map((r) => {
+        const urlHandle = `${categoryName}/${r.node.slug}`;
+
+        return createPage({
+          path: urlHandle,
+          component: path.resolve(templateFull),
+          context: {
+            slug: r.node.slug,
+          },
+        });
+      });
+    }
   });
 };
 
@@ -67,9 +89,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           fieldValue
           edges {
             node {
+              id
               title
               date(formatString: "MMMM DD, YYYY")
               content
+              slug
             }
           }
         }

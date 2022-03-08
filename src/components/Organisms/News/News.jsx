@@ -3,6 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Media } from "gatsby-plugin-fresnel";
 import { ContentHeader, Content } from "../../Molecules/Content";
 import { Date } from "../../Atoms/Date";
+import { WithLink } from "../../HOC";
 import * as newsStyles from "./News.module.scss";
 
 /**
@@ -10,7 +11,7 @@ import * as newsStyles from "./News.module.scss";
  * @param  props
  * @param  {array} props.items
  */
-export const News = ({ data, additionalClasses = [] }) => {
+export const News = ({ data, link, additionalClasses = [] }) => {
   const classes = `
     ${newsStyles.base}
     ${additionalClasses.join(" ")}
@@ -22,7 +23,7 @@ export const News = ({ data, additionalClasses = [] }) => {
   };
 
   return (
-    <article className={classes}>
+    <WithLink className={classes} link={link}>
       {/* if we have a featured image for this post let's display it */}
       <div className={newsStyles.illustration}>
         {featuredImage?.data && (
@@ -60,6 +61,6 @@ export const News = ({ data, additionalClasses = [] }) => {
           additionalClasses={[newsStyles.content]}
         />
       </section>
-    </article>
+    </WithLink>
   );
 };
