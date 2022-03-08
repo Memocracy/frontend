@@ -2,6 +2,7 @@ import React from "react";
 import { Media } from "gatsby-plugin-fresnel";
 import uuid from "react-uuid";
 import { graphql } from "gatsby";
+import { chunks } from "../../../lib/helpers";
 import { Meta } from "../../Other/Meta";
 import { FooterMobile, Footer } from "../../Organisms/Footer";
 import { ContentHeader } from "../../Molecules/Content";
@@ -12,7 +13,7 @@ import {
   GridContainer,
 } from "../../Molecules/Container";
 import { Pagination } from "../../Molecules/Pagination";
-import { News as NewsComponent } from "../../Organisms/News";
+import { NewsExcerpt as NewsComponent } from "../../Organisms/News";
 import { ImagePreview } from "../../Molecules/ImagePreview";
 import { useFooterMenu } from "../../../hooks";
 
@@ -25,11 +26,18 @@ const News = ({ data, pageContext }) => {
 
   const { edges: news } = data.news;
 
+  // Prerender news
   const NewsRendered = (
     <>
-      {news.map(({ node }) => {
-        const link = `${pageContext.base}/${node.slug}`;
-        return <NewsComponent key={uuid()} data={node} link={link} />;
+      {[...chunks(news, 3)].map((row) => {
+        return (
+          <GridContainer columns={12} key={uuid()}>
+            {row.map(({ node }) => {
+              const link = `${pageContext.base}/${node.slug}`;
+              return <NewsComponent key={uuid()} data={node} link={link} />;
+            })}
+          </GridContainer>
+        );
       })}
     </>
   );
@@ -99,6 +107,19 @@ export const query = graphql`
           content: excerpt
           slug
           date(formatString: "YYYY-MM-DD")
+          fieldsForNews {
+            customThumbnail {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(
+                    quality: 85
+                    placeholder: BLURRED
+                    width: 1000
+                  )
+                }
+              }
+            }
+          }
           featuredImage {
             node {
               altText
