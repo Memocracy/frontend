@@ -23,36 +23,39 @@ const createPaginationPages = (categories, createPage) => {
 
     // Switch based on a category slug
     switch (categoryName) {
+      /* case "project-workshops":
+        template = "./src/components/Pages/Categories/ProjectWorkshops.jsx";
+        break; */
+      case "media":
+        template = "./src/components/Pages/Categories/MediaCategory.jsx";
+        break;
       case "news":
         template = "./src/components/Pages/Categories/News.jsx";
         templateFull = "./src/components/Pages/Categories/NewsFull.jsx";
         break;
-      case "project-workshops":
-        template = "./src/components/Pages/Categories/ProjectWorkshops.jsx";
-        break;
-      case "media":
-        template = "./src/components/Pages/Categories/MediaCategory.jsx";
-        break;
       default:
-        template = "./src/components/Pages/Categories/Default.jsx";
+        template = false;
+        templateFull = false;
     }
 
     /**
      * Create category pagination
      */
-    Array.from({ length: pageCount }).forEach((_, i) => {
-      createPage({
-        path: i === 0 ? `/${categoryName}` : `/${categoryName}/${i + 1}`,
-        component: path.resolve(template),
-        context: {
-          skip: i * pageSize,
-          limit: pageSize,
-          pageCount,
-          currentPage: i + 1,
-          base: categoryName,
-        },
+    if (template) {
+      Array.from({ length: pageCount }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? `/${categoryName}` : `/${categoryName}/${i + 1}`,
+          component: path.resolve(template),
+          context: {
+            skip: i * pageSize,
+            limit: pageSize,
+            pageCount,
+            currentPage: i + 1,
+            base: categoryName,
+          },
+        });
       });
-    });
+    }
 
     /**
      * Create permalinks.
@@ -66,7 +69,7 @@ const createPaginationPages = (categories, createPage) => {
           component: path.resolve(templateFull),
           context: {
             slug: r.node.slug,
-            id: r.node.id
+            id: r.node.id,
           },
         });
       });
@@ -141,7 +144,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           component: template,
           context: {
             slug: node.slug,
-            id: node.id
+            id: node.id,
           },
         });
       }

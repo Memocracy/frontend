@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Media } from "gatsby-plugin-fresnel";
@@ -11,56 +12,61 @@ import * as newsStyles from "./News.module.scss";
  * @param  props
  * @param  {array} props.items
  */
-export const News = ({ data, link, additionalClasses = [] }) => {
-  const classes = `
+export const News = React.forwardRef(
+  ({ data, link, additionalClasses = [] }, ref) => {
+    const classes = `
     ${newsStyles.base}
     ${additionalClasses.join(" ")}
   `;
 
-  const featuredImage = {
-    data: data.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: data.featuredImage?.node?.alt || ``,
-  };
+    const featuredImage = {
+      data: data.featuredImage?.node?.localFile?.childImageSharp
+        ?.gatsbyImageData,
+      alt: data.featuredImage?.node?.alt || ``,
+    };
 
-  return (
-    <WithLink className={classes} link={link}>
-      {/* if we have a featured image for this post let's display it */}
-      <div className={newsStyles.illustration}>
-        {featuredImage?.data && (
-          <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} />
-        )}
-      </div>
-      <section className={newsStyles.container}>
-        <div className={newsStyles.date}>
-          <Date dateTime={data.date} humanTime={data.date} />
+    return (
+      <WithLink className={classes} link={link}>
+        {/* if we have a featured image for this post let's display it */}
+        <div className={newsStyles.illustration}>
+          {featuredImage?.data && (
+            <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} />
+          )}
         </div>
-        <Media lessThan="md">
-          {/* Mobile version */}
-          <ContentHeader
-            as="h2"
-            size="h5"
-            title={data.title}
-            paddingTop="md"
-            paddingBottom="lg"
-            additionalClasses={[newsStyles.header]}
+        <section className={newsStyles.container}>
+          <div className={newsStyles.date}>
+            <Date dateTime={data.date} humanTime={data.date} />
+          </div>
+          <Media lessThan="md">
+            {/* Mobile version */}
+            <ContentHeader
+              as="h2"
+              size="h5"
+              title={data.title}
+              paddingTop="md"
+              paddingBottom="lg"
+              additionalClasses={[newsStyles.header]}
+              ref={ref}
+            />
+          </Media>
+          <Media greaterThanOrEqual="md">
+            {/* Desktop version */}
+            <ContentHeader
+              as="h2"
+              size="h2"
+              title={data.title}
+              paddingTop="md"
+              paddingBottom="lg"
+              additionalClasses={[newsStyles.header]}
+              ref={ref}
+            />
+          </Media>
+          <Content
+            content={data.content}
+            additionalClasses={[newsStyles.content]}
           />
-        </Media>
-        <Media greaterThanOrEqual="md">
-          {/* Desktop version */}
-          <ContentHeader
-            as="h2"
-            size="h2"
-            title={data.title}
-            paddingTop="md"
-            paddingBottom="lg"
-            additionalClasses={[newsStyles.header]}
-          />
-        </Media>
-        <Content
-          content={data.content}
-          additionalClasses={[newsStyles.content]}
-        />
-      </section>
-    </WithLink>
-  );
-};
+        </section>
+      </WithLink>
+    );
+  }
+);
