@@ -26,14 +26,6 @@ const PolicyBriefs = ({ data }) => {
     ref: createRef(null),
   }));
 
-  /* const policyBriefsRendered = (
-    <>
-      {policyBriefs.map((publication) => (
-        <PolicyBrief key={uuid()} data={publication} />
-      ))}
-    </>
-  ); */
-
   return (
     <>
       <Meta title={title} />
