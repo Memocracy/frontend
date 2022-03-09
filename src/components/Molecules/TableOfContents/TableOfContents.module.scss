@@ -18,13 +18,13 @@
         color: colors.$blue;
         cursor: pointer;
         transition: color 0.25s ease-out;
-        // text-align: left;
+        text-align: left;
 
         > span {
           // font-size: typography.$mobile-font-size-p;
           line-height: typography.$line-height-xxl;
           font-size: typography.$mobile-font-size-p;
-          // line-height: 100%;
+          line-height: typography.$line-height-sm;
         }
 
         &:hover {
