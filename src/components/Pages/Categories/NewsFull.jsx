@@ -24,7 +24,7 @@ const NewsFull = ({ data }) => {
       <ImagePreview />
       <Media lessThan="md">
         {/* Mobile version */}
-        <HeaderMobile />
+        <HeaderMobile showHero={false} />
 
         {NewsRendered}
 

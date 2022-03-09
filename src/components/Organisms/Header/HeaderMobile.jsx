@@ -7,14 +7,14 @@ import { OverlayMenu } from "../../Molecules/OverlayMenu";
 import { useMainMenu } from "../../../hooks";
 import { useMenu } from "../../../context/MenuContext";
 
-export const HeaderMobile = ({ children }) => {
+export const HeaderMobile = ({ children, showHero = true }) => {
   const menuItems = useMainMenu();
   const { menuVisible, toggleMenu } = useMenu();
 
   return (
     <div className={headerStyles.base}>
       <NavbarMobile />
-      <HeroMobile />
+      { showHero && <HeroMobile /> }
       <OverlayMenu toggle={menuVisible} closeHandler={toggleMenu}>
         <Menu items={menuItems} />
       </OverlayMenu>
