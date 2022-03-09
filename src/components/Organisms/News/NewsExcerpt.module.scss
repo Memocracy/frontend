@@ -1,0 +1,50 @@
+@use "@styles/breakpoints";
+@use "@styles/colors";
+@use "@styles/typography";
+
+.base {
+  color: colors.$black;
+  text-decoration: none;
+  display: block;
+
+  margin-bottom: 50px;
+
+  @include breakpoints.respond-to("lg") {
+    grid-column-start: span 4;
+    margin-bottom: 0;
+  }
+}
+
+a.base {
+  * {
+    transition: all .25s ease-out;
+  }
+
+  &:hover {
+    color: colors.$footer-gray;
+
+    h2 {
+      color: colors.$footer-gray;
+    }
+
+    figure {
+      filter: contrast(70%);
+    }
+  }
+}
+
+.content {
+  padding: 0 20px;
+
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    padding: 0 0;
+  }
+}
+
+.date {
+  margin-top: typography.$horizontal-space-md;
+  // font-size: typography.$mobile-font-size-p;
+}

@@ -14,6 +14,7 @@ const createPaginationPages = (categories, createPage) => {
   const { categorizedPosts } = categories;
 
   // Loop through the categories
+  // eslint-disable-next-line array-callback-return
   categorizedPosts.map((category) => {
     const pageCount = Math.ceil(category.edges.length / pageSize);
     const { fieldValue: categoryName } = category;
@@ -58,13 +59,14 @@ const createPaginationPages = (categories, createPage) => {
      */
     if (templateFull) {
       category.edges.map((r) => {
-        const urlHandle = `${categoryName}/${r.node.slug}`;
+        const urlHandle = `/${categoryName}/${r.node.slug}`;
 
         return createPage({
           path: urlHandle,
           component: path.resolve(templateFull),
           context: {
             slug: r.node.slug,
+            id: r.node.id
           },
         });
       });
@@ -137,7 +139,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           // building
           path: node.slug,
           component: template,
-          context: node,
+          context: {
+            slug: node.slug,
+            id: node.id
+          },
         });
       }
     });

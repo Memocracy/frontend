@@ -33,7 +33,7 @@ const News = ({ data, pageContext }) => {
         return (
           <GridContainer columns={12} key={uuid()}>
             {row.map(({ node }) => {
-              const link = `${pageContext.base}/${node.slug}`;
+              const link = `/${pageContext.base}/${node.slug}`;
               return <NewsComponent key={uuid()} data={node} link={link} />;
             })}
           </GridContainer>
