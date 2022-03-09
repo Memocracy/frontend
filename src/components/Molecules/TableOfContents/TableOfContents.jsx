@@ -18,7 +18,7 @@ export const TableOfContents = ({ additionalClasses = [], elements }) => {
 
   return (
     <div className={classes}>
-      <ContentHeader title="Table of contents" as="h3" paddingBottom="sm" size="h6" />
+      <ContentHeader title="Table of contents" as="h3" paddingBottom="lg" size="h6" />
       <ul>
         {elements.map((element) => (
           <li key={uuid()}>

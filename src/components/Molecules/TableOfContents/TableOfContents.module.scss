@@ -1,5 +1,6 @@
 @use "@styles/colors";
 @use "@styles/typography";
+@use "@styles/breakpoints";
 
 .base {
   // border-left: 1px solid colors.$hr-gray;
@@ -12,27 +13,40 @@
     li {
       // font-size: typography.$mobile-font-size-p;
 
-
       button {
         display: block;
         color: colors.$blue;
         cursor: pointer;
-        transition: color .25s ease-out;
+        transition: color 0.25s ease-out;
+        // text-align: left;
 
         > span {
           // font-size: typography.$mobile-font-size-p;
           line-height: typography.$line-height-xxl;
           font-size: typography.$mobile-font-size-p;
+          // line-height: 100%;
         }
 
         &:hover {
           color: lighten(colors.$blue, 25%);
+        }
+
+        @include breakpoints.respond-to("lg") {
+          text-align: left;
+
+          > span {
+            line-height: typography.$line-height-sm;
+          }
         }
       }
     }
 
     li ~ li {
       padding-top: typography.$horizontal-space-lg;
+
+      @include breakpoints.respond-to("lg") {
+        padding-top: typography.$horizontal-space-xl;
+      }
     }
   }
 }
