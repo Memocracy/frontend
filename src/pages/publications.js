@@ -67,6 +67,8 @@ const Publications = ({ data }) => {
                   ref={ref}
                 />
 
+                {nodes.length === 0 && <p>Sorry, nothing is published at the moment.</p>}
+
                 {nodes.map((publication) => (
                   <Publication key={uuid()} data={publication} />
                 ))}
@@ -102,6 +104,8 @@ const Publications = ({ data }) => {
                   title={category.name}
                   ref={ref}
                 />
+
+                {nodes.length === 0 && <p>Sorry, nothing is published at the moment.</p>}
 
                 {nodes.map((publication) => (
                   <Publication key={uuid()} data={publication} />
