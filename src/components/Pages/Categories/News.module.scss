@@ -1,0 +1,12 @@
+@use "@styles/breakpoints";
+@use "@styles/colors";
+@use "@styles/typography";
+
+.row {
+
+  @include breakpoints.respond-to("lg") {
+    border-top: solid 1px colors.$hr-gray;
+    padding-top: typography.$horizontal-space-xl;
+    margin-bottom: 40px;
+  }
+}

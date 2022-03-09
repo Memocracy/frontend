@@ -16,6 +16,8 @@ import { Pagination } from "../../Molecules/Pagination";
 import { NewsExcerpt as NewsComponent } from "../../Organisms/News";
 import { ImagePreview } from "../../Molecules/ImagePreview";
 import { useFooterMenu } from "../../../hooks";
+import * as newsStyles from "./News.module.scss";
+
 
 const title = "news";
 const headingTitle = "News";
@@ -31,7 +33,7 @@ const News = ({ data, pageContext }) => {
     <>
       {[...chunks(news, 3)].map((row) => {
         return (
-          <GridContainer columns={12} key={uuid()}>
+          <GridContainer columns={12} key={uuid()} additionalClasses={[newsStyles.row]}>
             {row.map(({ node }) => {
               const link = `/${pageContext.base}/${node.slug}`;
               return <NewsComponent key={uuid()} data={node} link={link} />;
@@ -81,7 +83,7 @@ const News = ({ data, pageContext }) => {
 
           <InnerContainer paddingBottom="lg">
             <GridContainer columns={12}>
-              <div style={{ gridColumnStart: "5", gridColumnEnd: "12" }}>
+              <div style={{ gridColumnStart: "9", gridColumnEnd: "13" }}>
                 {PaginationRendered}
               </div>
             </GridContainer>
