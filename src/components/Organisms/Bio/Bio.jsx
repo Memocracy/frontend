@@ -57,7 +57,7 @@ export const Bio = ({ data, additionalClasses = [] }) => {
       <div className={bioStyles.separator} />
 
       <InnerContainer marginTop="xl" marginBottom="md">
-        <Content content={data.content} />
+        <Content content={data.content} additionalClasses={[bioStyles.content]} />
       </InnerContainer>
     </article>
   );

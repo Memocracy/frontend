@@ -16,6 +16,10 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   .columns-12 {
     grid-template-columns: repeat(12, 1fr);
   }

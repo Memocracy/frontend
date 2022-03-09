@@ -1,5 +1,6 @@
 @use "@styles/typography";
 @use "@styles/colors";
+@use "@styles/breakpoints";
 
 .base {
   display: block;
@@ -33,5 +34,11 @@
     width: 33%;
     height: 1px;
     background-color: colors.$hr-gray;
+  }
+}
+
+.content {
+  @include breakpoints.respond-to("lg") {
+    font-size: .85rem;
   }
 }

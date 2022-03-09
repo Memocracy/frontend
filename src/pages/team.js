@@ -98,7 +98,7 @@ const Team = ({ data }) => {
                   title={category.name}
                   ref={ref}
                 />
-                <GridContainer>
+                <GridContainer columns={4}>
                   {nodes.map((bio) => (
                     <Bio key={uuid()} data={bio} />
                   ))}
