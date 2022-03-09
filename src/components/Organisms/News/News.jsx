@@ -3,6 +3,7 @@ import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Media } from "gatsby-plugin-fresnel";
 import { ContentHeader, Content } from "../../Molecules/Content";
+import { ImagePlaceholder } from "../../Molecules/ImagePlaceholder";
 import { Date } from "../../Atoms/Date";
 import { WithLink } from "../../HOC";
 import * as newsStyles from "./News.module.scss";
@@ -28,11 +29,18 @@ export const News = React.forwardRef(
     return (
       <WithLink className={classes} link={link}>
         {/* if we have a featured image for this post let's display it */}
-        <div className={newsStyles.illustration}>
+        {/* <div className={newsStyles.illustration}>
           {featuredImage?.data && (
             <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} />
           )}
-        </div>
+        </div> */}
+        <figure className={newsStyles.illustration}>
+          {featuredImage?.data ? (
+            <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} />
+          ) : (
+            <ImagePlaceholder />
+          )}
+        </figure>
         <section className={newsStyles.container}>
           <div className={newsStyles.date}>
             <Date dateTime={data.date} humanTime={data.date} />

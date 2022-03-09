@@ -5,8 +5,7 @@ import uuid from "react-uuid";
 import { Meta } from "../components/Other/Meta";
 import {
   Container,
-  InnerContainer,
-  GridContainer,
+  InnerContainer
 } from "../components/Molecules/Container";
 import { ContentHeader } from "../components/Molecules/Content";
 import { TableOfContents } from "../components/Molecules/TableOfContents";
