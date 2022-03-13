@@ -37,8 +37,25 @@
   width: 80%;
   text-align: center;
 
+  li[data-is-parent="true"] {
+    > a {
+      display: none;
+    }
+
+    // Submenu
+    ul {
+      border-top: solid 1px colors.$hr-gray;
+      border-bottom: solid 1px colors.$hr-gray;
+
+      > li:first-child {
+        margin-top: 1em;
+      }
+    }
+  }
+
   a {
-    font-size: 1.25em;
+    font-size: 1em;
+
     line-height: typography.$line-height-xxl;
     font-family: typography.$main-font;
     margin-bottom: 1em;
@@ -50,6 +67,10 @@
 
     &[aria-current] {
       opacity: .5;
+    }
+
+    @media (min-height: 800px)  {
+      font-size: 1.25em;
     }
   }
 }
