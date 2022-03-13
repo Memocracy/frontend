@@ -8,11 +8,20 @@ import { getTypeOfLink } from "../../../lib/stringHelpers";
  * @param  {array} props.items
  */
 export const InteligentLink = ({ path, label }) => {
+  const linkType = getTypeOfLink(path);
+
   if (getTypeOfLink(path) === "internal") {
     return (
       <Link to={path} activeClassName="active" partiallyActive={path !== "/"}>
         {label}
       </Link>
+    );
+  // eslint-disable-next-line no-else-return
+  } else if(linkType === "non-clickable") {
+    return (
+      <span>
+        {label}
+      </span>
     );
   }
 

@@ -42,6 +42,14 @@
       display: none;
     }
 
+    > span {
+      color: White;
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+      font-style: italic;
+    }
+
     // Submenu
     ul {
       border-top: solid 1px colors.$hr-gray;

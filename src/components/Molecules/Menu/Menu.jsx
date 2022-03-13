@@ -10,21 +10,36 @@ export const Menu = ({ items = [] }) => {
   return (
     <nav>
       <ul>
-        {items.map((item) => (
-          <li key={item.id} tabIndex={item.id} data-is-parent={item.childItems?.nodes.length > 0}>
-            <InteligentLink path={item.path} label={item.label} />
-            {item.childItems?.nodes.length > 0 && (
-              <ul>
-                {item.childItems.nodes.map((subItem) => (
-                  <li key={subItem.id}>
-                    <InteligentLink path={subItem.path} label={subItem.label} />
-                  </li>
-                ))}
+        {items.map((item, i) => {
+          const isParent = item.childItems?.nodes.length > 0;
+          const additionalProps = {};
 
-              </ul>
-            )}
-          </li>
-        ))}
+          if (isParent) {
+            additionalProps.tabIndex = i;
+            additionalProps["data-is-parent"] = true;
+          }
+
+          return (
+            <li
+              key={item.id}
+              {...additionalProps}
+            >
+              <InteligentLink path={item.path} label={item.label} />
+              {isParent && (
+                <ul>
+                  {item.childItems.nodes.map((subItem) => (
+                    <li key={subItem.id}>
+                      <InteligentLink
+                        path={subItem.path}
+                        label={subItem.label}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
