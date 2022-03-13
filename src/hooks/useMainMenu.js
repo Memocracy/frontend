@@ -5,14 +5,25 @@ export const useMainMenu = () => {
     graphql`
       {
         allWpMenuItem(
-          filter: { locations: { eq: GATSBY_HEADER_MENU } }
           sort: { order: ASC, fields: order }
+          filter: {
+            locations: { eq: GATSBY_HEADER_MENU }
+            parentDatabaseId: { eq: 0 }
+          }
         ) {
           nodes {
             id
             label
             path
             order
+            childItems {
+              nodes {
+                id
+                label
+                path
+                order
+              }
+            }
           }
         }
       }
