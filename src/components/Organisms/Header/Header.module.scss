@@ -73,6 +73,39 @@
         background-color: darken(colors.$blue, 5%);
       }
     }
+
+    ///
+    /// Second level
+    ///
+    li[data-is-parent="true"] {
+      ul {
+        transform: scale(1, 0);
+        transition: all .25s ease-out;
+        transform-origin: top center;
+
+
+        position: absolute;
+        text-align: left;
+        z-index: 100;
+        background-color: colors.$blue;
+
+        li {
+          margin: 0 0;
+          width: 100%;
+
+          a {
+            width: auto;
+          }
+        }
+      }
+
+      &:hover,
+      &:focus {
+        ul {
+          transform: scale(1, 1);
+        }
+      }
+    }
   }
 }
 

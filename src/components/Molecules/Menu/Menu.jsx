@@ -11,7 +11,7 @@ export const Menu = ({ items = [] }) => {
     <nav>
       <ul>
         {items.map((item) => (
-          <li key={item.id} data-is-parent={item.childItems?.nodes.length > 0}>
+          <li key={item.id} tabIndex={item.id} data-is-parent={item.childItems?.nodes.length > 0}>
             <InteligentLink path={item.path} label={item.label} />
             {item.childItems?.nodes.length > 0 && (
               <ul>
