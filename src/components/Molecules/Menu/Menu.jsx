@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
 import { InteligentLink } from "../../Atoms/InteligentLink";
-import { getTypeOfLink } from "../../../lib/stringHelpers";
 
 /**
  * Renders a <Menu /> component
@@ -13,7 +11,7 @@ export const Menu = ({ items = [] }) => {
     <nav>
       <ul>
         {items.map((item) => (
-          <li key={item.id}>
+          <li key={item.id} data-is-parent={item.childItems?.nodes.length > 0}>
             <InteligentLink path={item.path} label={item.label} />
             {item.childItems?.nodes.length > 0 && (
               <ul>
