@@ -20,13 +20,23 @@ const createPaginationPages = (categories, createPage) => {
     const { fieldValue: categoryName } = category;
     let template;
     let templateFull;
+    let niceHeader;
 
     // Switch based on a category slug
     switch (categoryName) {
       /* case "project-workshops":
         template = "./src/components/Pages/Categories/ProjectWorkshops.jsx";
         break; */
-      case "media":
+      case "podcasts":
+        niceHeader = "podcasts";
+        template = "./src/components/Pages/Categories/MediaCategory.jsx";
+        break;
+      case "printed-media":
+        niceHeader = "printed";
+        template = "./src/components/Pages/Categories/MediaCategory.jsx";
+        break;
+      case "videos":
+        niceHeader = "videos";
         template = "./src/components/Pages/Categories/MediaCategory.jsx";
         break;
       case "news":
@@ -52,6 +62,7 @@ const createPaginationPages = (categories, createPage) => {
             pageCount,
             currentPage: i + 1,
             base: categoryName,
+            niceHeader
           },
         });
       });

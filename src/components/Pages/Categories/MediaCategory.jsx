@@ -15,14 +15,14 @@ const title = "media";
 
 const MediaCategory = ({ data, pageContext }) => {
   const footerMenuItems = useFooterMenu();
-  const headingTitle = "Media";
+  const headingTitle = `Media: ${pageContext.niceHeader}`;
 
   const { edges: news } = data.news;
 
   const NewsRendered =
     <>
       {news.map(({ node }) => {
-        return <NewsComponent key={uuid()} data={node} />;
+        return <NewsComponent key={uuid()} data={node} enablePlaceholder={false} />;
       })}
     </>;
 
@@ -78,10 +78,10 @@ const MediaCategory = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query mediaListQuery($skip: Int!, $limit: Int!) {
+  query mediaListQuery($skip: Int!, $limit: Int!, $base: String!) {
     news: allWpPost(
       sort: { fields: date, order: DESC }
-      filter: { categories: { nodes: { elemMatch: { slug: { eq: "media" } } } } }
+      filter: { categories: { nodes: { elemMatch: { slug: { eq: $base } } } } }
       limit: $limit
       skip: $skip
     ) {

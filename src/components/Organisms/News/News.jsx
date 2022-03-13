@@ -14,7 +14,7 @@ import * as newsStyles from "./News.module.scss";
  * @param  {array} props.items
  */
 export const News = React.forwardRef(
-  ({ data, link, additionalClasses = [] }, ref) => {
+  ({ data, link, additionalClasses = [], enablePlaceholder = true }, ref) => {
     const classes = `
     ${newsStyles.base}
     ${additionalClasses.join(" ")}
@@ -38,7 +38,7 @@ export const News = React.forwardRef(
           {featuredImage?.data ? (
             <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} />
           ) : (
-            <ImagePlaceholder />
+            ( enablePlaceholder && <ImagePlaceholder /> )
           )}
         </figure>
         <section className={newsStyles.container}>
