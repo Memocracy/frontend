@@ -1,0 +1,21 @@
+@use "@styles/typography";
+@use "@styles/colors";
+
+.base {
+  font-family: typography.$heading-font;
+  color: colors.$black;
+
+  h1 {
+    font-weight: 600;
+    font-size: 4.768em;
+    line-height: 100%;
+    text-transform: uppercase;
+    letter-spacing: -0.035em;
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 1.25em;
+    line-height: 130%;
+  }
+}

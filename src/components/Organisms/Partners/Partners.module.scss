@@ -1,0 +1,58 @@
+@use "@styles/colors";
+@use "@styles/typography";
+@use "@styles/breakpoints";
+@use "@styles/ui";
+
+.main {
+  > h3 {
+    font-size: typography.$mobile-font-size-h6;
+    font-family: typography.$heading-font;
+    margin-bottom: typography.$horizontal-space-xl;
+    font-weight: 600;
+    border-bottom: solid 1px colors.$hr-gray;
+    color: colors.$dark-gray;
+    text-transform: uppercase;
+  }
+}
+.sponsor {
+  // border: solid 1px yellow;
+  margin-bottom: 40px;
+
+  // Volkswagen
+  > div:nth-child(1) {
+    flex-basis: 80%;
+  }
+
+  ///
+  /// Desktop
+  ///
+  @include breakpoints.respond-to("xl") {
+    margin-bottom: 50px;
+
+    > div:nth-child(1) {
+      flex-basis: 66%;
+    }
+  }
+}
+
+.consortium {
+  > div {
+    flex-basis: 50%;
+
+    :global(.pan) {
+      max-width: 66%;
+    }
+  }
+
+  @include breakpoints.respond-to("xl") {
+    > div {
+      :global(.gatsby-image-wrapper) {
+        max-width: 70%;
+      }
+
+      :global(.gatsby-image-wrapper.pan) {
+        max-width: 50%;
+      }
+    }
+  }
+}

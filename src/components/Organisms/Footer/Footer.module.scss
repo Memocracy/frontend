@@ -1,0 +1,132 @@
+@use "@styles/breakpoints";
+@use "@styles/typography";
+@use "@styles/colors";
+
+.base {
+  background-color: colors.$light-gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.inner-container {
+  font-size: typography.$fluid-setting;
+
+  padding: 40px 20px;
+
+  @include breakpoints.respond-to("xl") {
+    padding: 4em 0;
+    width: 90%;
+  }
+
+  @include breakpoints.respond-to("xxl") {
+    padding: 4em 0;
+    width: 80%;
+  }
+}
+
+.column-left {
+  // border: solid 1px Black;
+  margin-bottom: 5em;
+
+  @include breakpoints.respond-to("xl") {
+    margin-bottom: 0em;
+  }
+}
+
+.column-center {
+  // border: solid 1px Black;
+  margin-bottom: 5em;
+
+  @include breakpoints.respond-to("xl") {
+    margin-bottom: 0em;
+  }
+}
+
+.column-right {
+  ul {
+    text-align: center;
+
+    li {
+      a {
+        font-size: 1.063em;
+        text-decoration: none;
+        color: colors.$footer-gray;
+        padding: 1em 0;
+        display: block;
+        border-top: solid 1px colors.$mid-gray;
+
+        &:hover {
+          color: darken(colors.$mid-gray, 50%);
+        }
+      }
+    }
+
+    @include breakpoints.respond-to("xl") {
+      text-align: left;
+    }
+  }
+}
+
+/*
+.logo-grid {
+  div {
+    > div {
+      max-width: 80%;
+    }
+  }
+
+  div:nth-of-type(5) {
+    > div {
+      max-width: 40%;
+    }
+  }
+
+  @include breakpoints.respond-to("xl") {
+    justify-content: flex-start;
+  }
+}
+*/
+@include breakpoints.respond-to("xl") {
+  .inner-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+
+    // column-gap: 40px;
+
+    > div ~ div {
+      padding-left: 40px;
+    }
+  }
+
+  .column-left {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    width: 35%;
+  }
+
+  .column-center {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: auto;
+
+    a {
+      display: none;
+    }
+  }
+
+  .column-right {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    width: 20%;
+  }
+}

@@ -1,0 +1,36 @@
+@use "@styles/colors";
+
+.base {
+  background-color: white;
+  max-width: 100%;
+  min-height: 300px;
+  height: 66vh;
+  overflow: hidden;
+
+  background-image: url("@images/europa-illustration-optmized.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+
+  border-bottom: solid 1px colors.$light-gray;
+  border-top: solid 1px colors.$light-gray;
+
+  position: relative;
+}
+
+.container {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  transform: scale(1.03);
+  margin-bottom: 20px;
+}
+
+.background {
+  min-height: 66vh;
+}

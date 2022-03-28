@@ -1,0 +1,69 @@
+@use "@styles/colors";
+
+.base {
+  padding: 50px 20px;
+  background-color: colors.$light-gray;
+}
+
+.twitterButton {
+  width: 100%;
+  font-size: .85em;
+  line-height: 1.25em;
+
+  /* span:not([role="img"]) {
+    text-align: left;
+    padding-left: 1.5em;
+  } */
+
+  > span[role="img"] {
+    margin-right: .5em;
+    svg {
+      height: 20px;
+    }
+  }
+}
+
+.logo-grid {
+  margin-bottom: 60px;
+  div:nth-of-type(5) {
+    > div {
+      max-width: 50%;
+    }
+  }
+}
+
+
+.call-to-action {
+  margin-bottom: 60px;
+}
+
+.menu {
+  text-align: center;
+
+  ul {
+    li {
+      a {
+        font-size: 1.063em;
+        text-decoration: none;
+        color: colors.$footer-gray;
+        padding: 1em 0;
+        display: block;
+        border-top: solid 1px colors.$mid-gray;
+      }
+    }
+
+    li:last-of-type {
+      a {
+        border-bottom: solid 1px colors.$mid-gray;
+      }
+    }
+  }
+}
+
+.newsletter {
+  background-color: colors.$light-blue;
+
+  button[type=submit] {
+    width: 100%;
+  }
+}

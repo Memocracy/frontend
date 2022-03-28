@@ -1,0 +1,29 @@
+@use "@styles/colors";
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.border-left {
+  border-left: solid 1px colors.$hr-gray;
+}
+
+.border-right {
+  border-right: solid 1px colors.$hr-gray;
+}
+
+.border-top {
+  border-top: solid 1px colors.$hr-gray;
+}
+
+.border-bottom {
+  border-top: solid 1px colors.$hr-gray;
+}

@@ -1,0 +1,57 @@
+@use "@styles/typography";
+@use "@styles/colors";
+
+.base {
+  font-family: typography.$main-font;
+  font-size: 1em;
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: none;
+  display: inline-block;
+  line-height: 0;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+
+  cursor: pointer;
+
+  > span {
+    // line-height: typography.$line-height-md;
+    display: inline-block;
+  }
+}
+
+.primary {
+  color: White;
+}
+
+.twitter {
+  background-color: #1DA1F2;
+  border-radius: 8px;
+  padding: .5em 2em;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  > span {
+    line-height: 100%;
+  }
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.dark {
+  background-color: colors.$black;
+  transition: background-color .25s ease-out;
+
+  &:hover {
+    background-color: lighten(colors.$black, 10%);
+  }
+}

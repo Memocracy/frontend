@@ -1,0 +1,21 @@
+@use "@styles/typography";
+
+.line-height-xs {
+  line-height: typography.$line-height-xs;
+}
+
+.line-height-sm {
+  line-height: typography.$line-height-sm;
+}
+
+.line-height-md {
+  line-height: typography.$line-height-md;
+}
+
+.line-height-xl {
+  line-height: typography.$line-height-xl;
+}
+
+.line-height-xxl {
+  line-height: typography.$line-height-xxl;
+}

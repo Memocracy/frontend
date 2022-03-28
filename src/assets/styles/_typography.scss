@@ -1,0 +1,41 @@
+$main-font: 'Arimo', sans-serif !default;
+$heading-font: "Acumin Pro ExtraCondensed", sans-serif !default;
+
+$line-height-xs: 1.2em;
+$line-height-sm: 1.3em;
+$line-height-md: 1.45em;
+$line-height-xl: 1.618em;
+$line-height-xxl: 1.842em;
+
+// Horizontal space
+$horizontal-space-xs: 0.236em;
+$horizontal-space-sm: 0.382em;
+$horizontal-space-md: 0.50em;
+$horizontal-space-lg: 0.618em;
+$horizontal-space-xl: 1.618em;
+$horizontal-space-xxl: 4.23em;
+
+// Desktop font sizes
+$desktop-font-size-xs: .82em;
+$desktop-font-size-sm: .99em;
+$desktop-font-size-p: 1.19em;
+$desktop-font-size-h6: 1.43em;
+$desktop-font-size-h5: 1.71em;
+$desktop-font-size-h4: 2.05em;
+$desktop-font-size-h3: 2.46em;
+$desktop-font-size-h2: 2.95em;
+$desktop-font-size-h1: 3.55em;
+
+// Mobile font sizes
+$mobile-font-size-xs: .68em;
+$mobile-font-size-sm: .85em;
+$mobile-font-size-p: 1.06em;
+$mobile-font-size-h6: 1.33em;
+$mobile-font-size-h5: 1.66em;
+$mobile-font-size-h4: 2.08em;
+$mobile-font-size-h3: 2.59em;
+$mobile-font-size-h2: 3.24em;
+$mobile-font-size-h1: 4.05em;
+
+// This works only for big screens
+$fluid-setting: clamp(1rem, 1.5vw - 1rem, 2.5rem) !default;

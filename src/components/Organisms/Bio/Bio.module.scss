@@ -1,0 +1,44 @@
+@use "@styles/typography";
+@use "@styles/colors";
+@use "@styles/breakpoints";
+
+.base {
+  display: block;
+}
+
+.portrait {
+  text-align: center;
+  margin-bottom: typography.$horizontal-space-xl;
+
+  > figure {
+    width: 66%;
+    border-radius: 50%;
+    display: inline-block;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+}
+
+.separator {
+  display: block;
+  height: 1px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: calc((100% - 33%) / 2);
+    width: 33%;
+    height: 1px;
+    background-color: colors.$hr-gray;
+  }
+}
+
+.content {
+  @include breakpoints.respond-to("lg") {
+    font-size: .85rem;
+  }
+}

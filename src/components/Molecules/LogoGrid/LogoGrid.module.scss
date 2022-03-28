@@ -1,0 +1,32 @@
+.base {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: stretch;
+
+  // column-gap: 10px;
+  //row-gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 1 auto;
+  box-sizing: border-box;
+  padding: 0 20px;
+
+  img {
+    height: auto;
+  }
+
+  a {
+    transition: opacity .25s ease-out;
+  }
+
+  a:hover {
+    opacity: .5;
+  }
+}

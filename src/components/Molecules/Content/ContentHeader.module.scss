@@ -1,0 +1,26 @@
+@use "@styles/breakpoints";
+@use "@styles/typography";
+@use "@styles/colors";
+
+.base {
+  @for $index from 1 through 6 {
+    h#{$index}{
+      color: colors.$black;
+      font-family: typography.$heading-font;
+      line-height: typography.$line-height-sm;
+      font-weight: 600;
+    }
+  }
+}
+
+.border-top {
+  > * {
+    border-top: colors.$mid-gray solid 1px;
+  }
+}
+
+.border-bottom {
+  > * {
+    border-bottom: colors.$mid-gray solid 1px;
+  }
+}

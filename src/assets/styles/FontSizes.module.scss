@@ -1,0 +1,68 @@
+@use "@styles/breakpoints";
+@use "@styles/typography";
+
+.size-h1 {
+  font-size: typography.$mobile-font-size-h1;
+}
+
+.size-h2 {
+  font-size: typography.$mobile-font-size-h2;
+}
+
+.size-h3 {
+  font-size: typography.$mobile-font-size-h3;
+}
+
+.size-h4 {
+  font-size: typography.$mobile-font-size-h4;
+}
+
+.size-h5 {
+  font-size: typography.$mobile-font-size-h5;
+}
+
+.size-h6 {
+  font-size: typography.$mobile-font-size-h5;
+}
+
+.size-p {
+  font-size: typography.$mobile-font-size-p;
+}
+
+.size-sm {
+  font-size: typography.$mobile-font-size-sm;
+}
+
+@include breakpoints.respond-to("lg") {
+  .size-h1 {
+    font-size: typography.$desktop-font-size-h1;
+  }
+
+  .size-h2 {
+    font-size: typography.$desktop-font-size-h2;
+  }
+
+  .size-h3 {
+    font-size: typography.$desktop-font-size-h3;
+  }
+
+  .size-h4 {
+    font-size: typography.$desktop-font-size-h4;
+  }
+
+  .size-h5 {
+    font-size: typography.$desktop-font-size-h5;
+  }
+
+  .size-h6 {
+    font-size: typography.$desktop-font-size-h5;
+  }
+
+  .size-p {
+    font-size: typography.$desktop-font-size-p;
+  }
+
+  .size-sm {
+    font-size: typography.$desktop-font-size-sm;
+  }
+}

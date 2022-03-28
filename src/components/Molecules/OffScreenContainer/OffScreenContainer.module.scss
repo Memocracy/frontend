@@ -1,0 +1,52 @@
+.base {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
+
+  width: 350px;
+  transition: all .5s ease-out;
+
+  // position offscreen
+  position: fixed;
+  top: 33vh;
+  left: 0;
+  z-index: 2;
+}
+
+.content {
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+
+  padding: 40px 40px;
+  box-shadow: -8px 0px 15px 2px rgba(0,0,0,0.25);
+  background-color: white;
+}
+
+.control {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+.button {
+  // padding: 1em;
+  width: 60px;
+  height: 60px;
+
+  > span[role="img"] {
+    font-size: 1.5em;
+  }
+}
+
+.show {
+  transform: translateX(0);
+}
+
+.hide {
+  transform: translateX(calc(-100% + 60px));
+}
+

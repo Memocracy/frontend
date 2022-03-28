@@ -1,0 +1,62 @@
+@use "@styles/breakpoints";
+@use "@styles/typography";
+
+.base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.main {
+  .inner-container {
+    width: 100%;
+
+    padding: 40px 20px 60px 20px;
+    z-index: 1;
+
+    @include breakpoints.respond-to("xl") {
+      padding: 4em 0 8em 0;
+      width: 90%;
+
+      font-size: typography.$fluid-setting;
+    }
+
+    @include breakpoints.respond-to("xxl") {
+      padding: 4em 0 8em 0;
+      width: 80%;
+
+      font-size: typography.$fluid-setting;
+    }
+
+    > :last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+
+
+}
+
+.standard {
+  .inner-container {
+    width: 100%;
+
+    padding: 0 20px;
+    z-index: 1;
+
+    @include breakpoints.respond-to("xl") {
+      padding: 0;
+      width: 90%;
+
+      font-size: typography.$fluid-setting;
+    }
+
+    @include breakpoints.respond-to("xxl") {
+      padding: 0;
+      width: 80%;
+
+      font-size: typography.$fluid-setting;
+    }
+  }
+}

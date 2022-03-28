@@ -4,6 +4,45 @@
 
 Frontend for Memocracy project.
 
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Gatsby](https://img.shields.io/badge/Gatsby-%23663399.svg?style=for-the-badge&logo=gatsby&logoColor=white) ![WordPress](https://img.shields.io/badge/WordPress-%23117AC9.svg?style=for-the-badge&logo=WordPress&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+
+## Deploy
+
+This repository can be deployed from a developers computer or by using workflow.
+
+### External repository dispatch:
+
+```
+curl -X POST \
+    -H "Accept: application/vnd.github.v3+json" \
+    -H "Authorization: token [token]" \
+    --data '{"event_type": "[publish-prod|publish-dev]"}' \
+    https://api.github.com/repos/Memocracy/frontend/dispatches
+```
+
+### Local deployment
+
+```
+npm run deploy:development
+```
+
+## Adding new types of content
+
+Check [official docs](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-wordpress/docs/tutorials/building-a-new-site-wordpress-and-gatsby.md). 
+
+
+## Component design pattern
+
+This project uses [Atomic Design by Brad Frost](https://atomicdesign.bradfrost.com/).
+
+![Atomic Design](instagram-atomic.png)
+
+## Additional notes
+
+* Please remember to run `gatsby clean` before switching `npm run develop` and `npm run develop:public` 😅
+
+* If Gatsby is not refreshing SCSS modules please save any JS file. It should start working! 
+
 ---
 
 **Project info**

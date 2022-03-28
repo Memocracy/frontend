@@ -1,0 +1,38 @@
+@use "@styles/colors";
+@use "@styles/typography";
+@use "@styles/ui";
+
+.base {
+  nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: flex-start;
+
+    > a {
+      order: 0;
+      flex: 1 1 auto;
+      align-self: auto;
+      flex-basis: 45%;
+    }
+
+    > a ~ a {
+      margin-left: .5em;
+    }
+  }
+
+  // Next / prev buttons
+  a {
+    @include ui.standard-button;
+  }
+}
+
+.info {
+  display: block;
+  color: colors.$dark-gray;
+  line-height: typography.$line-height-xxl;
+  padding: typography.$horizontal-space-md 0;
+  font-weight: 600;
+}

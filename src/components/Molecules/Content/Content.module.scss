@@ -1,0 +1,144 @@
+@use "@styles/breakpoints";
+@use "@styles/colors";
+@use "@styles/typography";
+@use "@styles/ui";
+
+.base {
+  color: colors.$black;
+
+  p,
+  li {
+    font-size: 1.06em;
+    line-height: 1.842em;
+    padding-bottom: 1.618em;
+  }
+
+  // Headings
+  @for $index from 1 through 6 {
+    h#{$index} {
+      font-family: typography.$heading-font;
+      line-height: typography.$line-height-sm;
+      font-weight: 600;
+      padding: 0.618em 0;
+    }
+  }
+
+  h2 {
+    font-size: 2.08em;
+  }
+
+  h3 {
+    font-size: 1.66em;
+  }
+
+  ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    padding-left: 1.75em;
+  }
+
+  ///
+  /// Wordpress content
+  ///
+
+  :global {
+    // Youtube embeds etc.
+    iframe {
+      // width: auto;
+      max-width: 100%;
+    }
+
+    // File downloads
+    .wp-block-file {
+      border-top: solid 1px colors.$hr-gray;
+      border-bottom: solid 1px colors.$hr-gray;
+      padding: typography.$horizontal-space-xl 0;
+
+      text-align: center;
+
+      a:first-of-type {
+        display: inline-block;
+        padding: 1em 1.5em;
+      }
+
+      .wp-block-file__button {
+        @include ui.standard-button;
+        padding-right: 1.5em;
+        padding-left: 1.5em;
+      }
+    }
+
+    // Gallery
+    .wp-block-gallery {
+      ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: masonry;
+        > li {
+          overflow: hidden;
+          font-size: 0;
+
+          .gatsby-image-wrapper {
+            height: 40vw;
+            object-position: 50% 50%;
+          }
+
+          a {
+            display: block;
+          }
+
+          a:hover {
+            opacity: .5;
+          }
+        }
+      }
+
+      ///
+      /// Desktop
+      ///
+      @include breakpoints.respond-to("lg") {
+        ul {
+          grid-template-columns: repeat(3, 1fr);
+          > li {
+            overflow: hidden;
+            font-size: 0;
+
+            .gatsby-image-wrapper {
+              height: 12vw;
+              object-position: 50% 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > :last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  @include breakpoints.respond-to("xxl") {
+    p,
+    li {
+      font-size: 1.19em;
+    }
+
+    h2 {
+      font-size: 2.46em;
+    }
+
+    h3 {
+      font-size: 2.05em;
+    }
+  }
+
+  a {
+    color: colors.$blue;
+    text-decoration: underline;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}

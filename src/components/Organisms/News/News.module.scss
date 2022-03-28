@@ -1,0 +1,112 @@
+@use "@styles/colors";
+@use "@styles/typography";
+@use "@styles/breakpoints";
+
+.base {
+  position: relative;
+  // box-shadow: 0 10px 8px rgba(0, 0, 0, .1);
+  margin-bottom: 70px;
+  // padding-bottom: 60px;
+
+  &::before {
+    content: "";
+    display: block;
+    background-color: colors.$hr-gray;
+    height: 1px;
+    width: 100%;
+    // filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 1));
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    border-top: solid 1px colors.$hr-gray;
+    box-shadow: none;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    justify-content: start;
+    grid-gap: 60px;
+
+    padding-bottom: 2em;
+
+
+    &::before {
+      display: none;
+    }
+  }
+
+}
+
+a.base {
+  text-decoration: none;
+  color: colors.$black;
+  transition: opacity .5s ease-out;
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
+.illustration {
+  border: none;
+
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    grid-column-start: span 4;
+  }
+}
+
+.container {
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    grid-column-start: span 6;
+  }
+}
+
+.date {
+  padding: 0 20px;
+
+  > time {
+    padding: typography.$horizontal-space-xl 0 0 0;
+  }
+
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    padding: 0 0;
+  }
+}
+
+.header {
+  padding: 0 20px;
+
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    padding: 0 0;
+  }
+}
+
+.content {
+  padding: 0 20px;
+
+  ///
+  /// Desktop version
+  ///
+  @include breakpoints.respond-to('lg') {
+    padding: 0 0;
+  }
+}
+

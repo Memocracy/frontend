@@ -1,0 +1,45 @@
+@use "@styles/colors";
+@use "@styles/typography";
+@import "reset-css/sass/reset";
+
+// Set some defaults
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  line-height: typography.$line-height-xl;
+  font-family: typography.$main-font;
+  color: colors.$black;
+}
+
+// Layout shift hack
+html {
+  @for $index from 1 through 6 {
+    h#{$index}{
+      opacity: 0;
+      transition: opacity .25s linear;
+    }
+  }
+  p, span, label, a {
+    opacity: 0;
+    transition: opacity .25s linear;
+  }
+
+  em {
+    font-style: italic;
+  }
+}
+
+html.wf-active {
+  @for $index from 1 through 6 {
+    h#{$index}{
+      opacity: 1;
+    }
+  }
+  p, span, label, a {
+    opacity: 1;
+  }
+}
