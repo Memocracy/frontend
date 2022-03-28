@@ -19,16 +19,16 @@ jobs:
           with:
             ref: develop
 
-        - name: Caching Gatsby
-          id: gatsby-cache-build
-          uses: actions/cache@v2
-          with:
-            path: |
-              public
-              .cache
-            key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
-            restore-keys: |
-              ${{ runner.os }}-gatsby-build-
+        #- name: Caching Gatsby
+        #  id: gatsby-cache-build
+        #  uses: actions/cache@v2
+        #  with:
+        #    path: |
+        #      public
+        #      .cache
+        #    key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+        #    restore-keys: |
+        #      ${{ runner.os }}-gatsby-build-
 
         - name: Install dependencies
           run: npm install
