@@ -43,6 +43,10 @@ This project uses [Atomic Design by Brad Frost](https://atomicdesign.bradfrost.c
 
 * If Gatsby is not refreshing SCSS modules please save any JS file. It should start working! 
 
+## TODO
+
+* Replace deployment workflow to [this](https://github.com/marketplace/actions/deploy-gatsby-to-aws-s3)
+
 ---
 
 **Project info**
