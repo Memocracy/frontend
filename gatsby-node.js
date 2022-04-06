@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
 const fs = require("fs");
 const path = require("path");
+const md5 = require("md5");
+const util = require("util");
+const glob = require("glob");
 
 const pageSize = 6;
 
@@ -62,7 +65,7 @@ const createPaginationPages = (categories, createPage) => {
             pageCount,
             currentPage: i + 1,
             base: categoryName,
-            niceHeader
+            niceHeader,
           },
         });
       });
@@ -160,5 +163,38 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         });
       }
     });
+  }
+};
+
+// Cache busting
+const hash = md5(`${new Date().getTime()}`);
+
+const addPageDataVersion = async (file) => {
+  const stats = await util.promisify(fs.stat)(file);
+  if (stats.isFile()) {
+    console.log(`Adding version to page-data.json in ${file}..`);
+    const content = await util.promisify(fs.readFile)(file, "utf8");
+    const result = content.replace(
+      /page-data.json(\?v=[a-f0-9]{32})?/g,
+      `page-data.json?v=${hash}`
+    );
+    await util.promisify(fs.writeFile)(file, result, "utf8");
+  }
+};
+
+exports.onPostBootstrap = async () => {
+  const loader = path.join(
+    __dirname,
+    "node_modules/gatsby/cache-dir/loader.js"
+  );
+  await addPageDataVersion(loader);
+};
+
+exports.onPostBuild = async () => {
+  const publicPath = path.join(__dirname, "public");
+  const htmlAndJSFiles = glob.sync(`${publicPath}/**/*.{html,js}`);
+  for (const file of htmlAndJSFiles) {
+    // eslint-disable-next-line no-await-in-loop
+    await addPageDataVersion(file);
   }
 };
