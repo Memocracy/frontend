@@ -166,7 +166,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 };
 
-// Cache busting
+/**
+ * Cache busting
+ */
 const hash = md5(`${new Date().getTime()}`);
 
 const addPageDataVersion = async (file) => {

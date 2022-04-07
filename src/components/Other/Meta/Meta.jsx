@@ -20,12 +20,13 @@ export const Meta = ({ title = "", description }) => {
         siteMetadata {
           title
           description
+          url
         }
       }
     }
   `);
 
-  const { title: siteTitle, description: defaultDescription } =
+  const { title: siteTitle, description: defaultDescription, url } =
     data.site.siteMetadata;
 
   const fullTitle = title ? `${siteTitle} — ${title}` : siteTitle;
@@ -40,7 +41,7 @@ export const Meta = ({ title = "", description }) => {
       <meta name="description" content={description ?? defaultDescription} />
       <meta name="og:title" content={fullTitle} />
       <meta name="og:description" content={description ?? defaultDescription} />
-      <meta name="og:image" content={"/images/opengraph.png"} />
+      <meta name="og:image" content={`${url}/images/opengraph.png`} />
       <meta property="og:type" content="article" />
     </Helmet>
   );
