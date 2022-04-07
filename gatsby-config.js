@@ -7,6 +7,7 @@ module.exports = {
     title: "Memocracy",
     description:
       "The Challenge of Populist Memory Politics for Europe: Towards Effective Responses to Militant Legilsation of the Past",
+    url: "https://memocracy.eu"
   },
   pathPrefix: "/snippets",
   plugins: [
