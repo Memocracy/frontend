@@ -67,4 +67,8 @@
     @include ui.standard-button;
     width: 100%;
   }
+
+  > a ~ a {
+    margin-top: 30px;
+  }
 }

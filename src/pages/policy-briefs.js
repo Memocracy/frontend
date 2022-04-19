@@ -59,7 +59,9 @@ const PolicyBriefs = ({ data }) => {
                   ref={ref}
                 />
 
-                {nodes.length === 0 && <p>Sorry, nothing is published at the moment.</p>}
+                {nodes.length === 0 && (
+                  <p>Sorry, nothing is published at the moment.</p>
+                )}
 
                 {nodes.map((policyBrief) => (
                   <PolicyBrief key={uuid()} data={policyBrief} />
@@ -96,7 +98,9 @@ const PolicyBriefs = ({ data }) => {
                   ref={ref}
                 />
 
-                {nodes.length === 0 && <p>Sorry, nothing is published at the moment.</p>}
+                {nodes.length === 0 && (
+                  <p>Sorry, nothing is published at the moment.</p>
+                )}
 
                 {nodes.map((policyBrief) => (
                   <PolicyBrief key={uuid()} data={policyBrief} />
@@ -123,7 +127,6 @@ export const query = graphql`
         policyBriefs {
           nodes {
             title
-            attachmentFile
             content
             menuOrder
             featuredImage {
@@ -136,6 +139,22 @@ export const query = graphql`
                       placeholder: BLURRED
                       width: 1000
                     )
+                  }
+                }
+              }
+            }
+            fieldsForPolicyBriefs {
+              attachmentFiles {
+                attachmentFileTitle1
+                attachmentFile1 {
+                  localFile {
+                    url
+                  }
+                }
+                attachmentFileTitle2
+                attachmentFile2 {
+                  localFile {
+                    url
                   }
                 }
               }
