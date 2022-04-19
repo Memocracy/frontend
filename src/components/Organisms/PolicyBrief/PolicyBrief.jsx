@@ -1,7 +1,7 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Media } from "gatsby-plugin-fresnel";
-import {ContentHeader, Content } from "../../Molecules/Content";
+import { ContentHeader, Content } from "../../Molecules/Content";
 import * as policyBriefStyles from "./PolicyBrief.module.scss";
 
 /**
@@ -20,6 +20,8 @@ export const PolicyBrief = ({ data, additionalClasses = [] }) => {
     alt: data.featuredImage?.node?.alt || ``,
   };
 
+  const { attachmentFiles } = data.fieldsForPolicyBriefs;
+
   return (
     <article className={classes}>
       {/* if we have a featured image for this post let's display it */}
@@ -30,8 +32,7 @@ export const PolicyBrief = ({ data, additionalClasses = [] }) => {
       </header>
 
       <section className={policyBriefStyles.container}>
-
-      <Media lessThan="md">
+        <Media lessThan="md">
           {/* Mobile version */}
           <ContentHeader
             as="h2"
@@ -55,13 +56,28 @@ export const PolicyBrief = ({ data, additionalClasses = [] }) => {
           content={data.content}
           additionalClasses={[policyBriefStyles.content]}
         />
-        {data.attachmentFile && (
-          <div className={policyBriefStyles.navigation}>
-            <a href={data.attachmentFile} target="_blank" rel="noreferrer">
-              Download attachment
+
+        <div className={policyBriefStyles.navigation}>
+          {attachmentFiles.attachmentFile1 && (
+            <a
+              href={attachmentFiles.attachmentFile1.localFile.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {attachmentFiles.attachmentFileTitle1}
             </a>
-          </div>
-        )}
+          )}
+
+          {attachmentFiles.attachmentFile2 && (
+            <a
+              href={attachmentFiles.attachmentFile2.localFile.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {attachmentFiles.attachmentFileTitle2}
+            </a>
+          )}
+        </div>
       </section>
     </article>
   );
