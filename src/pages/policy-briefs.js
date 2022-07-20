@@ -145,6 +145,12 @@ export const query = graphql`
             }
             fieldsForPolicyBriefs {
               attachmentFiles {
+                attachmentFileTitle0
+                attachmentFile0 {
+                  localFile {
+                    url
+                  }
+                }
                 attachmentFileTitle1
                 attachmentFile1 {
                   localFile {
@@ -153,6 +159,18 @@ export const query = graphql`
                 }
                 attachmentFileTitle2
                 attachmentFile2 {
+                  localFile {
+                    url
+                  }
+                }
+                attachmentFileTitle3
+                attachmentFile3 {
+                  localFile {
+                    url
+                  }
+                }
+                attachmentFileTitle4
+                attachmentFile4 {
                   localFile {
                     url
                   }

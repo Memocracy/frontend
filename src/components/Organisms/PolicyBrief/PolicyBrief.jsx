@@ -4,6 +4,8 @@ import { Media } from "gatsby-plugin-fresnel";
 import { ContentHeader, Content } from "../../Molecules/Content";
 import * as policyBriefStyles from "./PolicyBrief.module.scss";
 
+const ATTACHMENT_COUNT = 5;
+
 /**
  * Renders a <Menu /> component
  * @param  props
@@ -58,25 +60,22 @@ export const PolicyBrief = ({ data, additionalClasses = [] }) => {
         />
 
         <div className={policyBriefStyles.navigation}>
-          {attachmentFiles.attachmentFile1 && (
-            <a
-              href={attachmentFiles.attachmentFile1.localFile.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {attachmentFiles.attachmentFileTitle1}
-            </a>
-          )}
+          {[...Array(ATTACHMENT_COUNT)].map((x, i) => {
+            if (attachmentFiles[`attachmentFile${i}`]) {
+              return (
+                <a
+                  href={attachmentFiles[`attachmentFile${i}`].localFile.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={i}
+                >
+                  {attachmentFiles[`attachmentFileTitle${i}`]}
+                </a>
+              );
+            }
+            return null;
+          })}
 
-          {attachmentFiles.attachmentFile2 && (
-            <a
-              href={attachmentFiles.attachmentFile2.localFile.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {attachmentFiles.attachmentFileTitle2}
-            </a>
-          )}
         </div>
       </section>
     </article>
