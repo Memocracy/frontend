@@ -12,7 +12,8 @@
 }
 
 .inner-container {
-  font-size: typography.$fluid-setting;
+  // font-size: typography.$fluid-setting;
+  font-size: 1rem;
 
   padding: 40px 20px 80px 20px;
   // border: solid 1px Black;
@@ -33,6 +34,7 @@
 
   @include breakpoints.respond-to("xxl") {
     width: 80%;
+    max-width: 1400px;
 
     > section {
       width: 50%;

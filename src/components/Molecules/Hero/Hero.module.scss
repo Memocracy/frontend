@@ -82,6 +82,7 @@
 
   @include breakpoints.respond-to("xxl") {
     width: 80%;
+    max-width: 1600px;
   }
 }
 

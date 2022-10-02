@@ -10,7 +10,8 @@
   font-family: typography.$main-font;
 
   @include breakpoints.respond-to("xxl") {
-    font-size: typography.$fluid-setting;
+    // font-size: typography.$fluid-setting;
+    font-size: 1rem;
   }
 
   input {
