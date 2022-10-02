@@ -17,7 +17,7 @@ export const ProjectBaner = ({ additionalClasses = [], breakLine = false }) => {
       <h1>Memocracy</h1>
       <p>
         The Challenge of Populist Memory Politics for Europe: { breakLine && <br />}
-        Towards Effective Responses to Militant Leglislation on the Past
+        Towards Effective Responses to Militant Legislation on the Past
       </p>
     </div>
   );
