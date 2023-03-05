@@ -11,6 +11,7 @@ import { Loader } from "../../Atoms/Loader";
 import { isEmailValid } from "../../../lib/stringHelpers";
 import { postData } from "../../../lib/browserHelpers";
 import * as formStyles from "./Form.module.scss";
+import { NewsletterButton } from "../../Atoms/NewsletterButton";
 
 /**
  * Renders a <Menu /> component
@@ -105,6 +106,10 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
             <Loader />
           </div>
         )}
+      </div>
+
+      <div className={formStyles.newsletterAdvert}>
+        <NewsletterButton />
       </div>
     </div>
   );
