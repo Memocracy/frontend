@@ -1,0 +1,57 @@
+@use "@styles/typography";
+@use "@styles/colors";
+
+.base {
+  transform: translate3d(0, 0, 0);
+  animation: shake 2s infinite linear;
+
+  color: White;
+  background-color: colors.$black;
+  display: block;
+  text-align: center;
+  font-size: typography.$mobile-font-size-p;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: colors.$dark-gray;
+    animation: none;
+  }
+}
+
+.icon {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  margin-left: 0.25em;
+}
+
+@keyframes shake {
+  0%,
+  69% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  70%,
+  80% {
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  75%,
+  85% {
+    transform: translate3d(3px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  95% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
