@@ -15,7 +15,7 @@ jobs:
       API_URL: ${{ secrets.API_URL }}
       GATSBY_NEWSLETTER_API: ${{ secrets.GATSBY_NEWSLETTER_API }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: main
 
