@@ -1,9 +1,17 @@
 @use "@styles/typography";
 @use "@styles/colors";
 
-.base {
-  transform: translate3d(0, 0, 0);
-  animation: shake 2s infinite linear;
+.container {
+  & > * {
+    margin-bottom: 8px;
+  }
+}
+
+.btn {
+  &.animated {
+    transform: translate3d(0, 0, 0);
+    animation: shake 2s infinite linear;
+  }
 
   color: White;
   background-color: colors.$black;
