@@ -10,10 +10,12 @@ import * as heroStyles from "./HeroMobile.module.scss";
  * @param  {array} props.items
  */
 export const HeroMobile = () => {
+  const { GATSBY_CURRENT_NEWSLETTER, GATSBY_CURRENT_NEWSLETTER_PDF } = process.env;
+
   return (
     <div className={heroStyles.base}>
       <div className={heroStyles.newsletterAdvert}>
-        <NewsletterButton />
+        <NewsletterButton newsletterLink={GATSBY_CURRENT_NEWSLETTER} NewsletterLinkPdf={ GATSBY_CURRENT_NEWSLETTER_PDF} />
       </div>
       <div className={heroStyles.container}>
         <Logo additionalClasses={[heroStyles.logo]} width="100" height="100" />
