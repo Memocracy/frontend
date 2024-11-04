@@ -14,6 +14,8 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       API_URL: ${{ secrets.API_URL }}
       GATSBY_NEWSLETTER_API: ${{ secrets.GATSBY_NEWSLETTER_API }}
+      GATSBY_CURRENT_NEWSLETTER: "https://us20.campaign-archive.com/?u=6f24d70d89d3ce7950479031a&id=e17af76159"
+      GATSBY_CURRENT_NEWSLETTER_PDF: "http://admin.memocracy.eu/wp-content/uploads/2024/09/Newsletter-III-2023-2024-1-3.pdf"
     steps:
       - uses: actions/checkout@v3
         with:
