@@ -3,6 +3,7 @@ import { Logo } from "../../Atoms/Logo";
 import { ProjectBaner } from "../../Atoms/ProjectBaner";
 import { NewsletterButton } from "../../Atoms/NewsletterButton";
 import * as heroStyles from "./HeroMobile.module.scss";
+import config from "../../../config";
 
 /**
  * Renders a <Menu /> component
@@ -10,12 +11,12 @@ import * as heroStyles from "./HeroMobile.module.scss";
  * @param  {array} props.items
  */
 export const HeroMobile = () => {
-  const { GATSBY_CURRENT_NEWSLETTER, GATSBY_CURRENT_NEWSLETTER_PDF } = process.env;
+  const { GATSBY_CURRENT_NEWSLETTER: currentNewsletter, GATSBY_CURRENT_NEWSLETTER_PDF: currentNewsletterPdf } = config;
 
   return (
     <div className={heroStyles.base}>
       <div className={heroStyles.newsletterAdvert}>
-        <NewsletterButton newsletterLink={GATSBY_CURRENT_NEWSLETTER} NewsletterLinkPdf={ GATSBY_CURRENT_NEWSLETTER_PDF} />
+      <NewsletterButton newsletterLink={currentNewsletter} NewsletterLinkPdf={currentNewsletterPdf} />
       </div>
       <div className={heroStyles.container}>
         <Logo additionalClasses={[heroStyles.logo]} width="100" height="100" />
