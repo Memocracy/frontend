@@ -3,11 +3,14 @@ import * as buttonStyles from "./NewsletterButton.module.scss";
 import MailIcon from "../../../assets/images/mail.inline.svg";
 import PdfIcon from "../../../assets/images/pdf.inline.svg"
 
+
+const { GATSBY_CURRENT_NEWSLETTER, GATSBY_CURRENT_NEWSLETTER_PDF} = process.env;
+
 export const NewsletterButton = () => {
   return (
     <div className={buttonStyles.container}>
       <a
-        href="https://mailchi.mp/89ae0a812cba/memocracy-2nd-newsletter"
+        href={ GATSBY_CURRENT_NEWSLETTER }
         target="_blank"
         rel="noreferrer"
         className={[buttonStyles.btn, buttonStyles.animated].join(" ")}
@@ -16,7 +19,7 @@ export const NewsletterButton = () => {
         <MailIcon className={buttonStyles.icon} />
       </a>
       <a
-        href="http://admin.memocracy.eu/wp-content/uploads/2023/09/Newsletter-II-2022-2023-.pdf"
+        href={ GATSBY_CURRENT_NEWSLETTER_PDF }
         target="_blank"
         rel="noreferrer"
         className={buttonStyles.btn}
