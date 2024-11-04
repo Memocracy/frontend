@@ -97,7 +97,7 @@ const ProjectWorkshops = ({
 export const query = graphql`
   {
     allWpPost(
-      sort: { fields: date, order: DESC }
+      sort: { fields: date, order: ASC }
       filter: {
         categories: {
           nodes: { elemMatch: { slug: { eq: "project-workshops" } } }
