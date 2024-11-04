@@ -21,6 +21,7 @@ import { NewsletterButton } from "../../Atoms/NewsletterButton";
 export const NewsletterForm = ({ additionalClasses = [] }) => {
   const [formState, setFormState] = useState("initial");
   const [apiError, setApiError] = useState();
+  const { GATSBY_CURRENT_NEWSLETTER, GATSBY_CURRENT_NEWSLETTER_PDF, GATSBY_NEWSLETTER_API: apiUrl } = process.env;
 
   const form = useFormState({
     values: { email: "" },
@@ -34,8 +35,6 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
     },
     onSubmit: (values) => {
       setFormState("busy");
-
-      const { GATSBY_NEWSLETTER_API: apiUrl } = process.env;
 
       postData(`${apiUrl}/subscribe`, values)
         .then((data) => {
@@ -109,7 +108,7 @@ export const NewsletterForm = ({ additionalClasses = [] }) => {
       </div>
 
       <div className={formStyles.newsletterAdvert}>
-        <NewsletterButton />
+        <NewsletterButton newsletterLink={GATSBY_CURRENT_NEWSLETTER} NewsletterLinkPdf={ GATSBY_CURRENT_NEWSLETTER_PDF} />
       </div>
     </div>
   );
