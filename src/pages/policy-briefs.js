@@ -138,6 +138,7 @@ export const query = graphql`
                       quality: 85
                       placeholder: BLURRED
                       width: 1000
+                      formats: [AUTO, WEBP, AVIF]
                     )
                   }
                 }
