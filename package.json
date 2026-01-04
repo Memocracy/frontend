@@ -30,7 +30,7 @@
   "dependencies": {
     "@artsy/fresnel": "^7.1.4",
     "dotenv": "^16.4.5",
-    "gatsby": "^5.13.7",
+    "gatsby": "^5.14.6",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-fresnel": "^1.1.0",
     "gatsby-plugin-image": "^3.13.1",
@@ -58,6 +58,8 @@
     "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
+    "ajv": "^6.12.6",
+    "ajv-keywords": "^3.5.2",
     "eslint": "^9.9.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-gatsby-standard": "^5.0.1",
